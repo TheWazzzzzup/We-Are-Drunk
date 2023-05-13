@@ -7,8 +7,8 @@ using UnityEngine;
 public class RecipeDataSO : ScriptableObject
 {
     [SerializeField] Ingredient baseIngredient;
-    [SerializeField] List<Ingredient> Ingredients;
-    bool discovered = false;
+    [SerializeField] List<Ingredient> addedIngredients;
+
 
     public bool BaseMatch(Ingredient other)
     {
@@ -18,16 +18,16 @@ public class RecipeDataSO : ScriptableObject
     //checks if the ingredients are a PERFECT match
     public bool IngredientsMatch(List<Ingredient> otherIngredients)
     {
-        if(otherIngredients.Count != Ingredients.Count)
+        if(otherIngredients.Count != addedIngredients.Count)
             return false;
 
-        bool[] ingredientExists = new bool[Ingredients.Count];
+        bool[] ingredientExists = new bool[addedIngredients.Count];
 
-        for(int i = 0; i < Ingredients.Count; i++)
+        for(int i = 0; i < addedIngredients.Count; i++)
         {
             for(int j = 0; j < otherIngredients.Count; j++)
             {
-                if(Ingredients[i].Matches(otherIngredients[j]))
+                if(addedIngredients[i].Matches(otherIngredients[j]))
                 {
                     ingredientExists[i] = true;
                     break;
@@ -46,8 +46,5 @@ public class RecipeDataSO : ScriptableObject
         return true;
     }
 
-    public void Discovered()
-    {
-        discovered = true;
-    }
+    
 }
