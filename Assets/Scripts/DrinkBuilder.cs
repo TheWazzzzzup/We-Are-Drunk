@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Drink : MonoBehaviour
+public class DrinkBuilder : MonoBehaviour
 {
     [SerializeField] List<Ingredient> ingredients = new List<Ingredient>();
     [SerializeField] Ingredient currentIngredient;
