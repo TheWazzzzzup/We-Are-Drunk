@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class Cup : MonoBehaviour
 {
-    [SerializeField] int maxIngredientAmount = 4;
-    [SerializeField] Item[] items;
+    
+    [SerializeField] public Ingredient baseIngredient { get; private set; }
+    [SerializeField] Ingredient[] ingredients;
     [SerializeField] bool isFull = false;
 
     private void Awake()
     {
-        items = new Item[maxIngredientAmount];
+        ingredients = new Ingredient[RecipesHolder.maxIngredientAmount];
     }
 
     private void OnMouseUp()
@@ -21,24 +22,32 @@ public class Cup : MonoBehaviour
             return;
         }
 
-        if (items[0] == null && CraftingManager.Instance.CurrentItem.Type != IngredientType.Alcohol)
+        if (ingredients[0] == null && CraftingManager.Instance.CurrentIngredient.Type != IngredientType.Alcohol)
         {
             print("base must be alcohol");
             return;
         }
 
-        for(int i = 0; i < items.Length; i++)
+        for(int i = 0; i < ingredients.Length; i++)
         {
-            if(items[i] != null)
+
+            if(ingredients[i] != null)
             {
                 continue;
             }
-            items[i] = CraftingManager.Instance.CurrentItem;
+
+            ingredients[i] = CraftingManager.Instance.CurrentIngredient;
+
+            if(i == 0)
+            {
+                baseIngredient = ingredients[i];
+            }
+
             break;
         }
 
         CraftingManager.Instance.UpdateCupVisuals();
-        CraftingManager.Instance.ClearCurrentItem();
+        CraftingManager.Instance.ClearCurrentIngredient();
 
         if (CheckIfFull())
         {
@@ -55,9 +64,9 @@ public class Cup : MonoBehaviour
 
     public bool CheckIfFull()
     {
-        for(int i = 0; i < items.Length; i++)
+        for(int i = 0; i < ingredients.Length; i++)
         {
-            if (items[i] == null)
+            if (ingredients[i] == null)
             {
                 return false;
             }
@@ -65,9 +74,14 @@ public class Cup : MonoBehaviour
         return true;
     }
 
-    public void ClearItems()
+    public void ClearIngredients()
     {
-        items = new Item[maxIngredientAmount];
+        ingredients = new Ingredient[RecipesHolder.maxIngredientAmount];
         isFull = false;
+    }
+
+    public Ingredient[] GetIngredients()
+    {
+        return ingredients;
     }
 }
