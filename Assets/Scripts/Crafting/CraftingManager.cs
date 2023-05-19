@@ -101,6 +101,7 @@ public class CraftingManager : MonoBehaviour
             //if completed all recipes then return false
 
         }
+        print("no matching recipe");
         return false;
 
     }
