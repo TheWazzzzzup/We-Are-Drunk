@@ -74,6 +74,10 @@ public class CraftingManager : MonoBehaviour
                     {
                         continue;
                     }
+                    else if(recipe.Ingredients[j] == null)
+                    {
+                        continue;
+                    }
 
                     //else check if ingredient matches
                     if (currentCupIngredients[i].Name == recipe.Ingredients[j].Name)
@@ -129,6 +133,7 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
+    [ContextMenu("Empty Cup")]
     public void ClearCup()
     {
         foreach(var p in drinkParts)

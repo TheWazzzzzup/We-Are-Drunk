@@ -22,6 +22,12 @@ public class Cup : MonoBehaviour
             return;
         }
 
+        if(CraftingManager.Instance.CurrentIngredient == null)
+        {
+            print("no ingredient selected");
+            return;
+        }
+
         if (ingredients[0] == null && CraftingManager.Instance.CurrentIngredient.Type != IngredientType.Alcohol)
         {
             print("base must be alcohol");
