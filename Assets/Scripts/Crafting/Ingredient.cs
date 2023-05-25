@@ -26,6 +26,12 @@ public class Ingredient : MonoBehaviour
 
         return otherIngredient.Name == this.iName && otherIngredient.Type == this.iType;
     }
+
+    // Did this part on one leg !!!!! not sure it is good enough
+    public override int GetHashCode()
+    {
+        return this.GetType().GetHashCode() + this.iType.GetHashCode();
+    }
 }
 
 public enum IngredientType
