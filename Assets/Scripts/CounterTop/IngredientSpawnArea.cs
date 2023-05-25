@@ -56,7 +56,7 @@ public class IngredientSpawnArea : MonoBehaviour
         {
             bool ingredientExsitsInTheList = false;
             // Checks if the ingredient is allready exists in the list of represented ingredients
-            // ! * ! needs more tunning and i know it, super unpotimized and will be changed ! * !
+            // ! * ! needs more tunning and i know it, super unpotimized and will be changed (redundent currenctPick and spawnedIngredients)! * !
             if (currentPickedIngredients.Count > 0)
             {
                 foreach(var ingredient in currentPickedIngredients)
