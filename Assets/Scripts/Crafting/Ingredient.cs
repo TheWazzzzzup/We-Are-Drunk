@@ -39,6 +39,7 @@ public enum IngredientType
     Floats,
     Alcohol,
     Juice,
+    Cup,
 
     NOTHING
 }
