@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
 
     public void AddIngredient(Ingredient ingredient)
     {
-        if (maxIngredientAmount <= ingredients.Count + 1)
+        if (maxIngredientAmount <= ingredients.Count)
         {
             Debug.Log("Can't add more ingredients");
             return;

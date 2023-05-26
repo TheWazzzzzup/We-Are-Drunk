@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class Ingredient : MonoBehaviour ,IPointerClickHandler
+public class Ingredient : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private IngredientName iName;
     [SerializeField] private IngredientType iType;
@@ -16,6 +17,14 @@ public class Ingredient : MonoBehaviour ,IPointerClickHandler
     public IngredientName Name { get { return iName; } }
     public IngredientType Type { get { return iType; } }
 
+    public bool IsSelected { get => isSelected; set => SetSelected(value); }
+
+    private void SetSelected(bool value)
+    {
+        isSelected = value;
+        OnIngredientSelected.Invoke(this, value);
+    }
+
     public void Start()
     {
         if (inventory == null)
@@ -23,18 +32,6 @@ public class Ingredient : MonoBehaviour ,IPointerClickHandler
             inventory = FindObjectOfType<Inventory>();
             return;
         }
-    }
-
-    private void OnMouseDown()
-    {
-
-    }
-
-    private void Unselect()
-    {
-        isSelected = false;
-        OnIngredientSelected.Invoke(this, isSelected);
-        Debug.Log($"Unselected {iType}");
     }
 
     public override bool Equals(object other)
@@ -51,22 +48,24 @@ public class Ingredient : MonoBehaviour ,IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (isSelected)
-        {
-            Unselect();
-            return;
-        }
         if (inventory == null)
         {
             Debug.LogError("No inventory found");
             return;
         }
 
-        inventory.AddIngredient(this);
-        isSelected = true;
-        OnIngredientSelected.Invoke(this, isSelected);
+        if (IsSelected)
+        {
+            IsSelected = false;
+            inventory.RemoveIngredient(this);
+        }
+        else
+        {
+            IsSelected = true;
+            inventory.AddIngredient(this);
+        }
 
-        Debug.Log($"Selected {iType}");
+        Debug.Log($" {iType} Selected : {isSelected}");
     }
 }
 
