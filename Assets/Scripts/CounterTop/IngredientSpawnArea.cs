@@ -17,8 +17,6 @@ public class IngredientSpawnArea : MonoBehaviour
     [SerializeField] List<GameObject> spawnedIngredientsInArea;
     [SerializeField] List<GameObject> ingredientsOfTypePrefabs;
 
-    [SerializeField] bool dudeDebug;
-
     // Private
     int spawnTranformsIndex = 0;
 
@@ -47,8 +45,6 @@ public class IngredientSpawnArea : MonoBehaviour
             return;
         }
         #endregion
-
-        if (dudeDebug) return;
 
         // checks for a match between the ingredient name and the prefab
         foreach (var ingredient in areaList)
