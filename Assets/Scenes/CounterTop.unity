@@ -999,8 +999,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6457dd16c412cb24bac651076551f272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alcholArea: {fileID: 0}
-  juiceArea: {fileID: 0}
+  alcholArea: {fileID: 1621770065}
+  juiceArea: {fileID: 2032611627}
   cupArea: {fileID: 0}
   floatArea: {fileID: 0}
 --- !u!4 &907741646
@@ -1834,8 +1834,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2088520525}
   - component: {fileID: 2088520526}
+  - component: {fileID: 2088520527}
   m_Layer: 0
-  m_Name: Square
+  m_Name: CupSpawnLoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1908,3 +1909,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2088520527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088520524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63533e1d4eb7ddd44a39a085f944e678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  spawnPointsTransforms:
+  - {fileID: 2088520525}
+  spawnedIngredientsInArea: []
+  ingredientsOfTypePrefabs: []
