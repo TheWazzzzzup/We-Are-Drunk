@@ -1001,8 +1001,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alcholArea: {fileID: 1621770065}
   juiceArea: {fileID: 2032611627}
-  cupArea: {fileID: 0}
-  floatArea: {fileID: 0}
+  cupArea: {fileID: 2088520527}
+  floatArea: {fileID: 1676289538}
 --- !u!4 &907741646
 Transform:
   m_ObjectHideFlags: 0
@@ -1389,8 +1389,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1676289536}
   - component: {fileID: 1676289537}
+  - component: {fileID: 1676289538}
   m_Layer: 0
-  m_Name: Square
+  m_Name: FloatSpawnArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1463,6 +1464,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1676289538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676289535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63533e1d4eb7ddd44a39a085f944e678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  spawnPointsTransforms:
+  - {fileID: 1676289536}
+  spawnedIngredientsInArea: []
+  ingredientsOfTypePrefabs: []
 --- !u!1 &1746895469
 GameObject:
   m_ObjectHideFlags: 0
