@@ -30,7 +30,6 @@ public class BarManager : MonoBehaviour
         CurrentPickedIngredients = new();
     }
 
-
     /// <summary>
     /// Updates the list of ingredients, should be called everytime the player exits the inventory
     /// </summary>
@@ -48,7 +47,6 @@ public class BarManager : MonoBehaviour
 
     }
 
-
     /// <summary>
     /// Will assigen the ingredients to each area
     /// </summary>
@@ -62,12 +60,18 @@ public class BarManager : MonoBehaviour
         cupArea.SpawnAreaUpdate(currentCup);
     }
 
-
     /// <summary>
-    /// incharge of generating lists based on the type of the ingredients
+    /// incharge of generating lists based on the type of the ingredients after clearing the old list
     /// </summary>
     private void AreaListGenerator()
     {
+        // Clear all current list
+        currentFloat.Clear();
+        currentAlchol.Clear();
+        currentJuice.Clear();
+        currentCup.Clear();
+
+
         foreach (var ingredient in CurrentPickedIngredients)
         {
             switch (ingredient.Type)
@@ -85,6 +89,7 @@ public class BarManager : MonoBehaviour
                     currentCup.Add(ingredient);
                     break;
                 case IngredientType.NOTHING:
+                    Debug.Log("Nothing is called?!?");
                     break;
             }
         }

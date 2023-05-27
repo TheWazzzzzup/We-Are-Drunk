@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class IngredientSpawnArea : MonoBehaviour
 {
@@ -11,13 +9,20 @@ public class IngredientSpawnArea : MonoBehaviour
 
 
     /// Serialzie
+    [SerializeField] IngredientType type;
+    [Space]
+
     [SerializeField] Transform[] spawnPointsTransforms;
 
     [SerializeField] List<GameObject> spawnedIngredientsInArea;
+    [SerializeField] List<GameObject> ingredientsOfTypePrefabs;
 
+    [SerializeField] bool dudeDebug;
 
     // Private
     int spawnTranformsIndex = 0;
+
+    List<IngredientName> areaIngredientsName = new();
 
     /// <summary>
     /// Called when ever there is a spawn area update
@@ -27,15 +32,37 @@ public class IngredientSpawnArea : MonoBehaviour
     {
         ClearSpawnedObjects();
 
+        #region Debug   
         // Check if area list is big enough (> 0)
-        if (areaList.Count <= 0) return;
-
-        // Spawn the ingredients if it is
-        foreach(var loc in spawnPointsTransforms)
+        if (areaList.Count <= 0)
         {
-
+            Debug.Log($"An empty list was inserted");
+            return;
         }
 
+        // double check script and inserted types
+        if (areaList[0].Type != this.type)
+        {
+            Debug.Log("The list inserted by code and the type of the area is not type match");
+            return;
+        }
+        #endregion
+
+        if (dudeDebug) return;
+
+        // checks for a match between the ingredient name and the prefab
+        foreach (var ingredient in areaList)
+        {
+            foreach (var prefab in ingredientsOfTypePrefabs)
+            {
+                if (prefab.GetComponent<Ingredient>().Name == ingredient.Name)
+                {
+                    spawnedIngredientsInArea.Add(Instantiate(prefab, spawnPointsTransforms[spawnTranformsIndex]));
+                    spawnTranformsIndex++;
+                    break;
+                }
+            }
+        }
     }
 
 
@@ -51,110 +78,111 @@ public class IngredientSpawnArea : MonoBehaviour
             Destroy(gameObject);
         }
         spawnedIngredientsInArea.Clear();
+        areaIngredientsName.Clear();
         spawnTranformsIndex = 0;
     }
 }
 
-    #region OldCodeToRefer
-    //// Public
-    //public IngredientType IngredientAreaType { get; private set; }
+#region OldCodeToRefer
+//// Public
+//public IngredientType IngredientAreaType { get; private set; }
 
-    //// debug check
-    //public GameObject PrefabExample;
+//// debug check
+//public GameObject PrefabExample;
 
-    //// Serialized
-    //[SerializeField] Transform[] spawnPointsTransforms;
+//// Serialized
+//[SerializeField] Transform[] spawnPointsTransforms;
 
-    //[SerializeField] int numberOfIngredientsCanSpawn;
+//[SerializeField] int numberOfIngredientsCanSpawn;
 
-    //// Private
-    //List<Ingredient> currentPickedIngredients;
+//// Private
+//List<Ingredient> currentPickedIngredients;
 
-    //public List<GameObject> spawnedIngredents;
+//public List<GameObject> spawnedIngredents;
 
-    //int maximumNumberOfIngredients;
+//int maximumNumberOfIngredients;
 
-    //int index = 0;
+//int index = 0;
 
-    //private void Awake()
-    //{
-    //    IngredientAreaType = IngredientType.Alcohol;
-    //    currentPickedIngredients = new List<Ingredient>();
-    //    spawnedIngredents = new List<GameObject>();
+//private void Awake()
+//{
+//    IngredientAreaType = IngredientType.Alcohol;
+//    currentPickedIngredients = new List<Ingredient>();
+//    spawnedIngredents = new List<GameObject>();
 
-    //    // Checks if the number of ingredients allowed to spawn is at minimun
-    //    if (numberOfIngredientsCanSpawn > 3) numberOfIngredientsCanSpawn = 3;
+//    // Checks if the number of ingredients allowed to spawn is at minimun
+//    if (numberOfIngredientsCanSpawn > 3) numberOfIngredientsCanSpawn = 3;
 
-    //    // Sets the maximun number of ingredients avaialbe to pick
-    //    maximumNumberOfIngredients = spawnPointsTransforms.Length;
+//    // Sets the maximun number of ingredients avaialbe to pick
+//    maximumNumberOfIngredients = spawnPointsTransforms.Length;
 
-    //    // Checks if there is an overlap between the maximun number of ingredients and the number of them that can spawn and cap that
-    //    if (numberOfIngredientsCanSpawn > maximumNumberOfIngredients) numberOfIngredientsCanSpawn = maximumNumberOfIngredients;
+//    // Checks if there is an overlap between the maximun number of ingredients and the number of them that can spawn and cap that
+//    if (numberOfIngredientsCanSpawn > maximumNumberOfIngredients) numberOfIngredientsCanSpawn = maximumNumberOfIngredients;
 
-    //}
+//}
 
-    //// Should be called with the event
-    ///// <summary>
-    ///// This method fires off when the player presses on one of the ingredients (Needs to be optimized!)
-    ///// </summary>
-    ///// <param name="pressedIngredient"></param>
-    //void IngredientPressed(Ingredient pressedIngredient)
-    //{
-    //    // Validates the pressed ingredient type equlas to the area type
-    //    if (pressedIngredient.Type == IngredientAreaType)
-    //    {
-    //        bool ingredientExsitsInTheList = false;
-    //        // Checks if the ingredient is allready exists in the list of represented ingredients
-    //        // ! * ! needs more tunning and i know it, super unpotimized and will be changed (redundent currenctPick and spawnedIngredients)! * !
-    //        if (currentPickedIngredients.Count > 0)
-    //        {
-    //            foreach(var ingredient in currentPickedIngredients)
-    //            {
-    //                if (pressedIngredient == ingredient)
-    //                {
-    //                    foreach (var spawned in spawnedIngredents)
-    //                    {
-    //                        if (spawned.GetComponent<Ingredient>().Name == pressedIngredient.Name)
-    //                        {
-    //                            Destroy(spawned);
-    //                            spawnedIngredents.Remove(spawned);
-    //                            break;
-    //                        }
-    //                    }
-    //                    ingredientExsitsInTheList = true;
-    //                    currentPickedIngredients.Remove(ingredient);
-    //                    index --;
-    //                    break;
-    //                }
-    //            }
-    //        }
+//// Should be called with the event
+///// <summary>
+///// This method fires off when the player presses on one of the ingredients (Needs to be optimized!)
+///// </summary>
+///// <param name="pressedIngredient"></param>
+//void IngredientPressed(Ingredient pressedIngredient)
+//{
+//    // Validates the pressed ingredient type equlas to the area type
+//    if (pressedIngredient.Type == IngredientAreaType)
+//    {
+//        bool ingredientExsitsInTheList = false;
+//        // Checks if the ingredient is allready exists in the list of represented ingredients
+//        // ! * ! needs more tunning and i know it, super unpotimized and will be changed (redundent currenctPick and spawnedIngredients)! * !
+//        if (currentPickedIngredients.Count > 0)
+//        {
+//            foreach(var ingredient in currentPickedIngredients)
+//            {
+//                if (pressedIngredient == ingredient)
+//                {
+//                    foreach (var spawned in spawnedIngredents)
+//                    {
+//                        if (spawned.GetComponent<Ingredient>().Name == pressedIngredient.Name)
+//                        {
+//                            Destroy(spawned);
+//                            spawnedIngredents.Remove(spawned);
+//                            break;
+//                        }
+//                    }
+//                    ingredientExsitsInTheList = true;
+//                    currentPickedIngredients.Remove(ingredient);
+//                    index --;
+//                    break;
+//                }
+//            }
+//        }
 
-    //        if (!ingredientExsitsInTheList && !IndexOverflow())
-    //        {
-    //            currentPickedIngredients.Add(pressedIngredient);
-    //            spawnedIngredents.Add(Instantiate(PrefabExample, spawnPointsTransforms[index]));
-    //            index++;
-    //        }
-    //    }
+//        if (!ingredientExsitsInTheList && !IndexOverflow())
+//        {
+//            currentPickedIngredients.Add(pressedIngredient);
+//            spawnedIngredents.Add(Instantiate(PrefabExample, spawnPointsTransforms[index]));
+//            index++;
+//        }
+//    }
 
-    //}
+//}
 
-    //// dedbug pourpse only !s
-    //[ContextMenu("VodkaExample")]
-    //public void VodkaExample()
-    //{
-    //    Ingredient ingre = PrefabExample.GetComponent<Ingredient>();
+//// dedbug pourpse only !s
+//[ContextMenu("VodkaExample")]
+//public void VodkaExample()
+//{
+//    Ingredient ingre = PrefabExample.GetComponent<Ingredient>();
 
-    //    IngredientPressed(ingre);
-    //}
+//    IngredientPressed(ingre);
+//}
 
-    //bool IndexOverflow()
-    //{
-    //    if (index == numberOfIngredientsCanSpawn)
-    //    {
-    //        Debug.Log($"Your {IngredientAreaType} area is filled with drinks / ingredients");
-    //        return true;
-    //    }
-    //    else return false;
-    //}
-    #endregion
+//bool IndexOverflow()
+//{
+//    if (index == numberOfIngredientsCanSpawn)
+//    {
+//        Debug.Log($"Your {IngredientAreaType} area is filled with drinks / ingredients");
+//        return true;
+//    }
+//    else return false;
+//}
+#endregion

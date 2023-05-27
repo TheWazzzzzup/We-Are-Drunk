@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6457dd16c412cb24bac651076551f272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alcholArea: {fileID: 0}
+  alcholArea: {fileID: 1737662292}
   juiceArea: {fileID: 0}
   cupArea: {fileID: 0}
   floatArea: {fileID: 0}
@@ -377,8 +377,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63533e1d4eb7ddd44a39a085f944e678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPointsTransforms: []
-  spawnedIngredientsInArea: []
+  type: 1
+  spawnPointsTransforms:
+  - {fileID: 550006266}
+  - {fileID: 1256463427}
+  - {fileID: 941377633}
+  spawnedIngredientsInArea:
+  - {fileID: 0}
+  - {fileID: 0}
+  ingredientsOfTypePrefabs:
+  - {fileID: 5657472812660263340, guid: 3ac92e8b1fec09a46a2d861b7fbf52f7, type: 3}
+  - {fileID: 3691273424067160929, guid: f4a9c956ac303764cb183fcaf334ae16, type: 3}
+  dudeDebug: 0
 --- !u!4 &1737662293
 Transform:
   m_ObjectHideFlags: 0
