@@ -11,25 +11,51 @@ public class BarManager : MonoBehaviour
 
 
     // SerializeField
+    [Header("Areas")]
     [SerializeField] IngredientSpawnArea alcholArea; 
     [SerializeField] IngredientSpawnArea juiceArea; 
     [SerializeField] IngredientSpawnArea cupArea; 
-    [SerializeField] IngredientSpawnArea floatArea; 
+    [SerializeField] IngredientSpawnArea floatArea;
+    [Space]
+
+    [Header("Mini Games")]
+    [SerializeField] MiniGameComponent iceGame;
+    [SerializeField] MiniGameComponent floatGame;
+    [SerializeField] MiniGameComponent craftGame;
+    [Space]
 
     // Private
-    List<Ingredient> CurrentPickedIngredients;
-
+    List<Ingredient> CurrentPickedIngredients = new();
 
     List<Ingredient> currentAlchol = new();
     List<Ingredient> currentJuice = new();
     List<Ingredient> currentCup = new();
     List<Ingredient> currentFloat = new();
 
+    CupState barCupState;
+
+
     private void Awake()
     {
-        CurrentPickedIngredients = new();
+        iceGame.BarInsert(this);
+        floatGame.BarInsert(this);
+        craftGame.BarInsert(this);
     }
 
+
+    /// <summary>
+    /// Checks if the player is able to enter minigame phase
+    /// </summary>
+    /// <returns>can the player enter minigame phase</returns>
+    public bool CanMinigame()
+    {
+        if (currentCup.Count > 0 && currentCup.Count > 0 && currentFloat.Count > 0 && currentJuice.Count > 0) return true;
+        else return false;
+    }
+
+
+
+    #region Ingredient List Related
     /// <summary>
     /// Updates the list of ingredients, should be called everytime the player exits the inventory
     /// </summary>
@@ -94,5 +120,13 @@ public class BarManager : MonoBehaviour
             }
         }
     }
+    #endregion
 
+}
+
+enum CupState
+{
+    Empty,
+    Progress,
+    Completed,
 }
