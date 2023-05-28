@@ -32,13 +32,16 @@ public class BarManager : MonoBehaviour
     List<Ingredient> currentCup = new();
     List<Ingredient> currentFloat = new();
 
+
+    // DebugNote! // Should be deleted
     [SerializeField] bool canMiniGame;
 
+    // DebugNote! // uncomment when done debug
     // bool canMiniGame => CanMinigame();
 
 
 
-
+    // should be private // DebugNote!
     [ContextMenu("Refresh")]
     public void RefreshMinigamesStatus()
     {
