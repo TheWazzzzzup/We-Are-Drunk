@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MiniGameComponent : MonoBehaviour
 {
@@ -14,28 +15,68 @@ public class MiniGameComponent : MonoBehaviour
     [SerializeField] Transform spawnLocationOnCompleted;
 
     [SerializeField] SpriteRenderer spriteRenderer;
-    
+
 
     // Private
-    BarManager barManager;
+    MinigameState minigameState;
 
-    bool isMiniPlayable => barManager.CanMinigame();
-
-
-    public void BarInsert(BarManager barManager)
+    private void OnMouseDown()
     {
-        this.barManager = barManager;
+        OnTriggerEnter2D(null);
     }
 
-    private void FixedUpdate()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isMiniPlayable)
+        if (minigameState == MinigameState.Active)
         {
-            spriteRenderer.color = Color.white;
+            {
+                minigameState = MinigameState.InProgress;
+                StateOverseer(MinigameState.InProgress);
+            }
         }
     }
 
+    void MinigameProgress()
+    {
+        // Place holder, should be replaced with script specific minigame
+        Debug.Log("Player Initated The Minigame");
 
+        // just for check
+        StateOverseer(MinigameState.Done);
+    }
+
+    void MinigameCompleted()
+    {
+        // what happens when the minigame is completed
+        // here enters elad example about the Sprtie you can drag
+        Debug.Log($"{minigameType.ToString()} minigame is completed");
+    }
+
+    public void SetMinigameActivision(bool canMinigame)
+    {
+        if (canMinigame) StateOverseer(MinigameState.Active);
+        else StateOverseer(MinigameState.Deactiveated); 
+    }
+
+    void StateOverseer(MinigameState state)
+    {
+        minigameState = state;
+        switch (minigameState)
+        {
+            case MinigameState.Deactiveated:
+                spriteRenderer.color = Color.black;
+                break;
+            case MinigameState.Active:
+                spriteRenderer.color = Color.white;
+                break;
+            case MinigameState.InProgress:
+                MinigameProgress();
+                break;
+            case MinigameState.Done:
+                MinigameCompleted();
+                break;
+        }
+    }
 }
 
 enum MinigameType
@@ -43,4 +84,12 @@ enum MinigameType
     Float,
     Ice,
     Craft
+}
+
+enum MinigameState
+{
+    Deactiveated,
+    Active,
+    InProgress,
+    Done
 }

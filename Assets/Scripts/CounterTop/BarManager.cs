@@ -32,27 +32,30 @@ public class BarManager : MonoBehaviour
     List<Ingredient> currentCup = new();
     List<Ingredient> currentFloat = new();
 
-    CupState barCupState;
+    [SerializeField] bool canMiniGame;
+
+    // bool canMiniGame => CanMinigame();
 
 
-    private void Awake()
+
+
+    [ContextMenu("Refresh")]
+    public void RefreshMinigamesStatus()
     {
-        iceGame.BarInsert(this);
-        floatGame.BarInsert(this);
-        craftGame.BarInsert(this);
+        iceGame.SetMinigameActivision(canMiniGame);
+        floatGame.SetMinigameActivision(canMiniGame);
+        craftGame.SetMinigameActivision(canMiniGame);
     }
-
 
     /// <summary>
     /// Checks if the player is able to enter minigame phase
     /// </summary>
     /// <returns>can the player enter minigame phase</returns>
-    public bool CanMinigame()
+    bool CanMinigame()
     {
         if (currentCup.Count > 0 && currentCup.Count > 0 && currentFloat.Count > 0 && currentJuice.Count > 0) return true;
         else return false;
     }
-
 
 
     #region Ingredient List Related
@@ -70,6 +73,7 @@ public class BarManager : MonoBehaviour
 
         CurrentPickedIngredients = sentIngredientsList;
         AssigenIngredientToArea();
+        RefreshMinigamesStatus();
 
     }
 
@@ -122,11 +126,4 @@ public class BarManager : MonoBehaviour
     }
     #endregion
 
-}
-
-enum CupState
-{
-    Empty,
-    Progress,
-    Completed,
 }
