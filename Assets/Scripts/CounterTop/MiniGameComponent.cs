@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 
 public class MiniGameComponent : MonoBehaviour
 {
     // Public
+    public UnityEvent OnClick;
 
 
     // Serialze
@@ -17,7 +19,7 @@ public class MiniGameComponent : MonoBehaviour
 
     [SerializeField] SpriteRenderer spriteRenderer;
 
-
+    
     // Private
     MinigameState minigameState;
 
@@ -41,6 +43,7 @@ public class MiniGameComponent : MonoBehaviour
     {
         // Place holder, should be replaced with script specific minigame
         Debug.Log("Player Initated The Minigame");
+        OnClick.Invoke();
 
         // just for check
         StateOverseer(MinigameState.Done);

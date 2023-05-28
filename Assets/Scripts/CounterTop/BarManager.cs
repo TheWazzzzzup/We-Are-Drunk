@@ -59,7 +59,7 @@ public class BarManager : MonoBehaviour
     /// <returns>can the player enter minigame phase</returns>
     bool CanMinigame()
     {
-        if (currentCup.Count > 0 && currentCup.Count > 0 && currentFloat.Count > 0 && currentJuice.Count > 0) return true;
+        if (currentCup.Count > 0 && currentAlchol.Count > 0 && currentFloat.Count > 0 && currentJuice.Count > 0) return true;
         else return false;
     }
 
