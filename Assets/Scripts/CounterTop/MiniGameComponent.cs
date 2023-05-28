@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class MiniGameComponent : MonoBehaviour
 {
@@ -64,10 +65,10 @@ public class MiniGameComponent : MonoBehaviour
         switch (minigameState)
         {
             case MinigameState.Deactiveated:
-                spriteRenderer.color = Color.black;
+                spriteRenderer.DOColor(Color.black, 2.5f);
                 break;
             case MinigameState.Active:
-                spriteRenderer.color = Color.white;
+                spriteRenderer.DOColor(Color.white, 2.5f) ;
                 break;
             case MinigameState.InProgress:
                 MinigameProgress();

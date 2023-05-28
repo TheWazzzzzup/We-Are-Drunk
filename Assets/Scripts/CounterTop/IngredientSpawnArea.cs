@@ -34,7 +34,7 @@ public class IngredientSpawnArea : MonoBehaviour
         // Check if area list is big enough (> 0)
         if (areaList.Count <= 0)
         {
-            Debug.Log($"An empty list was inserted");
+            Debug.Log($"An empty {type.ToString()} list was inserted");
             return;
         }
 

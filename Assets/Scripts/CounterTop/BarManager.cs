@@ -24,6 +24,8 @@ public class BarManager : MonoBehaviour
     [SerializeField] MiniGameComponent craftGame;
     [Space]
 
+    [SerializeField] Inventory inventory;
+
     // Private
     List<Ingredient> CurrentPickedIngredients = new();
 
@@ -32,13 +34,14 @@ public class BarManager : MonoBehaviour
     List<Ingredient> currentCup = new();
     List<Ingredient> currentFloat = new();
 
+    bool canMiniGame => CanMinigame();
 
-    // DebugNote! // Should be deleted
-    [SerializeField] bool canMiniGame;
 
-    // DebugNote! // uncomment when done debug
-    // bool canMiniGame => CanMinigame();
-
+    public void GetInventory()
+    {
+        UpdateIngredientList(inventory.Ingredients);
+        RefreshMinigamesStatus();
+    }
 
 
     // should be private // DebugNote!
