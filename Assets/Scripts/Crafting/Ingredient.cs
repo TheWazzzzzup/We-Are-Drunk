@@ -13,17 +13,13 @@ public class Ingredient : MonoBehaviour, IPointerClickHandler
     [SerializeField] private bool isSelected = false;
 
     public UnityEvent<Ingredient, bool> OnIngredientSelected = new UnityEvent<Ingredient, bool>();
+    public UnityEvent<bool> OnSelected = new UnityEvent<bool>();
 
     public IngredientName Name { get { return iName; } }
     public IngredientType Type { get { return iType; } }
 
     public bool IsSelected { get => isSelected; set => SetSelected(value); }
 
-    private void SetSelected(bool value)
-    {
-        isSelected = value;
-        OnIngredientSelected.Invoke(this, value);
-    }
 
     public void Start()
     {
@@ -32,6 +28,8 @@ public class Ingredient : MonoBehaviour, IPointerClickHandler
             inventory = FindObjectOfType<Inventory>();
             return;
         }
+
+        SetSelected(false);
     }
 
     public override bool Equals(object other)
@@ -58,14 +56,24 @@ public class Ingredient : MonoBehaviour, IPointerClickHandler
         {
             IsSelected = false;
             inventory.RemoveIngredient(this);
-        }
-        else
-        {
-            IsSelected = true;
-            inventory.AddIngredient(this);
+            return;
         }
 
-        Debug.Log($" {iType} Selected : {isSelected}");
+        if (!inventory.CanAdd(this))
+        {
+            Debug.Log($"can't add {Name} to inventory");
+            return;
+        }
+
+        IsSelected = true;
+        inventory.AddIngredient(this);
+
+    }
+    private void SetSelected(bool value)
+    {
+        isSelected = value;
+        OnIngredientSelected.Invoke(this, value);
+        OnSelected.Invoke(value);
     }
 }
 
@@ -105,6 +113,8 @@ public enum IngredientName
     Maraschino_Cherries,
     Mint_Leaves,
     Nasturtium_Flowers,
+
+    Cup,
 
     NOTHING
 }
