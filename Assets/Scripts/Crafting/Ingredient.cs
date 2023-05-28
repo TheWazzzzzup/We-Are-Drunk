@@ -56,14 +56,18 @@ public class Ingredient : MonoBehaviour, IPointerClickHandler
         {
             IsSelected = false;
             inventory.RemoveIngredient(this);
-        }
-        else
-        {
-            IsSelected = true;
-            inventory.AddIngredient(this);
+            return;
         }
 
-        Debug.Log($" {iType} Selected : {isSelected}");
+        if (!inventory.CanAdd(this))
+        {
+            Debug.Log($"can't add {Name} to inventory");
+            return;
+        }
+
+        IsSelected = true;
+        inventory.AddIngredient(this);
+
     }
     private void SetSelected(bool value)
     {

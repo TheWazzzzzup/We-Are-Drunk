@@ -32,7 +32,7 @@ public class Inventory : MonoBehaviour
         }
 
         // Check if adding another ingredient of the same type surpasses the allowed maximum
-        if (maxIngredientAmounts[ingredient.Type] <= ingredients.FindAll(i => i.Type == ingredient.Type).Count)
+        if (!CanAdd(ingredient))
         {
             Debug.Log($"Can't add more {ingredient.Type} ingredients");
             return;
@@ -40,6 +40,12 @@ public class Inventory : MonoBehaviour
 
         // Add the new ingredient
         ingredients.Add(ingredient);
+
+    }
+
+    public bool CanAdd(Ingredient ingredient)
+    {
+        return maxIngredientAmounts[ingredient.Type] > ingredients.FindAll(i => i.Type == ingredient.Type).Count;
     }
 
     // A method that removes an ingredient from the inventory
