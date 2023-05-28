@@ -240,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (4)
+      value: Vodka
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -341,7 +341,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredients: []
-  maxIngredientAmount: 4
 --- !u!1001 &155773331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -459,7 +458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (1)
+      value: Vodka
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -581,7 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (2)
+      value: Cup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -707,7 +706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (2)
+      value: Vodka
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -829,7 +828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (3)
+      value: Cup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -951,7 +950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice
+      value: Cup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -1208,7 +1207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (4)
+      value: Lemon Juice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -1334,7 +1333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (5)
+      value: Vodka
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -1460,7 +1459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (3)
+      value: Vodka
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -1582,7 +1581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (1)
+      value: Mint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -1688,7 +1687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (3)
+      value: Lemon Juice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -1794,7 +1793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (1)
+      value: Lemon Juice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -2139,7 +2138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (4)
+      value: Mint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -2458,7 +2457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (5)
+      value: Lemon Juice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -2580,7 +2579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (2)
+      value: Mint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -2984,7 +2983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (3)
+      value: Mint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -3243,7 +3242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (5)
+      value: Mint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -3365,7 +3364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (1)
+      value: Cup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -3578,7 +3577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (2)
+      value: Lemon Juice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -3700,7 +3699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (4)
+      value: Cup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
@@ -3868,7 +3867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459519232019178199, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
       propertyPath: m_Name
-      value: Lemon Juice (5)
+      value: Cup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ececd2ba119724e94d7855bf3a2fea, type: 3}
