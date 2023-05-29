@@ -46,11 +46,15 @@ public class MiniGameComponent : MonoBehaviour
         OnClick.Invoke();
 
         // just for check
-        StateOverseer(MinigameState.Done);
     }
 
     void MinigameCompleted()
     {
+        GameObject gameObject = new();
+        gameObject.transform.position = spawnLocationOnCompleted.position;
+        SpriteRenderer sr = gameObject.AddComponent<SpriteRenderer>();
+        gameObject.AddComponent<BoxCollider2D>();
+        sr.sprite = spriteRenderer.sprite;
         // what happens when the minigame is completed
         // here enters elad example about the Sprtie you can drag
         Debug.Log($"{minigameType.ToString()} minigame is completed");
@@ -81,16 +85,21 @@ public class MiniGameComponent : MonoBehaviour
                 break;
         }
     }
+
+    public void MinigameToggleComplete()
+    {
+        StateOverseer(MinigameState.Done);
+    }
 }
 
-enum MinigameType
+public enum MinigameType
 {
     Float,
     Ice,
     Craft
 }
 
-enum MinigameState
+public enum MinigameState
 {
     Deactiveated,
     Active,
