@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class CameraController : MonoBehaviour
 {
+    private const float cameraDuration = .6f;
+
     [SerializeField] Camera cam;
 
     [SerializeField] Transform BarLoc;
@@ -25,30 +27,30 @@ public class CameraController : MonoBehaviour
 
     public void MoveToFloat()
     {
-        cam.transform.DOMove(FloatLoc.position, 1.2f).SetEase(Ease.OutCubic);
+        cam.transform.DOMove(FloatLoc.position, cameraDuration).SetEase(Ease.OutCubic);
 
     }
 
 
     public void MoveToIce()
     {
-        cam.transform.DOMove(IceLoc.position, 1.2f).SetEase(Ease.OutCubic);
+        cam.transform.DOMove(IceLoc.position, cameraDuration).SetEase(Ease.OutCubic);
 
     }
 
     public void MoveToBar()
     {
-        cam.transform.DOMove(BarLoc.position, 1.2f).SetEase(Ease.OutCubic);
+        cam.transform.DOMove(BarLoc.position, cameraDuration).SetEase(Ease.OutCubic);
     }
 
     public void MoveToInventory()
     {
-        cam.transform.DOMove(InventoryLoc.position, 1.2f).SetEase(Ease.OutCubic);
+        cam.transform.DOMove(InventoryLoc.position, cameraDuration).SetEase(Ease.OutCubic);
     }
 
     public void MoveToCraft()
     {
-        cam.transform.DOMove(CraftLoc.position, 1.2f).SetEase(Ease.OutCubic);
+        cam.transform.DOMove(CraftLoc.position, cameraDuration).SetEase(Ease.OutCubic);
     }
 
 

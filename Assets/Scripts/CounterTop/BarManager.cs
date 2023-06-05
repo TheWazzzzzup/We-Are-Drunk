@@ -1,16 +1,17 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Linq;
 
 /// <summary>
 /// Will be incharge of assigening the ingredients into each area
 /// </summary>
 public class BarManager : MonoBehaviour
 {
-    // Public
+    // Publics
 
 
-    // SerializeField
+    // SerializeFields
     [Header("Areas")]
     [SerializeField] IngredientSpawnArea alcholArea; 
     [SerializeField] IngredientSpawnArea juiceArea; 
@@ -26,31 +27,45 @@ public class BarManager : MonoBehaviour
 
     [SerializeField] Inventory inventory;
 
-    // Private
+    [SerializeField] Ingredient baseIngredient;
+
+    // Privates
     List<Ingredient> CurrentPickedIngredients = new();
+    List<Ingredient> CurrentPickedIngredientsWithoutCup = new();
 
     List<Ingredient> currentAlchol = new();
     List<Ingredient> currentJuice = new();
     List<Ingredient> currentCup = new();
     List<Ingredient> currentFloat = new();
 
-    bool canMiniGame => CanMinigame();
+    CraftingManager craftManager => CraftingManager.Instance;
 
+    bool canMiniGame => CanMinigame();
 
     public void GetInventory()
     {
         UpdateIngredientList(inventory.Ingredients);
-        RefreshMinigamesStatus();
     }
-
-
-    // should be private // DebugNote!
-    [ContextMenu("Refresh")]
-    public void RefreshMinigamesStatus()
+    
+    public void UpdateBaseIngredient(Ingredient ingredient)
     {
-        iceGame.SetMinigameActivision(canMiniGame);
-        floatGame.SetMinigameActivision(canMiniGame);
-        craftGame.SetMinigameActivision(canMiniGame);
+        if (ingredient == null) {
+            Debug.LogWarning("Picked Non valid Ingredient");
+            return;
+        }
+
+        if (ingredient.Type != IngredientType.Alcohol) {
+            Debug.Log("Main ingredient cannot be no alcholic");
+            return;
+        }
+
+        if (ingredient.Name == baseIngredient.Name)
+        {
+            baseIngredient = null;
+            return;
+        }
+
+        baseIngredient = ingredient;
     }
 
     /// <summary>
@@ -59,12 +74,42 @@ public class BarManager : MonoBehaviour
     /// <returns>can the player enter minigame phase</returns>
     bool CanMinigame()
     {
-        if (currentCup.Count > 0 && currentAlchol.Count > 0 && currentFloat.Count > 0 && currentJuice.Count > 0) return true;
-        else return false;
+        return craftManager.CompareToRecipe(CurrentPickedIngredientsWithoutCup, currentAlchol[0]) && currentCup.Count > 0;
+
+        //if (currentCup.Count > 0 && currentAlchol.Count > 0 && currentFloat.Count > 0 && currentJuice.Count > 0) return true;
+        //else return false;
     }
 
+    void RefreshMinigamesStatus()
+    {
+        iceGame.SetMinigameActivision(canMiniGame);
+        floatGame.SetMinigameActivision(canMiniGame);
+        craftGame.SetMinigameActivision(canMiniGame);
+    }
+    
+    void BaseIngredientVaildator(List<Ingredient> currentAlcholList)
+    {
+        if (currentAlcholList.Count < 1) {
+            UpdateBaseIngredient(baseIngredient);
+            return;
+        }
+
+        foreach (var alcholic in currentAlcholList)
+        {
+            if (baseIngredient == null) return;
+            if (alcholic.Name == baseIngredient.Name)
+            {
+                UpdateBaseIngredient(null);
+                return;
+            }
+        }
+
+        UpdateBaseIngredient(baseIngredient);
+        return;
+    }
 
     #region Ingredient List Related
+
     /// <summary>
     /// Updates the list of ingredients, should be called everytime the player exits the inventory
     /// </summary>
@@ -78,7 +123,7 @@ public class BarManager : MonoBehaviour
         }
 
         CurrentPickedIngredients = sentIngredientsList;
-        AssigenIngredientToArea();
+        AssginIngredientToArea();
         RefreshMinigamesStatus();
 
     }
@@ -86,7 +131,7 @@ public class BarManager : MonoBehaviour
     /// <summary>
     /// Will assigen the ingredients to each area
     /// </summary>
-    private void AssigenIngredientToArea()
+    private void AssginIngredientToArea()
     {
         AreaListGenerator();
 
@@ -94,6 +139,14 @@ public class BarManager : MonoBehaviour
         juiceArea.SpawnAreaUpdate(currentJuice);
         floatArea.SpawnAreaUpdate(currentFloat);
         cupArea.SpawnAreaUpdate(currentCup);
+
+        // baseIngredientChecker
+        BaseIngredientVaildator(currentAlchol);
+
+        // Addes releavent lists to recepie compare 
+        CurrentPickedIngredientsWithoutCup.AddRange(currentAlchol);
+        CurrentPickedIngredientsWithoutCup.AddRange(currentFloat);
+        CurrentPickedIngredientsWithoutCup.AddRange(currentJuice);
     }
 
     /// <summary>
@@ -106,6 +159,7 @@ public class BarManager : MonoBehaviour
         currentAlchol.Clear();
         currentJuice.Clear();
         currentCup.Clear();
+        CurrentPickedIngredientsWithoutCup.Clear();
 
 
         foreach (var ingredient in CurrentPickedIngredients)
@@ -130,6 +184,7 @@ public class BarManager : MonoBehaviour
             }
         }
     }
+   
     #endregion
 
 }
