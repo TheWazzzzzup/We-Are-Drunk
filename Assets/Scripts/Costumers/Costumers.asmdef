@@ -1,3 +1,16 @@
 {
-	"name": "Costumers"
+    "name": "Costumers",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2239a30f9b58aaa4689fa911752c8e3b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
