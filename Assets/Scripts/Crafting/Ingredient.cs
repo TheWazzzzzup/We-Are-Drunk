@@ -13,6 +13,7 @@ public class Ingredient : MonoBehaviour, IPointerClickHandler
     [SerializeField] private bool isSelected = false;
 
     public UnityEvent<Ingredient, bool> OnIngredientSelected = new UnityEvent<Ingredient, bool>();
+
     public UnityEvent<bool> OnSelected = new UnityEvent<bool>();
 
     public IngredientName Name { get { return iName; } }
