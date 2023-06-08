@@ -15,6 +15,6 @@ MonoBehaviour:
   name: VodkaLemon
   ingredients:
   - {fileID: 5657472812660263341, guid: 3ac92e8b1fec09a46a2d861b7fbf52f7, type: 3}
-  - {fileID: 5459519232019178198, guid: 42a2af92f6e1d6146b54d29ab600757d, type: 3}
-  - {fileID: 5459519232019178198, guid: 42a2af92f6e1d6146b54d29ab600757d, type: 3}
+  - {fileID: 4279118365549949996, guid: 1bbb06b7f4aed4048b02f0ed47612791, type: 3}
+  - {fileID: 4279118365549949996, guid: 1bbb06b7f4aed4048b02f0ed47612791, type: 3}
   - {fileID: 7450389787242892598, guid: f5c945d8357bec04880590bb6c78c971, type: 3}
