@@ -10,7 +10,6 @@ public class dialogue : MonoBehaviour
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] GameObject dialogueBox;
 
-
     [Button]
     public void ShowDialogue(string dialogue)
     {

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,12 +9,15 @@ using UnityEngine;
 /// </summary>
 public class CostumerController : MonoBehaviour
 {
+    [SerializeField] CostumerData costumerData;
     [SerializeField] TweenMovement tweenMovement;
     [SerializeField] dialogue dialogue;
 
-    internal void MoveTo(Vector3 position)
+    public CostumerData CostumerData { get => costumerData; }
+
+    internal Tween MoveTo(Vector3 position)
     {
-        tweenMovement.MoveTo(position);
+        return tweenMovement.MoveTo(position);
     }
 
     internal void ShowDialogue(string dialogue)

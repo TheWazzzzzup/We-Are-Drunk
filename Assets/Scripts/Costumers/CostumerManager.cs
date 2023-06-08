@@ -1,7 +1,9 @@
 using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CostumerManager : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class CostumerManager : MonoBehaviour
     {
         CostumerController costumer = CreateCostumer();
         MoveCostumerToStandingPoint(costumer);
-        costumer.ShowDialogue("Hello");
+        costumer.ShowDialogue(costumer.CostumerData.GreetingLine);
         return costumer;
     }
 
@@ -26,6 +28,13 @@ public class CostumerManager : MonoBehaviour
 
     private void MoveCostumerToStandingPoint(CostumerController costumer)
     {
-        costumer.MoveTo(standingPoint.position);
+        costumer.MoveTo(standingPoint.position).onComplete += () => OnCostumerReachedStandingPoint(costumer);
+    }
+
+    private void OnCostumerReachedStandingPoint(CostumerController costumer)
+    {
+        //say an hint
+        string hint = costumer.CostumerData.GetHint();
+        costumer.ShowDialogue(hint);
     }
 }
