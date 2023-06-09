@@ -33,6 +33,11 @@ public class Ingredient : MonoBehaviour, IPointerClickHandler
         SetSelected(false);
     }
 
+    public override int GetHashCode()
+    {
+        return Name.GetHashCode() + Type.GetHashCode();
+    }
+
     public override bool Equals(object other)
     {
         if (other is not Ingredient)
@@ -42,7 +47,7 @@ public class Ingredient : MonoBehaviour, IPointerClickHandler
 
         Ingredient otherIngredient = (Ingredient)other;
 
-        return otherIngredient.Name == this.iName && otherIngredient.Type == this.iType;
+        return otherIngredient.Name == this.iName /*&& otherIngredient.Type == this.iType*/;
     }
 
     public void OnPointerClick(PointerEventData eventData)

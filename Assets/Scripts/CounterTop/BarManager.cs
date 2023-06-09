@@ -28,7 +28,7 @@ public class BarManager : MonoBehaviour
 
     [SerializeField] Inventory inventory;
 
-    [SerializeField] Ingredient baseIngredient;
+    [SerializeField] Ingredient? baseIngredient;
 
     // Privates
     List<Ingredient> CurrentPickedIngredients = new();
@@ -40,7 +40,7 @@ public class BarManager : MonoBehaviour
     List<Ingredient> currentFloat = new();
 
     CraftingManager craftManager => CraftingManager.Instance;
-    bool canMiniGame => CanMinigame();
+    bool canMiniGame => CanMiniGame();
 
     // Methods
 
@@ -69,16 +69,19 @@ public class BarManager : MonoBehaviour
 
         if (baseIngredient == null){
             baseIngredient = ingredient;
+            RefreshMinigamesStatus();
             return;
         }
 
         if (ingredient.Name == baseIngredient.Name)
         {
             baseIngredient = null;
+            RefreshMinigamesStatus();
             return;
         }
 
         baseIngredient = ingredient;
+        RefreshMinigamesStatus();
     }
 
     void BaseIngredientVaildator(List<Ingredient> currentAlcholList)
@@ -108,9 +111,9 @@ public class BarManager : MonoBehaviour
     /// Checks if the player is able to enter minigame phase
     /// </summary>
     /// <returns>can the player enter minigame phase</returns>
-    bool CanMinigame()
+    bool CanMiniGame()
     {
-        if (CurrentPickedIngredientsWithoutCup.Count <= 0 || currentAlchol[0] == null) return false;
+        if (CurrentPickedIngredientsWithoutCup.Count <= 0 || baseIngredient == null) return false;
         return craftManager.CompareToRecipe(CurrentPickedIngredientsWithoutCup, currentAlchol[0]) && currentCup.Count > 0;
 
         //if (currentCup.Count > 0 && currentAlchol.Count > 0 && currentFloat.Count > 0 && currentJuice.Count > 0) return true;
@@ -119,9 +122,10 @@ public class BarManager : MonoBehaviour
 
     void RefreshMinigamesStatus()
     {
-        iceGame.SetMinigameActivision(canMiniGame);
-        floatGame.SetMinigameActivision(canMiniGame);
-        craftGame.SetMinigameActivision(canMiniGame);
+        bool canMinigame = CanMiniGame();
+        iceGame.SetMinigameActivision(canMinigame);
+        floatGame.SetMinigameActivision(canMinigame);
+        craftGame.SetMinigameActivision(canMinigame);
     }
 
     #endregion
