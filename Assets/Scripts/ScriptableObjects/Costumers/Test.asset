@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828787bfe20c93141ab38279178d79a5, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  recipe: {fileID: 0}
-  hints: []
+  recipe: {fileID: 11400000, guid: a76a6c6adc02ca2428c664661ec52803, type: 2}
+  hints:
+  - I feel lemony
+  - Vodka would be nice
+  - hint hint vodka lemon
   FeedbackLines: []
-  greetingLine: 
+  greetingLine: Hello!!!

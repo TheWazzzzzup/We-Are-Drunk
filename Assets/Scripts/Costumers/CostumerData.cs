@@ -6,26 +6,56 @@ using UnityEngine;
 public class CostumerData : ScriptableObject
 {
     [SerializeField] RecipeDataSO recipe;
-    [SerializeField] string[] hints;
+    [SerializeField] string[] hints, positiveFeedbackLinse, nutrealFeedbackLines, negetiveFeedbackLines;
 
-    [SerializeField, Tooltip("Lines that the costumer should say in respond to when they are served a drink." +
-        "Lines higher on the list indicate more negetive reaction, while those lower on the list indicate more positive reaction")]
-    string[] FeedbackLines;
+
 
     [SerializeField] string greetingLine;
 
     public RecipeDataSO Recipe { get => recipe; }
     public string GreetingLine { get => greetingLine; }
+    public string[] PositiveFeedbackLinse { get => positiveFeedbackLinse; }
+    public string[] NutrealFeedbackLines { get => nutrealFeedbackLines; }
+    public string[] NegetiveFeedbackLines { get => negetiveFeedbackLines; }
 
-    public string GetHint()
+
+    public string GetLine(LineType type)
     {
-        if (hints.Length <= 0)
+        string[] lines;
+        switch (type)
         {
-            Debug.LogError("No hints were added to the costumer data");
+            case LineType.Hint:
+                lines = hints;
+                break;
+            case LineType.PositiveFeedback:
+                lines = positiveFeedbackLinse;
+                break;
+            case LineType.NeutralFeedback:
+                lines = nutrealFeedbackLines;
+                break;
+            case LineType.NegativeFeedback:
+                lines = negetiveFeedbackLines;
+                break;
+            default:
+                Debug.LogError("Unsupported line type!");
+                return null;
+        }
+        if (lines.Length <= 0)
+        {
+            Debug.LogError("No " + type.ToString() + " lines were added to the costumer data");
             return null;
         }
 
-        //choose an hint at random
-        return hints[Random.Range(0, hints.Length)];
+        //choose a line at random
+        return lines[Random.Range(0, lines.Length)];
     }
+
+    public enum LineType
+    {
+        Hint,
+        PositiveFeedback,
+        NeutralFeedback,
+        NegativeFeedback
+    }
+
 }

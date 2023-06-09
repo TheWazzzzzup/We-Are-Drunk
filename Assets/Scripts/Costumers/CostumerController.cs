@@ -9,11 +9,12 @@ using UnityEngine;
 /// </summary>
 public class CostumerController : MonoBehaviour
 {
-    [SerializeField] CostumerData costumerData;
     [SerializeField] TweenMovement tweenMovement;
     [SerializeField] dialogue dialogue;
+    
+    CostumerData costumerData;
 
-    public CostumerData CostumerData { get => costumerData; }
+    public CostumerData CostumerData { get => costumerData; set => costumerData = value; }
 
     internal Tween MoveTo(Vector3 position)
     {

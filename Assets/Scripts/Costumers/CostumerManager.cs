@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections;
@@ -10,31 +11,66 @@ public class CostumerManager : MonoBehaviour
     [SerializeField] GameObject costumerPrefab;
     [SerializeField] Transform spawnPoint, standingPoint;
 
+    CostumerController currentCostumer;
+
     [Button]
-    public CostumerController SpawnCostumer()
+    public CostumerController SpawnCostumer(CostumerData data)
     {
-        CostumerController costumer = CreateCostumer();
-        MoveCostumerToStandingPoint(costumer);
+        //create the costumer
+        CostumerController costumer = CreateCostumer(data);
+
+        //set the current costumer
+        currentCostumer = costumer;
+
+        //move the costumer to the standing point
+        costumer.MoveTo(standingPoint.position).onComplete += () => OnCostumerReachedStandingPoint(costumer);
+        //show the greeting line
         costumer.ShowDialogue(costumer.CostumerData.GreetingLine);
+
         return costumer;
     }
 
-    private CostumerController CreateCostumer()
+    [Button]
+    public void RemoveCurrentCostumer()
     {
-        GameObject costumer = Instantiate(costumerPrefab, spawnPoint.position, Quaternion.identity);
-        costumer.transform.SetParent(transform);
-        return costumer.GetComponent<CostumerController>();
+        //if we don't have a costumer, throw an error
+        if (currentCostumer == null)
+        {
+            Debug.LogError("Trying to remove a costumer while there are none");
+            return;
+        }
+
+        //Move the costumer to spawn point and destroy it
+        currentCostumer.MoveTo(spawnPoint.position).onComplete += () => Destroy(currentCostumer.gameObject);
     }
 
-    private void MoveCostumerToStandingPoint(CostumerController costumer)
+    
+
+    private CostumerController CreateCostumer(CostumerData data)
     {
-        costumer.MoveTo(standingPoint.position).onComplete += () => OnCostumerReachedStandingPoint(costumer);
+        //create and set game object
+        GameObject costumer = Instantiate(costumerPrefab, spawnPoint.position, Quaternion.identity);
+        costumer.transform.SetParent(transform);
+
+        //initialize the controller
+        var controller = costumer.GetComponent<CostumerController>();
+        controller.CostumerData = data;
+        return controller;
     }
+
+
 
     private void OnCostumerReachedStandingPoint(CostumerController costumer)
     {
         //say an hint
-        string hint = costumer.CostumerData.GetHint();
+        string hint = costumer.CostumerData.GetLine(CostumerData.LineType.Hint);
         costumer.ShowDialogue(hint);
     }
+}
+
+public enum FeedbackType
+{
+    Positive,
+    Netrual,
+    Negetive
 }
