@@ -58,7 +58,7 @@ public class BarManager : MonoBehaviour
         // TODO: create an indication that shows the player the picked ingredient
 
         if (ingredient == null) {
-            Debug.LogWarning("Picked Non valid Ingredient, Check if you assigend the ingredient");
+            Debug.Log("Picked Non valid Ingredient, Check if you assigend the ingredient");
             return;
         }
 
@@ -110,6 +110,7 @@ public class BarManager : MonoBehaviour
     /// <returns>can the player enter minigame phase</returns>
     bool CanMinigame()
     {
+        if (CurrentPickedIngredientsWithoutCup.Count <= 0 || currentAlchol[0] == null) return false;
         return craftManager.CompareToRecipe(CurrentPickedIngredientsWithoutCup, currentAlchol[0]) && currentCup.Count > 0;
 
         //if (currentCup.Count > 0 && currentAlchol.Count > 0 && currentFloat.Count > 0 && currentJuice.Count > 0) return true;

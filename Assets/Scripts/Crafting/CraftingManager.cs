@@ -29,6 +29,13 @@ public class CraftingManager : MonoBehaviour
 
     public bool CompareToRecipe(List<Ingredient> currentIngredients, Ingredient baseIngredient)
     {
+        if (currentIngredients == null) return false; 
+        if (baseIngredient == null)
+        {
+            Debug.Log("pick base ingredient");
+            return false;
+        }
+
         Ingredient[] currentCupIngredients = currentIngredients.ToArray();
 
         RecipeDataSO[] recipesOfSameBase = RecipesHolder.Instance.ReturnBaseRecipeList(baseIngredient.Name);
