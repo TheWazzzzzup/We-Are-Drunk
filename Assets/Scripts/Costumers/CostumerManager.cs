@@ -16,6 +16,12 @@ public class CostumerManager : MonoBehaviour
     [Button]
     public CostumerController SpawnCostumer(CostumerData data)
     {
+        if (currentCostumer != null)
+        {
+            Debug.LogError("Can only have one active costumer at a time");
+            return null;
+        }
+
         //create the costumer
         CostumerController costumer = CreateCostumer(data);
 
@@ -44,7 +50,11 @@ public class CostumerManager : MonoBehaviour
         currentCostumer.MoveTo(spawnPoint.position).onComplete += () => Destroy(currentCostumer.gameObject);
     }
 
-    
+    [Button]
+    public int GetMatchScore(RecipeDataSO recipe)
+    {
+        return MatchScore.Calculate(currentCostumer.CostumerData.Recipe, recipe);
+    }
 
     private CostumerController CreateCostumer(CostumerData data)
     {
