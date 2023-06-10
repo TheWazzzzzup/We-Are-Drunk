@@ -1595,6 +1595,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 907741645}
+        m_TargetAssemblyTypeName: BarManager, Assembly-CSharp
+        m_MethodName: CheckForMinigamesCompletion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &314168472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1967,6 +1979,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1602573759}
         m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
         m_MethodName: MoveToBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 907741645}
+        m_TargetAssemblyTypeName: BarManager, Assembly-CSharp
+        m_MethodName: CheckForMinigamesCompletion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2381,6 +2405,7 @@ MonoBehaviour:
   craftGame: {fileID: 1746895472}
   inventory: {fileID: 646538692}
   baseIngredient: {fileID: 0}
+  cameraController: {fileID: 1602573759}
 --- !u!4 &907741646
 Transform:
   m_ObjectHideFlags: 0
@@ -3269,6 +3294,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1602573759}
         m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
         m_MethodName: MoveToBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 907741645}
+        m_TargetAssemblyTypeName: BarManager, Assembly-CSharp
+        m_MethodName: CheckForMinigamesCompletion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

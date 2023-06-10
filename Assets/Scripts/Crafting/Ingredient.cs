@@ -47,7 +47,7 @@ public class Ingredient : MonoBehaviour, IPointerClickHandler
 
         Ingredient otherIngredient = (Ingredient)other;
 
-        return otherIngredient.Name == this.iName /*&& otherIngredient.Type == this.iType*/;
+        return otherIngredient.Name == this.iName && otherIngredient.Type == this.iType;
     }
 
     public void OnPointerClick(PointerEventData eventData)

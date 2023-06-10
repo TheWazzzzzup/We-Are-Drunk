@@ -28,7 +28,9 @@ public class BarManager : MonoBehaviour
 
     [SerializeField] Inventory inventory;
 
-    [SerializeField] Ingredient? baseIngredient;
+    [SerializeField] Ingredient baseIngredient;
+
+    [SerializeField] CameraController cameraController;
 
     // Privates
     List<Ingredient> CurrentPickedIngredients = new();
@@ -38,11 +40,18 @@ public class BarManager : MonoBehaviour
     List<Ingredient> currentJuice = new();
     List<Ingredient> currentCup = new();
     List<Ingredient> currentFloat = new();
-
     CraftingManager craftManager => CraftingManager.Instance;
-    bool canMiniGame => CanMiniGame();
+    public bool canMiniGame => CanMiniGame();
 
     // Methods
+
+    public void CheckForMinigamesCompletion()
+    {
+        if ( iceGame.minigameState == MinigameState.Done && craftGame.minigameState == MinigameState.Done && floatGame.minigameState == MinigameState.Done)
+        {
+            Debug.Log("All Minigames Completed !!!!!!!!!!!!!!!!!!!!!");
+        }
+    }
 
     public void GetInventory()
     {
@@ -56,53 +65,32 @@ public class BarManager : MonoBehaviour
     public void UpdateBaseIngredient(Ingredient ingredient)
     {
         // TODO: create an indication that shows the player the picked ingredient
-
-        if (ingredient == null) {
-            Debug.Log("Picked Non valid Ingredient, Check if you assigend the ingredient");
-            return;
-        }
-
-        if (ingredient.Type != IngredientType.Alcohol) {
-            Debug.Log("Main ingredient cannot be no alcholic");
-            return;
-        }
-
-        if (baseIngredient == null){
-            baseIngredient = ingredient;
-            RefreshMinigamesStatus();
-            return;
-        }
-
-        if (ingredient.Name == baseIngredient.Name)
+        if (ingredient == null)
         {
             baseIngredient = null;
             RefreshMinigamesStatus();
             return;
         }
+        if (ingredient == baseIngredient)
+        {
+            baseIngredient = null;
+            RefreshMinigamesStatus();
+            return;
+        }
+        if (ingredient != null && ingredient != baseIngredient) {
+            baseIngredient = ingredient;
+            RefreshMinigamesStatus();
+            return;
+        }
 
-        baseIngredient = ingredient;
-        RefreshMinigamesStatus();
     }
 
     void BaseIngredientVaildator(List<Ingredient> currentAlcholList)
     {
-        if (currentAlcholList.Count < 1) {
-            UpdateBaseIngredient(baseIngredient);
-            return;
-        }
-
-        foreach (var alcholic in currentAlcholList)
-        {
+        if (currentAlcholList.Count < 0) {
             if (baseIngredient == null) return;
-            if (alcholic.Name == baseIngredient.Name)
-            {
-                UpdateBaseIngredient(null);
-                return;
-            }
+            if (baseIngredient != null) UpdateBaseIngredient(null);
         }
-
-        UpdateBaseIngredient(baseIngredient);
-        return;
     }
     
     #region Minigames
@@ -147,8 +135,6 @@ public class BarManager : MonoBehaviour
 
         CurrentPickedIngredients = sentIngredientsList;
         AssginIngredientToArea();
-        RefreshMinigamesStatus();
-
     }
 
     /// <summary>

@@ -75,15 +75,6 @@ public class CraftingManager : MonoBehaviour
         }
     }
     
-    bool CompareIngredientCollections(IEnumerable<Ingredient> collectionFromInventory, IEnumerable<Ingredient> collection) {
-
-        var recipe = collection.OrderByDescending(b => b.Name);
-        var invent = collectionFromInventory.OrderByDescending(b => b.Name);
-
-        return recipe.SequenceEqual(invent);
-    
-    }
-    
     public void ClearCup()
     {
         foreach(var p in drinkParts)
@@ -96,5 +87,14 @@ public class CraftingManager : MonoBehaviour
     public void ClearCurrentIngredient()
     {
         currentIngredient = null;
+    }
+   
+    bool CompareIngredientCollections(IEnumerable<Ingredient> collectionFromInventory, IEnumerable<Ingredient> collection) {
+
+        var recipe = collection.OrderByDescending(b => b.Name);
+        var invent = collectionFromInventory.OrderByDescending(b => b.Name);
+
+        return recipe.SequenceEqual(invent);
+    
     }
 }
