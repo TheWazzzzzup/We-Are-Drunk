@@ -51,10 +51,36 @@ public class CostumerManager : MonoBehaviour
     }
 
     [Button]
-    public int GetMatchScore(RecipeDataSO recipe)
+    public int GetMatchScoreWithCostumerFeedback(RecipeDataSO recipe)
+    {
+        int score = GetMatchScore(recipe);
+
+        switch (score)
+        {
+            case 100:
+                {
+                    currentCostumer.ShowDialogue(currentCostumer.CostumerData.GetLine(CostumerData.LineType.PositiveFeedback));
+                    break;
+                }
+            case 70:
+                {
+                    currentCostumer.ShowDialogue(currentCostumer.CostumerData.GetLine(CostumerData.LineType.NeutralFeedback));
+                    break;
+                }
+            default:
+                currentCostumer.ShowDialogue(currentCostumer.CostumerData.GetLine(CostumerData.LineType.NegativeFeedback));
+                break;
+        }
+
+        return score;
+    }
+
+
+    private int GetMatchScore(RecipeDataSO recipe)
     {
         return MatchScore.Calculate(currentCostumer.CostumerData.Recipe, recipe);
     }
+
 
     private CostumerController CreateCostumer(CostumerData data)
     {

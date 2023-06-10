@@ -25,4 +25,5 @@ public class CostumerController : MonoBehaviour
     {
         this.dialogue.ShowDialogue(dialogue);
     }
+
 }
