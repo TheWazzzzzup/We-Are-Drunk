@@ -11,6 +11,7 @@ using DG.Tweening;
 public class BarManager : MonoBehaviour
 {
     // Publics
+    public bool canMiniGame => CanMiniGame();
 
     // SerializeFields
     [Header("Areas")]
@@ -40,13 +41,20 @@ public class BarManager : MonoBehaviour
     List<Ingredient> currentJuice = new();
     List<Ingredient> currentCup = new();
     List<Ingredient> currentFloat = new();
+   
     CraftingManager craftManager => CraftingManager.Instance;
-    public bool canMiniGame => CanMiniGame();
+
+    // checks if the player completed any minigame, to block some interactions
+    bool isMakingDrink = false;
 
     // Methods
 
     public void CheckForMinigamesCompletion()
     {
+        if (isMakingDrink == false && iceGame.minigameState == MinigameState.Done || craftGame.minigameState == MinigameState.Done || floatGame.minigameState == MinigameState.Done)
+        {
+            isMakingDrink = true;
+        }
         if ( iceGame.minigameState == MinigameState.Done && craftGame.minigameState == MinigameState.Done && floatGame.minigameState == MinigameState.Done)
         {
             Debug.Log("All Minigames Completed !!!!!!!!!!!!!!!!!!!!!");
@@ -64,6 +72,8 @@ public class BarManager : MonoBehaviour
     /// <param name="ingredient"></param>
     public void UpdateBaseIngredient(Ingredient ingredient)
     {
+        if (isMakingDrink) return;
+
         // TODO: create an indication that shows the player the picked ingredient
         if (ingredient == null)
         {
