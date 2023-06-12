@@ -10,6 +10,7 @@ public class MiniGameComponent : MonoBehaviour
 {
     // Public
     public UnityEvent OnClick;
+    public MinigameState minigameState { get; private set; }
 
 
     // Serialze
@@ -21,7 +22,6 @@ public class MiniGameComponent : MonoBehaviour
 
     
     // Private
-    MinigameState minigameState;
 
     private void OnMouseDown()
     {
@@ -39,26 +39,7 @@ public class MiniGameComponent : MonoBehaviour
         }
     }
 
-    void MinigameProgress()
-    {
-        // Place holder, should be replaced with script specific minigame
-        Debug.Log("Player Initated The Minigame");
-        OnClick.Invoke();
-
-        // just for check
-    }
-
-    void MinigameCompleted()
-    {
-        GameObject gameObject = new();
-        gameObject.transform.position = spawnLocationOnCompleted.position;
-        SpriteRenderer sr = gameObject.AddComponent<SpriteRenderer>();
-        gameObject.AddComponent<BoxCollider2D>();
-        sr.sprite = spriteRenderer.sprite;
-        // what happens when the minigame is completed
-        // here enters elad example about the Sprtie you can drag
-        Debug.Log($"{minigameType.ToString()} minigame is completed");
-    }
+    public MinigameType GetMiniType => minigameType; 
 
     public void SetMinigameActivision(bool canMinigame)
     {
@@ -84,6 +65,29 @@ public class MiniGameComponent : MonoBehaviour
                 MinigameCompleted();
                 break;
         }
+    }
+    
+    void MinigameProgress()
+    {
+        // Place holder, should be replaced with script specific minigame
+        Debug.Log("Player Initated The Minigame");
+        OnClick.Invoke();
+
+        // just for check
+    }
+    
+    void MinigameCompleted()
+    {
+        GameObject gameObject = new();
+        gameObject.transform.position = spawnLocationOnCompleted.position;
+        SpriteRenderer sr = gameObject.AddComponent<SpriteRenderer>();
+        BoxCollider2D boxCollider2d =  gameObject.AddComponent<BoxCollider2D>();
+        boxCollider2d.size = Vector2.one;
+        gameObject.AddComponent<DraggableObject>();
+        sr.sprite = spriteRenderer.sprite;
+        // what happens when the minigame is completed
+        // here enters elad example about the Sprtie you can drag
+        Debug.Log($"{minigameType.ToString()} minigame is completed");
     }
 
     public void MinigameToggleComplete()

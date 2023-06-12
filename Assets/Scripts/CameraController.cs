@@ -19,23 +19,28 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] Transform FloatLoc;
 
+    bool canGoToInventory = true;
 
     private void Start()
     {
         cam.transform.position = BarLoc.position;
     }
 
+    public void ResetAbilityForInventory() {
+        canGoToInventory = true;
+    }
+
     public void MoveToFloat()
     {
         cam.transform.DOMove(FloatLoc.position, cameraDuration).SetEase(Ease.OutCubic);
-
+        canGoToInventory = false;
     }
 
 
     public void MoveToIce()
     {
         cam.transform.DOMove(IceLoc.position, cameraDuration).SetEase(Ease.OutCubic);
-
+        canGoToInventory = false;
     }
 
     public void MoveToBar()
@@ -45,12 +50,14 @@ public class CameraController : MonoBehaviour
 
     public void MoveToInventory()
     {
+        if (canGoToInventory)
         cam.transform.DOMove(InventoryLoc.position, cameraDuration).SetEase(Ease.OutCubic);
     }
 
     public void MoveToCraft()
     {
         cam.transform.DOMove(CraftLoc.position, cameraDuration).SetEase(Ease.OutCubic);
+        canGoToInventory = false;
     }
 
 

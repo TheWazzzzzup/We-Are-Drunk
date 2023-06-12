@@ -11,6 +11,7 @@ using DG.Tweening;
 public class BarManager : MonoBehaviour
 {
     // Publics
+    public bool canMiniGame => CanMiniGame();
 
     // SerializeFields
     [Header("Areas")]
@@ -30,6 +31,8 @@ public class BarManager : MonoBehaviour
 
     [SerializeField] Ingredient baseIngredient;
 
+    [SerializeField] CameraController cameraController;
+
     // Privates
     List<Ingredient> CurrentPickedIngredients = new();
     List<Ingredient> CurrentPickedIngredientsWithoutCup = new();
@@ -38,11 +41,25 @@ public class BarManager : MonoBehaviour
     List<Ingredient> currentJuice = new();
     List<Ingredient> currentCup = new();
     List<Ingredient> currentFloat = new();
-
+   
     CraftingManager craftManager => CraftingManager.Instance;
-    bool canMiniGame => CanMinigame();
+
+    // checks if the player completed any minigame, to block some interactions
+    bool isMakingDrink = false;
 
     // Methods
+
+    public void CheckForMinigamesCompletion()
+    {
+        if (isMakingDrink == false && iceGame.minigameState == MinigameState.Done || craftGame.minigameState == MinigameState.Done || floatGame.minigameState == MinigameState.Done)
+        {
+            isMakingDrink = true;
+        }
+        if ( iceGame.minigameState == MinigameState.Done && craftGame.minigameState == MinigameState.Done && floatGame.minigameState == MinigameState.Done)
+        {
+            Debug.Log("All Minigames Completed !!!!!!!!!!!!!!!!!!!!!");
+        }
+    }
 
     public void GetInventory()
     {
@@ -55,51 +72,35 @@ public class BarManager : MonoBehaviour
     /// <param name="ingredient"></param>
     public void UpdateBaseIngredient(Ingredient ingredient)
     {
+        if (isMakingDrink) return;
+
         // TODO: create an indication that shows the player the picked ingredient
-
-        if (ingredient == null) {
-            Debug.LogWarning("Picked Non valid Ingredient, Check if you assigend the ingredient");
-            return;
-        }
-
-        if (ingredient.Type != IngredientType.Alcohol) {
-            Debug.Log("Main ingredient cannot be no alcholic");
-            return;
-        }
-
-        if (baseIngredient == null){
-            baseIngredient = ingredient;
-            return;
-        }
-
-        if (ingredient.Name == baseIngredient.Name)
+        if (ingredient == null)
         {
             baseIngredient = null;
+            RefreshMinigamesStatus();
+            return;
+        }
+        if (ingredient == baseIngredient)
+        {
+            baseIngredient = null;
+            RefreshMinigamesStatus();
+            return;
+        }
+        if (ingredient != null && ingredient != baseIngredient) {
+            baseIngredient = ingredient;
+            RefreshMinigamesStatus();
             return;
         }
 
-        baseIngredient = ingredient;
     }
 
     void BaseIngredientVaildator(List<Ingredient> currentAlcholList)
     {
-        if (currentAlcholList.Count < 1) {
-            UpdateBaseIngredient(baseIngredient);
-            return;
-        }
-
-        foreach (var alcholic in currentAlcholList)
-        {
+        if (currentAlcholList.Count < 0) {
             if (baseIngredient == null) return;
-            if (alcholic.Name == baseIngredient.Name)
-            {
-                UpdateBaseIngredient(null);
-                return;
-            }
+            if (baseIngredient != null) UpdateBaseIngredient(null);
         }
-
-        UpdateBaseIngredient(baseIngredient);
-        return;
     }
     
     #region Minigames
@@ -108,8 +109,9 @@ public class BarManager : MonoBehaviour
     /// Checks if the player is able to enter minigame phase
     /// </summary>
     /// <returns>can the player enter minigame phase</returns>
-    bool CanMinigame()
+    bool CanMiniGame()
     {
+        if (CurrentPickedIngredientsWithoutCup.Count <= 0 || baseIngredient == null) return false;
         return craftManager.CompareToRecipe(CurrentPickedIngredientsWithoutCup, currentAlchol[0]) && currentCup.Count > 0;
 
         //if (currentCup.Count > 0 && currentAlchol.Count > 0 && currentFloat.Count > 0 && currentJuice.Count > 0) return true;
@@ -118,9 +120,10 @@ public class BarManager : MonoBehaviour
 
     void RefreshMinigamesStatus()
     {
-        iceGame.SetMinigameActivision(canMiniGame);
-        floatGame.SetMinigameActivision(canMiniGame);
-        craftGame.SetMinigameActivision(canMiniGame);
+        bool canMinigame = CanMiniGame();
+        iceGame.SetMinigameActivision(canMinigame);
+        floatGame.SetMinigameActivision(canMinigame);
+        craftGame.SetMinigameActivision(canMinigame);
     }
 
     #endregion
@@ -142,8 +145,6 @@ public class BarManager : MonoBehaviour
 
         CurrentPickedIngredients = sentIngredientsList;
         AssginIngredientToArea();
-        RefreshMinigamesStatus();
-
     }
 
     /// <summary>

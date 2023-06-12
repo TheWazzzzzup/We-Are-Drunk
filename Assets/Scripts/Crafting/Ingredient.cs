@@ -33,6 +33,11 @@ public class Ingredient : MonoBehaviour, IPointerClickHandler
         SetSelected(false);
     }
 
+    public override int GetHashCode()
+    {
+        return Name.GetHashCode() + Type.GetHashCode();
+    }
+
     public override bool Equals(object other)
     {
         if (other is not Ingredient)
