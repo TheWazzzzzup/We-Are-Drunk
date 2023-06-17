@@ -11,7 +11,7 @@ public class Shaker : MonoBehaviour , IPointerDownHandler
     [SerializeField] float minHeight;
     [SerializeField] float maxHeight;
 
-    int shakerClickCount = 0;
+    int shakerClickCount;
 
     float rndX;
     float rndY;
@@ -24,10 +24,12 @@ public class Shaker : MonoBehaviour , IPointerDownHandler
     private void Awake()
     {
         rb2.simulated = false;
+        shakerClickCount = 0;
     }
 
     private void Update()
     {
+        // needs a replacement asap ! just a simulation check needs to be replaced by the minigame start 
         if (Input.GetKeyDown(KeyCode.D))
         {
             rb2.simulated = true;
@@ -40,12 +42,13 @@ public class Shaker : MonoBehaviour , IPointerDownHandler
         rndX = Random.Range(-maxX, maxX);
         rndY = Random.Range(minHeight, maxHeight);
 
-        float rndRot = Random.Range(-270, 270);
+        float rndRot = Random.Range(-270 , 270);
 
         transform.DORotate(new Vector3(0, 0, rndRot), 2f);
 
         rb2.velocity = new Vector2(rndX, rndY);
     }
+
 
     
 }
