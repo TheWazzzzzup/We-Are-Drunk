@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class Shaker : MonoBehaviour , IPointerDownHandler
 {
@@ -38,6 +39,10 @@ public class Shaker : MonoBehaviour , IPointerDownHandler
         shakerClickCount++;
         rndX = Random.Range(-maxX, maxX);
         rndY = Random.Range(minHeight, maxHeight);
+
+        float rndRot = Random.Range(-270, 270);
+
+        transform.DORotate(new Vector3(0, 0, rndRot), 2f);
 
         rb2.velocity = new Vector2(rndX, rndY);
     }
