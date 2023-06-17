@@ -7,14 +7,25 @@ using DG.Tweening;
 public class Shaker : MonoBehaviour , IPointerDownHandler
 {
     [SerializeField] Rigidbody2D rb2;
-    [SerializeField] float maxX;
-    [SerializeField] float minHeight;
-    [SerializeField] float maxHeight;
+
+    [Header("Height")]
+    [SerializeField] float minimumY;
+    [SerializeField] float maximumY;
+    [Space]
+    [Header("Side")]
+    [SerializeField] float minimumX;
+    [SerializeField] float maximumX;
+    [Space]
+    [Header("Rotation")]
+    [SerializeField] float rotationThreshold;
 
     int shakerClickCount;
 
     float rndX;
     float rndY;
+
+    Vector3 rotationVector;
+
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -23,6 +34,7 @@ public class Shaker : MonoBehaviour , IPointerDownHandler
 
     private void Awake()
     {
+        rotationVector = Vector3.zero;
         rb2.simulated = false;
         shakerClickCount = 0;
     }
@@ -38,17 +50,35 @@ public class Shaker : MonoBehaviour , IPointerDownHandler
 
     void ShakerClicked()
     {
-        shakerClickCount++;
-        rndX = Random.Range(-maxX, maxX);
-        rndY = Random.Range(minHeight, maxHeight);
-
-        float rndRot = Random.Range(-270 , 270);
-
-        transform.DORotate(new Vector3(0, 0, rndRot), 2f);
-
-        rb2.velocity = new Vector2(rndX, rndY);
+        UpdateScore();
+        ObjectVelocityLauncher();
     }
 
+    void UpdateScore()
+    {
+        shakerClickCount++;
+    }
 
-    
+    void ObjectVelocityLauncher()
+    {
+        // Get the Y velocity
+        int rnd = Random.Range(0, 101);
+        rndY = LinerCalculation.InterpolateLinerLocation(rnd, minimumY,maximumY);
+        // Get The X Velocity 
+        rnd = Random.Range(0, 101);
+        rndX = LinerCalculation.InterpolateLinerLocation(rnd, minimumX, maximumX);
+        // Launch The actual Object
+        rb2.velocity = new Vector2(rndX, rndY);
+
+        // Rotate The Object
+        RotateObject();
+    }
+
+    void RotateObject()
+    {
+
+
+        //transform.DORotate();
+    }
+
 }
