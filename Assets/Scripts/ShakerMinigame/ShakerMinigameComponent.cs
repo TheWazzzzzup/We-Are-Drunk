@@ -16,9 +16,6 @@ public class ShakerMinigameComponent : MonoBehaviour , IPointerDownHandler
     [Header("Side")]
     [SerializeField] float xThreshold;
     [Space]
-    [Header("Rotation")]
-    [SerializeField] float rotationThreshold;
-    [SerializeField] float rotationTime;
 
     int shakerClickCount;
 
@@ -27,7 +24,6 @@ public class ShakerMinigameComponent : MonoBehaviour , IPointerDownHandler
     float rndRot;
 
     Vector3 rotationVector;
-
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -46,6 +42,8 @@ public class ShakerMinigameComponent : MonoBehaviour , IPointerDownHandler
         {
             rb2.simulated = true;
         }
+
+
     }
 
     public void MinigameStarted()
@@ -75,22 +73,9 @@ public class ShakerMinigameComponent : MonoBehaviour , IPointerDownHandler
         // Get The X Velocity 
         rnd = Random.Range(0, 101);
         rndX = LinerCalculation.InterpolateLinerLocation((float)rnd/100, xThreshold * -1, xThreshold);
-        // Rotate The Object
-        RotateObject();
         // Launch The actual Object
         rb2.velocity = new Vector2(rndX, rndY);
 
-    }
-
-    /// <summary>
-    /// Rotates the minigame component
-    /// </summary>
-    void RotateObject()
-    {
-        int rnd = Random.Range(0, 101);
-        rndRot = LinerCalculation.InterpolateLinerLocation((float)rnd / 100, rotationThreshold * -1, rotationThreshold);
-        rotationVector = new Vector3(0, 0, rndRot);
-        transform.DORotate(rotationVector,rotationTime);
     }
 
     void MinigameSetInitalFields()
@@ -101,3 +86,52 @@ public class ShakerMinigameComponent : MonoBehaviour , IPointerDownHandler
     }
 
 }
+
+public class ShakerSections : MonoBehaviour
+{
+    List<RotationSections> SectionsTheRotationInside;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+    }
+
+    RotationSections TagToEnum(GameObject gameObject)
+    {
+        switch (gameObject.tag)
+        {
+            case "No":
+                return RotationSections.No;
+                break;
+            case "Little":
+                return RotationSections.Low;
+                break;
+            case "Medium":
+                return RotationSections.Medium;
+                break;
+            case "Heavy":
+                return RotationSections.Heavy;
+                break;
+        }
+        return RotationSections.Empty;
+    }
+
+
+
+
+    public enum RotationSections
+    {
+        Empty,
+        No,
+        Low,
+        Medium,
+        Heavy
+    }    
+}
+
+

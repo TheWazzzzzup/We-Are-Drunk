@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cup
+  - No
+  - Little
+  - Medium
+  - Heavy
   layers:
   - Default
   - TransparentFX
@@ -12,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Minigame
   - 
   - 
   - 
