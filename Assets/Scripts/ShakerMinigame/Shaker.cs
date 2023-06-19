@@ -13,8 +13,7 @@ public class Shaker : MonoBehaviour , IPointerDownHandler
     [SerializeField] float maximumY;
     [Space]
     [Header("Side")]
-    [SerializeField] float minimumX;
-    [SerializeField] float maximumX;
+    [SerializeField] float xThreshold;
     [Space]
     [Header("Rotation")]
     [SerializeField] float rotationThreshold;
@@ -63,10 +62,10 @@ public class Shaker : MonoBehaviour , IPointerDownHandler
     {
         // Get the Y velocity
         int rnd = Random.Range(0, 101);
-        rndY = LinerCalculation.InterpolateLinerLocation(rnd, minimumY,maximumY);
+        rndY = LinerCalculation.InterpolateLinerLocation((float)rnd/100, minimumY,maximumY);
         // Get The X Velocity 
         rnd = Random.Range(0, 101);
-        rndX = LinerCalculation.InterpolateLinerLocation(rnd, minimumX, maximumX);
+        rndX = LinerCalculation.InterpolateLinerLocation((float)rnd/100, xThreshold * -1, xThreshold);
         // Launch The actual Object
         rb2.velocity = new Vector2(rndX, rndY);
 
