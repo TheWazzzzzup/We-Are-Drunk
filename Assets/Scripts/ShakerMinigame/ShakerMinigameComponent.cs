@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 
-public class Shaker : MonoBehaviour , IPointerDownHandler
+[RequireComponent(typeof(Rigidbody2D))]
+public class ShakerMinigameComponent : MonoBehaviour , IPointerDownHandler
 {
     [SerializeField] Rigidbody2D rb2;
 
@@ -17,11 +18,13 @@ public class Shaker : MonoBehaviour , IPointerDownHandler
     [Space]
     [Header("Rotation")]
     [SerializeField] float rotationThreshold;
+    [SerializeField] float rotationTime;
 
     int shakerClickCount;
 
     float rndX;
     float rndY;
+    float rndRot;
 
     Vector3 rotationVector;
 
@@ -33,9 +36,7 @@ public class Shaker : MonoBehaviour , IPointerDownHandler
 
     private void Awake()
     {
-        rotationVector = Vector3.zero;
-        rb2.simulated = false;
-        shakerClickCount = 0;
+        MinigameSetInitalFields();
     }
 
     private void Update()
@@ -45,6 +46,11 @@ public class Shaker : MonoBehaviour , IPointerDownHandler
         {
             rb2.simulated = true;
         }
+    }
+
+    public void MinigameStarted()
+    {
+        rb2.simulated = true;
     }
 
     void ShakerClicked()
@@ -58,6 +64,9 @@ public class Shaker : MonoBehaviour , IPointerDownHandler
         shakerClickCount++;
     }
 
+    /// <summary>
+    /// Launches the minigame components in a random upward velocity 
+    /// </summary>
     void ObjectVelocityLauncher()
     {
         // Get the Y velocity
@@ -66,18 +75,29 @@ public class Shaker : MonoBehaviour , IPointerDownHandler
         // Get The X Velocity 
         rnd = Random.Range(0, 101);
         rndX = LinerCalculation.InterpolateLinerLocation((float)rnd/100, xThreshold * -1, xThreshold);
+        // Rotate The Object
+        RotateObject();
         // Launch The actual Object
         rb2.velocity = new Vector2(rndX, rndY);
 
-        // Rotate The Object
-        RotateObject();
     }
 
+    /// <summary>
+    /// Rotates the minigame component
+    /// </summary>
     void RotateObject()
     {
+        int rnd = Random.Range(0, 101);
+        rndRot = LinerCalculation.InterpolateLinerLocation((float)rnd / 100, rotationThreshold * -1, rotationThreshold);
+        rotationVector = new Vector3(0, 0, rndRot);
+        transform.DORotate(rotationVector,rotationTime);
+    }
 
-
-        //transform.DORotate();
+    void MinigameSetInitalFields()
+    {
+        rotationVector = Vector3.zero;
+        rb2.simulated = false;
+        shakerClickCount = 0;
     }
 
 }
