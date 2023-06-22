@@ -1122,6 +1122,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2846772844814698688, guid: 1bc30729a9b61d543b3a6e01f5f411d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2846772844814698690, guid: 1bc30729a9b61d543b3a6e01f5f411d7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -2394,6 +2398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraController: {fileID: 1602573759}
+  barManager: {fileID: 907741645}
 --- !u!114 &860662225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3529,7 +3534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1180943569
 RectTransform:
   m_ObjectHideFlags: 0

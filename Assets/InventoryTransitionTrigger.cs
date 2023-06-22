@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class InventoryTransitionTrigger : MonoBehaviour, IPointerEnterHandler
 {
     [SerializeField] CameraController cameraController;
+    [SerializeField] BarManager barManager;
+
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -18,6 +20,7 @@ public class InventoryTransitionTrigger : MonoBehaviour, IPointerEnterHandler
             case MainSceneCameraState.Transitioning: break;
             case MainSceneCameraState.Inventory:
                 cameraController.MoveToBar();
+                barManager.GetInventory();
                 break;
         }
     }
