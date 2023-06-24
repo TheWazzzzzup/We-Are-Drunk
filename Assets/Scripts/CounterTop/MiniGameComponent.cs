@@ -20,8 +20,17 @@ public class MiniGameComponent : MonoBehaviour
 
     [SerializeField] SpriteRenderer spriteRenderer;
 
-    
+    [SerializeField] SpriteRenderer glowRenderer;
+
+
     // Private
+
+    Vector3 originalScale;
+
+    private void Start()
+    {
+        originalScale = transform.localScale;
+    }
 
     private void OnMouseDown()
     {
@@ -49,20 +58,28 @@ public class MiniGameComponent : MonoBehaviour
 
     void StateOverseer(MinigameState state)
     {
+        float tweenDuration = 0.7f;
         minigameState = state;
         switch (minigameState)
         {
             case MinigameState.Deactiveated:
-                spriteRenderer.DOColor(Color.black, 2.5f);
+                glowRenderer.gameObject.SetActive(false);
+                spriteRenderer.DOColor(Color.black, tweenDuration);
+                transform.localScale = originalScale;
                 break;
             case MinigameState.Active:
-                spriteRenderer.DOColor(Color.white, 2.5f) ;
+                glowRenderer.gameObject.SetActive(true);
+                transform.DOShakeRotation(tweenDuration, new Vector3(0, 0, 20), 15, 1, false, ShakeRandomnessMode.Harmonic);
+                transform.DOScale(originalScale * 1.3f, tweenDuration/2).SetEase(Ease.OutSine).OnComplete(() => transform.DOScale(originalScale, tweenDuration/2));
+                spriteRenderer.DOColor(Color.white, tweenDuration);
                 break;
             case MinigameState.InProgress:
                 MinigameProgress();
                 break;
             case MinigameState.Done:
                 MinigameCompleted();
+                glowRenderer.gameObject.SetActive(false);
+                spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f, 1);
                 break;
         }
     }
