@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,34 +8,22 @@ public class ShakerMinigameStatusBar : MonoBehaviour
     [SerializeField] Image barBackground;
     [SerializeField] Image desgnitedZone;
     [SerializeField] Image LocationIndicator;
+    [SerializeField] TMP_Text scoreText;
+    [SerializeField] TMP_Text timeOnTargetText;
 
-    [Range(0, 1)]
-    public float desgnitedZonePlacing;
-
-    [Range(0, 1)]
-    public float locationIndicatorPlacing;
-
+    #region Height Limits
+    // Height limits //Automated height limits to the images used in the status bar
     float barBackgroundHeight => barBackground.rectTransform.sizeDelta.y;
 
-    // The are in which the image can be move inside (pos,neg) has to be a child of the barBackground
-    // Need to be offseted if we add our own sprite
     float designtedZoneHeightLimit => (barBackgroundHeight / 2) - desgnitedZone.rectTransform.sizeDelta.y / 2;
 
+    float LocationIndicatorHeightLimit => (barBackgroundHeight / 2) - (LocationIndicator.rectTransform.sizeDelta.y + 20) / 2;
+    #endregion
 
-    private void OnValidate()
+    public void UpdateScoreText(float score)
     {
-        float loc = Mathf.Lerp(-designtedZoneHeightLimit, designtedZoneHeightLimit, desgnitedZonePlacing);
-        LerpDesgnatiedZoneRect(loc);
-
-        float loc1 = Mathf.Lerp(-designtedZoneHeightLimit, designtedZoneHeightLimit, locationIndicatorPlacing);
-        LerpLocationIndicatorRect(loc1);
-
-        //  TODO:
-        //  Create a calculation that will make this fit
-        //  *NOTICE* make sure the showing of the changes is making sense as well
+        scoreText.text = score.ToString();
     }
-
-
 
     public void IndicateZoneOverlap()
     {
@@ -45,17 +32,23 @@ public class ShakerMinigameStatusBar : MonoBehaviour
     }
 
     /// <summary>
+    /// Change the time on target represnation in UI
+    /// </summary>
+    /// <param name="time">The desired time to show</param>
+    public void ChangeRandomTimeOnTarget(float time)
+    {
+        timeOnTargetText.text = time.ToString();
+    }
+
+    /// <summary>
     /// Places the rect location of the desgnatied zone using liner calculation
     /// </summary>
     /// <param name="lerpLocation">Liner location (Between 0 - 1)</param>
     public void LerpDesgnatiedZoneRect(float lerpLocation)
     {
-        if (lerpLocation > 0 || lerpLocation < 1)
-        {
-            Vector2 V2Loc = new Vector2(0, lerpLocation);
-            desgnitedZone.rectTransform.localPosition = V2Loc;
-        }
-        else return;
+        float linerLoc = Mathf.Lerp(-designtedZoneHeightLimit, designtedZoneHeightLimit, lerpLocation);
+        Vector2 V2Loc = new Vector2(0, linerLoc);
+        desgnitedZone.rectTransform.localPosition = V2Loc;
     }
 
     /// <summary>
@@ -64,11 +57,8 @@ public class ShakerMinigameStatusBar : MonoBehaviour
     /// <param name="lerpLocation">Liner location (Between 0 - 1)</param>
     public void LerpLocationIndicatorRect(float lerpLocation)
     {
-        if (lerpLocation > 0 || lerpLocation < 1)
-        {
-            Vector2 V2Loc1 = new Vector2(0, lerpLocation);
-            LocationIndicator.rectTransform.localPosition = V2Loc1;
-        }
-        else return;
+        float linerLoc = Mathf.Lerp(-LocationIndicatorHeightLimit, LocationIndicatorHeightLimit, lerpLocation);
+        Vector2 V2Loc1 = new Vector2(0, linerLoc);
+        LocationIndicator.rectTransform.localPosition = V2Loc1;
     }
 }

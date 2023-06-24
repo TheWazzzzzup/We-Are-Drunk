@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using DG.Tweening;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class ShakerMinigameComponent : MonoBehaviour , IPointerDownHandler
+public class ShakerMinigameComponent : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] Rigidbody2D rb2;
 
@@ -59,10 +56,10 @@ public class ShakerMinigameComponent : MonoBehaviour , IPointerDownHandler
     {
         // Get the Y velocity
         int rnd = Random.Range(0, 101);
-        rndY = LinerCalculation.InterpolateLinerLocation((float)rnd/100, minimumY,maximumY);
+        rndY = LinerCalculation.InterpolateLinerLocation((float)rnd / 100, minimumY, maximumY);
         // Get The X Velocity 
         rnd = Random.Range(0, 101);
-        rndX = LinerCalculation.InterpolateLinerLocation((float)rnd/100, xThreshold * -1, xThreshold);
+        rndX = LinerCalculation.InterpolateLinerLocation((float)rnd / 100, xThreshold * -1, xThreshold);
         // Launch The actual Object
         rb2.velocity = new Vector2(rndX, rndY);
 
