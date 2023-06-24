@@ -21,6 +21,9 @@ public class CameraController : MonoBehaviour
 
     bool canGoToInventory = true;
 
+    public MainSceneCameraState currentState { get; private set; } = MainSceneCameraState.Bar;
+    public MainSceneCameraState previousState { get; private set; } = MainSceneCameraState.Bar;
+
     private void Start()
     {
         cam.transform.position = BarLoc.position;
@@ -45,13 +48,17 @@ public class CameraController : MonoBehaviour
 
     public void MoveToBar()
     {
-        cam.transform.DOMove(BarLoc.position, cameraDuration).SetEase(Ease.OutCubic);
+        cam.transform.DOMove(BarLoc.position, cameraDuration).SetEase(Ease.OutCubic).OnComplete(() => currentState = MainSceneCameraState.Bar);
+        currentState = MainSceneCameraState.Transitioning;
     }
 
     public void MoveToInventory()
     {
-        if (canGoToInventory)
-        cam.transform.DOMove(InventoryLoc.position, cameraDuration).SetEase(Ease.OutCubic);
+        if (!canGoToInventory)
+            return;
+        cam.transform.DOMove(InventoryLoc.position, cameraDuration).SetEase(Ease.OutCubic).OnComplete(() => currentState = MainSceneCameraState.Inventory);
+        currentState = MainSceneCameraState.Transitioning;
+
     }
 
     public void MoveToCraft()
@@ -60,5 +67,11 @@ public class CameraController : MonoBehaviour
         canGoToInventory = false;
     }
 
+}
 
+public enum MainSceneCameraState
+{
+    Bar,
+    Transitioning,
+    Inventory
 }
