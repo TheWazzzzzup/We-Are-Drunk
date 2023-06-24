@@ -36,6 +36,14 @@ public class ShakerMinigameStatusBar : MonoBehaviour
         //  *NOTICE* make sure the showing of the changes is making sense as well
     }
 
+
+
+    public void IndicateZoneOverlap()
+    {
+        // TODO: create indication of the overlap between the zone and the actual location
+        Debug.Log("Overlap Zone and Image");
+    }
+
     /// <summary>
     /// Places the rect location of the desgnatied zone using liner calculation
     /// </summary>

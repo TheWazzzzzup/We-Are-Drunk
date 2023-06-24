@@ -17,8 +17,6 @@ public class ShakerMinigameComponent : MonoBehaviour , IPointerDownHandler
     [SerializeField] float xThreshold;
     [Space]
 
-    int shakerClickCount;
-
     float rndX;
     float rndY;
     float rndRot;
@@ -40,10 +38,8 @@ public class ShakerMinigameComponent : MonoBehaviour , IPointerDownHandler
         // needs a replacement asap ! just a simulation check needs to be replaced by the minigame start 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            rb2.simulated = true;
+            MinigameStarted();
         }
-
-
     }
 
     public void MinigameStarted()
@@ -53,13 +49,7 @@ public class ShakerMinigameComponent : MonoBehaviour , IPointerDownHandler
 
     void ShakerClicked()
     {
-        UpdateScore();
         ObjectVelocityLauncher();
-    }
-
-    void UpdateScore()
-    {
-        shakerClickCount++;
     }
 
     /// <summary>
@@ -82,56 +72,6 @@ public class ShakerMinigameComponent : MonoBehaviour , IPointerDownHandler
     {
         rotationVector = Vector3.zero;
         rb2.simulated = false;
-        shakerClickCount = 0;
     }
 
 }
-
-public class ShakerSections : MonoBehaviour
-{
-    List<RotationSections> SectionsTheRotationInside;
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        
-    }
-
-    RotationSections TagToEnum(GameObject gameObject)
-    {
-        switch (gameObject.tag)
-        {
-            case "No":
-                return RotationSections.No;
-                break;
-            case "Little":
-                return RotationSections.Low;
-                break;
-            case "Medium":
-                return RotationSections.Medium;
-                break;
-            case "Heavy":
-                return RotationSections.Heavy;
-                break;
-        }
-        return RotationSections.Empty;
-    }
-
-
-
-
-    public enum RotationSections
-    {
-        Empty,
-        No,
-        Low,
-        Medium,
-        Heavy
-    }    
-}
-
-
