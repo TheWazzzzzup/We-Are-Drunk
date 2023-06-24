@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,6 +28,7 @@ public class ShakerMinigameStatusBar : MonoBehaviour
 
     public void IndicateZoneOverlap()
     {
+        LocationIndicator.rectTransform.DOShakeRotation(.02f,20f); 
         // TODO: create indication of the overlap between the zone and the actual location
         Debug.Log("Overlap Zone and Image");
     }
