@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cup
+  - IceCube
+  - IceMinigameFloor
   layers:
   - Default
   - TransparentFX
@@ -47,4 +49,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: GeneralMouseClick
+    uniqueID: 650450983
     locked: 0
