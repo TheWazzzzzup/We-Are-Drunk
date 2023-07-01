@@ -5,18 +5,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class CostumerManager : MonoBehaviour
 {
-    [SerializeField] GameObject costumerPrefab;
-    [SerializeField] Transform spawnPoint, standingPoint;
+    [SerializeField] GameObject _costumerPrefab;
+    [SerializeField] Transform _spawnPoint, _standingPoint;
+    /// <summary>
+    /// The list of all the costumers in the game
+    /// </summary>
+    [SerializeField] List<CostumerData> _costumersRegistry;
 
-    CostumerController currentCostumer;
+    CostumerController _currentCostumer;
 
+    /// <summary>
+    /// Spawn a costumer with the given data
+    /// </summary>
+    /// <param name="data">The data of the costumer to spawn</param>
+    /// <returns>Costumer Controller of the spawned costumer</returns>
     [Button]
     public CostumerController SpawnCostumer(CostumerData data)
     {
-        if (currentCostumer != null)
+        if (_currentCostumer != null)
         {
             Debug.LogError("Can only have one active costumer at a time");
             return null;
@@ -26,28 +36,47 @@ public class CostumerManager : MonoBehaviour
         CostumerController costumer = CreateCostumer(data);
 
         //set the current costumer
-        currentCostumer = costumer;
+        _currentCostumer = costumer;
 
         //move the costumer to the standing point
-        costumer.MoveTo(standingPoint.position).onComplete += () => OnCostumerReachedStandingPoint(costumer);
+        costumer.MoveTo(_standingPoint.position).onComplete += () => OnCostumerReachedStandingPoint(costumer);
         //show the greeting line
         costumer.ShowDialogue(costumer.CostumerData.GreetingLine);
 
         return costumer;
     }
 
+    /// <summary>
+    /// Spawn a random costumer from the registry
+    /// </summary>
+    /// <returns>Costumer Controller of the spawned costumer</returns>
+    public CostumerController SpawnCostumer()
+    {
+        //is the registry empty?
+        if (_costumersRegistry.Count == 0)
+        {
+            Debug.LogError("Cannot spawn a costumer. Costumer Registry is empty. Please populate the list with costumer data from the inspector.");
+            return null;
+        }
+
+        //Choose a random costumer data
+        CostumerData data = _costumersRegistry[Random.Range(0, _costumersRegistry.Count)];
+        //Spawn the costumer
+        return SpawnCostumer(data);
+    }
+
     [Button]
     public void RemoveCurrentCostumer()
     {
         //if we don't have a costumer, throw an error
-        if (currentCostumer == null)
+        if (_currentCostumer == null)
         {
             Debug.LogError("Trying to remove a costumer while there are none");
             return;
         }
 
         //Move the costumer to spawn point and destroy it
-        currentCostumer.MoveTo(spawnPoint.position).onComplete += () => Destroy(currentCostumer.gameObject);
+        _currentCostumer.MoveTo(_spawnPoint.position).onComplete += () => Destroy(_currentCostumer.gameObject);
     }
 
     [Button]
@@ -59,16 +88,16 @@ public class CostumerManager : MonoBehaviour
         {
             case 100:
                 {
-                    currentCostumer.ShowDialogue(currentCostumer.CostumerData.GetLine(CostumerData.LineType.PositiveFeedback));
+                    _currentCostumer.ShowDialogue(_currentCostumer.CostumerData.GetLine(CostumerData.LineType.PositiveFeedback));
                     break;
                 }
             case 70:
                 {
-                    currentCostumer.ShowDialogue(currentCostumer.CostumerData.GetLine(CostumerData.LineType.NeutralFeedback));
+                    _currentCostumer.ShowDialogue(_currentCostumer.CostumerData.GetLine(CostumerData.LineType.NeutralFeedback));
                     break;
                 }
             default:
-                currentCostumer.ShowDialogue(currentCostumer.CostumerData.GetLine(CostumerData.LineType.NegativeFeedback));
+                _currentCostumer.ShowDialogue(_currentCostumer.CostumerData.GetLine(CostumerData.LineType.NegativeFeedback));
                 break;
         }
 
@@ -78,14 +107,14 @@ public class CostumerManager : MonoBehaviour
 
     private int GetMatchScore(RecipeDataSO recipe)
     {
-        return MatchScore.Calculate(currentCostumer.CostumerData.Recipe, recipe);
+        return MatchScore.Calculate(_currentCostumer.CostumerData.Recipe, recipe);
     }
 
 
     private CostumerController CreateCostumer(CostumerData data)
     {
         //create and set game object
-        GameObject costumer = Instantiate(costumerPrefab, spawnPoint.position, Quaternion.identity);
+        GameObject costumer = Instantiate(_costumerPrefab, _spawnPoint.position, Quaternion.identity);
         costumer.transform.SetParent(transform);
 
         //initialize the controller

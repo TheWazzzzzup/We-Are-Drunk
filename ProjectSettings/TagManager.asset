@@ -5,10 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cup
-  - No
-  - Little
-  - Medium
-  - Heavy
+  - IceCube
+  - IceMinigameFloor
   layers:
   - Default
   - TransparentFX
@@ -16,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Minigame
+  - 
   - 
   - 
   - 
@@ -51,4 +49,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: GeneralMouseClick
+    uniqueID: 650450983
     locked: 0
