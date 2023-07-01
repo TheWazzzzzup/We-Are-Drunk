@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Will be incharge of assigening the ingredients into each area
@@ -205,5 +206,10 @@ public class BarManager : MonoBehaviour
     }
    
     #endregion
+
+    public void ResetScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 }
