@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5482445037275640861}
   - component: {fileID: 8114293701094620365}
   m_Layer: 0
-  m_Name: Rum UIE
+  m_Name: Whiskey UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8313de08d5d452468982aad173157ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iName: 8
+  iName: 7
   iType: 1
   inventory: {fileID: 0}
   isSelected: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.7933049, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.22841308, b: 0.5943396, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  selectedColor: {r: 0, g: 0.79215693, b: 1, a: 0.39215687}
-  unselectedColor: {r: 0, g: 0.79215693, b: 1, a: 1}
+  selectedColor: {r: 0, g: 0.227451, b: 0.59607846, a: 0.29803923}
+  unselectedColor: {r: 0, g: 0.227451, b: 0.59607846, a: 1}
 --- !u!1001 &677495912443144214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1834471923917163414, guid: fb38103991b27654d9594ea49bc546ed, type: 3}
       propertyPath: m_text
-      value: RUM
+      value: Whiskey
       objectReference: {fileID: 0}
     - target: {fileID: 1834471923917163414, guid: fb38103991b27654d9594ea49bc546ed, type: 3}
       propertyPath: m_fontSize
