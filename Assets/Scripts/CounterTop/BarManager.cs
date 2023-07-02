@@ -48,6 +48,8 @@ public class BarManager : MonoBehaviour
     // checks if the player completed any minigame, to block some interactions
     bool isMakingDrink = false;
 
+
+
     // Methods
 
     public void CheckForMinigamesCompletion()
