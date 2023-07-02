@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828787bfe20c93141ab38279178d79a5, type: 3}
   m_Name: Zombie Customer
   m_EditorClassIdentifier: 
-  recipe: {fileID: 0}
-  hints: []
+  recipe: {fileID: 11400000, guid: 7b7e823f48aefa54aa2aa6c0ef245f1b, type: 2}
+  hints:
+  - Zombie Hard
+  - Zombie Easy
   positiveFeedbackLinse: []
   nutrealFeedbackLines: []
   negetiveFeedbackLines: []

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828787bfe20c93141ab38279178d79a5, type: 3}
   m_Name: Cosmopolitian Customer
   m_EditorClassIdentifier: 
-  recipe: {fileID: 0}
-  hints: []
+  recipe: {fileID: 11400000, guid: 42dc438019e5a034c8eff4e0b9ff17fa, type: 2}
+  hints:
+  - Cosmo Easy
+  - Cosmo Hard
   positiveFeedbackLinse: []
   nutrealFeedbackLines: []
   negetiveFeedbackLines: []

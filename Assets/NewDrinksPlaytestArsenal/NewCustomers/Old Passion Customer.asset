@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828787bfe20c93141ab38279178d79a5, type: 3}
   m_Name: Old Passion Customer
   m_EditorClassIdentifier: 
-  recipe: {fileID: 0}
-  hints: []
+  recipe: {fileID: 11400000, guid: 6ee7ea6d3bcdb6d469eab57f2958ba6a, type: 2}
+  hints:
+  - Passion Easy
+  - Passion Hard
   positiveFeedbackLinse: []
   nutrealFeedbackLines: []
   negetiveFeedbackLines: []

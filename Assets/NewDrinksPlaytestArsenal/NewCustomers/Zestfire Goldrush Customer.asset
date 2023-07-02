@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828787bfe20c93141ab38279178d79a5, type: 3}
   m_Name: Zestfire Goldrush Customer
   m_EditorClassIdentifier: 
-  recipe: {fileID: 0}
-  hints: []
+  recipe: {fileID: 11400000, guid: e20de78a362e614458724c204819cd6e, type: 2}
+  hints:
+  - Zestfire Easy
+  - Zestfire Hard
   positiveFeedbackLinse: []
   nutrealFeedbackLines: []
   negetiveFeedbackLines: []

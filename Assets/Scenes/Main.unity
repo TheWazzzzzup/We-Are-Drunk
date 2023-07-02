@@ -6021,7 +6021,12 @@ MonoBehaviour:
   _spawnPoint: {fileID: 350681461}
   _standingPoint: {fileID: 733880800}
   _costumersRegistry:
-  - {fileID: 11400000, guid: 00d81ac75553d7244b8628427cc609bc, type: 2}
+  - {fileID: 11400000, guid: 0647ed6ac948c8842913f977be070882, type: 2}
+  - {fileID: 11400000, guid: f941543c1f4d083449b4ea5ad4f3dcf1, type: 2}
+  - {fileID: 11400000, guid: 18532216c89849e49b8e8f0f22c30be8, type: 2}
+  - {fileID: 11400000, guid: 699d5b233f7249c488f417bb060f8f02, type: 2}
+  - {fileID: 11400000, guid: e016d3a88814eeb4ca4cd591577c902f, type: 2}
+  - {fileID: 11400000, guid: 1b519bcbb54268f45834d7a9197cae7c, type: 2}
 --- !u!1 &2107020204
 GameObject:
   m_ObjectHideFlags: 0
