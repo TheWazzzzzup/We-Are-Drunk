@@ -155,7 +155,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 43ad51e043491b94d8f6c62d55ac5ede, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.74650204, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -214,7 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6b2ca13906b774d8541a6cc08fab97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  costumerData: {fileID: 11400000, guid: 00d81ac75553d7244b8628427cc609bc, type: 2}
   tweenMovement: {fileID: 549269747658070638}
   dialogue: {fileID: 3033862428625850216}
 --- !u!114 &3033862428625850216

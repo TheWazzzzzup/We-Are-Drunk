@@ -16,6 +16,14 @@ public class CostumerManager : MonoBehaviour
     /// </summary>
     [SerializeField] List<CostumerData> _costumersRegistry;
 
+    // Temporey * * * * * * ** * * * * * *
+    public Color purple;
+    public Color redWithHit;
+    public Color golden;
+    public Color deepBrown;
+
+    // * * ** * * * end temp
+    
     CostumerController _currentCostumer;
 
     /// <summary>
@@ -62,6 +70,7 @@ public class CostumerManager : MonoBehaviour
         //Choose a random costumer data
         CostumerData data = _costumersRegistry[Random.Range(0, _costumersRegistry.Count)];
         //Spawn the costumer
+        CustomerLoop(data);
         return SpawnCostumer(data);
     }
 
@@ -131,6 +140,26 @@ public class CostumerManager : MonoBehaviour
         string hint = costumer.CostumerData.GetLine(CostumerData.LineType.Hint);
         costumer.ShowDialogue(hint);
     }
+
+    // Remove after playtest? 
+#if true
+    void CustomerLoop(CostumerData data)
+    {
+        if (data.name.Contains("Cosmopolitian")) _costumerPrefab.GetComponent<SpriteRenderer>().color = redWithHit;
+
+        if (data.name.Contains("Flity")) _costumerPrefab.GetComponent<SpriteRenderer>().color = Color.red;
+
+        if (data.name.Contains("Old")) _costumerPrefab.GetComponent<SpriteRenderer>().color = deepBrown;
+
+        if (data.name.Contains("Rum")) _costumerPrefab.GetComponent<SpriteRenderer>().color = Color.red;
+
+        if (data.name.Contains("Zestfire")) _costumerPrefab.GetComponent<SpriteRenderer>().color = golden;
+
+        if (data.name.Contains("Zombie")) _costumerPrefab.GetComponent<SpriteRenderer>().color = purple;
+    }
+
+
+#endif
 }
 
 public enum FeedbackType
