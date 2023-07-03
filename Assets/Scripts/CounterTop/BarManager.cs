@@ -5,7 +5,6 @@ using System.Linq;
 using UnityEngine.Events;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 /// <summary>
 /// Will be incharge of assigening the ingredients into each area
@@ -16,9 +15,6 @@ public class BarManager : MonoBehaviour
     public bool canMiniGame => CanMiniGame();
 
     // SerializeFields
-    [Header("UI_Temp")]
-    [SerializeField] TMP_Text currentDrinkText;
-    
     [Header("Areas")]
     [SerializeField] IngredientSpawnArea alcholArea; 
     [SerializeField] IngredientSpawnArea juiceArea; 
@@ -118,15 +114,8 @@ public class BarManager : MonoBehaviour
     /// <returns>can the player enter minigame phase</returns>
     bool CanMiniGame()
     {
-        if (CurrentPickedIngredientsWithoutCup.Count <= 0 || baseIngredient == null)
-        {
-            currentDrinkText.text = " Current Drink:";
-            return false;
-        }
-        bool returnValue = craftManager.CompareToRecipe(CurrentPickedIngredientsWithoutCup, currentAlchol[0], out string name) && currentCup.Count > 0;
-        currentDrinkText.text = " Current Drink: " + name;
-        return returnValue;
-
+        if (CurrentPickedIngredientsWithoutCup.Count <= 0 || baseIngredient == null) return false;
+        return craftManager.CompareToRecipe(CurrentPickedIngredientsWithoutCup, currentAlchol[0]) && currentCup.Count > 0;
 
         //if (currentCup.Count > 0 && currentAlchol.Count > 0 && currentFloat.Count > 0 && currentJuice.Count > 0) return true;
         //else return false;
