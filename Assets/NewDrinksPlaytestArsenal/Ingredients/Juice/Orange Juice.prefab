@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7381392510277545529}
   - component: {fileID: 7381392510277545526}
   - component: {fileID: 7381392510277545527}
-  - component: {fileID: -3300710991191129789}
   m_Layer: 0
   m_Name: Orange Juice
   m_TagString: Untagged
@@ -136,20 +135,6 @@ MonoBehaviour:
   OnSelected:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &-3300710991191129789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7381392510277545524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e3018969ff69c2449a0f9e2624fc763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientIdentity: {fileID: 7381392510277545527}
-  gameEvent: {fileID: 11400000, guid: c5598d1287d37464897360ae2bab053f, type: 2}
 --- !u!1 &7381392511103155753
 GameObject:
   m_ObjectHideFlags: 0

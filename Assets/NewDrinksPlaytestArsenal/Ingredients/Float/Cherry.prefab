@@ -186,7 +186,6 @@ GameObject:
   - component: {fileID: 2395024662805422116}
   - component: {fileID: 2395024662805422123}
   - component: {fileID: 2395024662805422122}
-  - component: {fileID: -5071583581934146930}
   m_Layer: 0
   m_Name: Cherry
   m_TagString: Untagged
@@ -310,17 +309,3 @@ MonoBehaviour:
   OnSelected:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &-5071583581934146930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2395024662805422121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e3018969ff69c2449a0f9e2624fc763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ingredientIdentity: {fileID: 2395024662805422122}
-  gameEvent: {fileID: 11400000, guid: c5598d1287d37464897360ae2bab053f, type: 2}
