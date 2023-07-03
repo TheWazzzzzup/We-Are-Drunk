@@ -142,7 +142,7 @@ public class CostumerManager : MonoBehaviour
     }
 
     // Remove after playtest? 
-#if true
+#if false
     void CustomerLoop(CostumerData data)
     {
         if (data.name.Contains("Cosmopolitian")) _costumerPrefab.GetComponent<SpriteRenderer>().color = redWithHit;
