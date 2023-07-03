@@ -154,8 +154,8 @@ SpriteRenderer:
   m_SortingLayerID: -31524281
   m_SortingLayer: -2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 43ad51e043491b94d8f6c62d55ac5ede, type: 3}
-  m_Color: {r: 0.3584906, g: 0.15020415, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 09fdb082ea4bc09488ed589e524253d4, type: 3}
+  m_Color: {r: 0.6603774, g: 0.4465153, b: 0.3582236, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -296,7 +296,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Oh! You have truly unlocked the secrets of my desires, dear subject. This
+    Old Fashioned, a divine elixir of sophistication and power, is exactly what I
+    crave. Slayed it, darling! Bask in my delight and revel in the glory of my appreciation.
+    Your skills have earned my favor, and the realm shall know of your triumph! THIS
+    IS A PLACE HOLDER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -323,11 +327,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 0.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 1
+  m_fontSizeMin: 0.5
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1

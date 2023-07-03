@@ -8015,10 +8015,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 699d5b233f7249c488f417bb060f8f02, type: 2}
   - {fileID: 11400000, guid: e016d3a88814eeb4ca4cd591577c902f, type: 2}
   - {fileID: 11400000, guid: 1b519bcbb54268f45834d7a9197cae7c, type: 2}
-  purple: {r: 0.23619461, g: 0, b: 1, a: 1}
-  redWithHit: {r: 0.6792453, g: 0.25088227, b: 0.07369172, a: 1}
-  golden: {r: 1, g: 0.74650204, b: 0, a: 1}
-  deepBrown: {r: 0.3584906, g: 0.15020415, b: 0, a: 1}
+  purple: {r: 0.54911226, g: 0.41037738, b: 1, a: 1}
+  redWithHit: {r: 0.6603774, g: 0.4465153, b: 0.3582236, a: 1}
+  golden: {r: 0.990566, g: 0.89409304, b: 0.61209506, a: 1}
+  deepBrown: {r: 0.3301887, g: 0.24764152, b: 0.18845674, a: 1}
 --- !u!1 &2107020204
 GameObject:
   m_ObjectHideFlags: 0

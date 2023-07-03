@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipe: {fileID: 11400000, guid: a5c262a886e16ee4f88bef11a047616f, type: 2}
   hints:
-  - Punch Easy
-  - Punch Hard
+  - Transport me to a tropical island, let cousin citrus be bold, show me that crimson
+    elixir! E
+  - I want to feel like the Caribbean sunset. Embrace me with sister scarlet, let
+    those juices dance with the sweetness of the base H
   positiveFeedbackLinse: []
   nutrealFeedbackLines: []
   negetiveFeedbackLines: []

@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipe: {fileID: 11400000, guid: 41e2589cc6fbe3b40bdca9484df7b9f8, type: 2}
   hints:
-  - Fizz Easy
-  - Fizz Hard
+  - Flirt with me, add some fizz and zest to it, I want it to be as pink as my cheeks.
+    Over that neutralized and versatile base E
+  - I'm craving the irresistibility potion, involving sanguine fruit . Shake it up
+    for me and watch as this enchanting blend makes me blush with delight! H
   positiveFeedbackLinse: []
   nutrealFeedbackLines: []
   negetiveFeedbackLines: []

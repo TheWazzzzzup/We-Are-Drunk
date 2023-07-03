@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipe: {fileID: 11400000, guid: 42dc438019e5a034c8eff4e0b9ff17fa, type: 2}
   hints:
-  - Cosmo Easy
-  - Cosmo Hard
+  - Hi-Hi Bartender! I want to see vibrance and extreme tanginess, summer sunset
+    in a glass! Red with a bit of orange, fruity citrusy goodness E
+  - 'Mixologist extraordinaire! I''m craving an enchanting elixir that embodies the
+    essence of a vibrant bouquet: a blend of zesty citrus and luscious berries. H'
   positiveFeedbackLinse: []
   nutrealFeedbackLines: []
   negetiveFeedbackLines: []
