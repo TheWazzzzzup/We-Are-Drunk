@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Will be incharge of assigening the ingredients into each area
@@ -46,6 +47,8 @@ public class BarManager : MonoBehaviour
 
     // checks if the player completed any minigame, to block some interactions
     bool isMakingDrink = false;
+
+
 
     // Methods
 
@@ -205,5 +208,10 @@ public class BarManager : MonoBehaviour
     }
    
     #endregion
+
+    public void ResetScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
 }

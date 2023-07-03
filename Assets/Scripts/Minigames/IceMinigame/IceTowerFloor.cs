@@ -11,12 +11,10 @@ public class IceTowerFloor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("huh");
         if (collision.gameObject.tag != "IceCube")
         {
             return;
         }
-        print("is ice cube");
         if(collision.gameObject.Equals(gameManager.CurrentIceCube.gameObject))
         {
             onFloorTouched.Invoke();

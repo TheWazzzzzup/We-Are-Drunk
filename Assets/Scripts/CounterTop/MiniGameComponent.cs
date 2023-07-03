@@ -12,6 +12,9 @@ public class MiniGameComponent : MonoBehaviour
     public UnityEvent OnClick;
     public MinigameState minigameState { get; private set; }
 
+    public UnityEvent OnMinigamesReady = new();
+    public UnityEvent OnMinigamesDeactive = new();
+    public UnityEvent OnMinigamesDone = new();
 
     // Serialze
     [SerializeField] MinigameType minigameType;
@@ -69,9 +72,8 @@ public class MiniGameComponent : MonoBehaviour
                 break;
             case MinigameState.Active:
                 glowRenderer.gameObject.SetActive(true);
-                transform.DOShakeRotation(tweenDuration, new Vector3(0, 0, 20), 15, 1, false, ShakeRandomnessMode.Harmonic);
-                transform.DOScale(originalScale * 1.3f, tweenDuration/2).SetEase(Ease.OutSine).OnComplete(() => transform.DOScale(originalScale, tweenDuration/2));
-                spriteRenderer.DOColor(Color.white, tweenDuration);
+                OnMinigamesReady.Invoke();
+                ReadyTween(tweenDuration);
                 break;
             case MinigameState.InProgress:
                 MinigameProgress();
@@ -83,7 +85,14 @@ public class MiniGameComponent : MonoBehaviour
                 break;
         }
     }
-    
+
+    private void ReadyTween(float tweenDuration)
+    {
+        transform.DOShakeRotation(tweenDuration, new Vector3(0, 0, 20), 15, 1, false, ShakeRandomnessMode.Harmonic);
+        transform.DOScale(originalScale * 1.3f, tweenDuration / 2).SetEase(Ease.OutSine).OnComplete(() => transform.DOScale(originalScale, tweenDuration / 2));
+        spriteRenderer.DOColor(Color.white, tweenDuration);
+    }
+
     void MinigameProgress()
     {
         // Place holder, should be replaced with script specific minigame

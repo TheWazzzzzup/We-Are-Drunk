@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 public class IceTowerGameManager : MonoBehaviour
 {
-    [SerializeField] Camera mainCamera;
 
     [Header("Game parameters")]
     [SerializeField] int targetScore = 10;
@@ -25,6 +25,8 @@ public class IceTowerGameManager : MonoBehaviour
     [SerializeField] Transform rightSpawnLocation;
     [SerializeField] Transform targetSpawnLocation;
 
+    public UnityEvent<int> OnGameOver;
+
     Stack<IceCube> placedIceCubes = new();
 
     bool rightside = true;
@@ -32,14 +34,14 @@ public class IceTowerGameManager : MonoBehaviour
     float timer = 4f;
     bool isGameOver = false;
 
-    public IceCube CurrentIceCube { get => currentIceCube;}
+    public IceCube CurrentIceCube { get => currentIceCube; }
 
     private void OnMouseDown()
     {
-        if(currentIceCube == null) 
+        if (currentIceCube == null)
             return;
 
-        if(currentIceCube.CurrentState == IceCube.IceCubeState.Swaying)
+        if (currentIceCube.CurrentState == IceCube.IceCubeState.Swaying)
         {
             currentIceCube.Drop();
         }
@@ -47,17 +49,45 @@ public class IceTowerGameManager : MonoBehaviour
 
     private void Start()
     {
+        //find the score manager
+        var scoreManager = FindObjectOfType<ScoreManager>();
+
+        if (scoreManager == null)
+        {
+            Debug.LogError("ScoreManager object could not be found. Check to ensure the ScoreManager object is present in the scene.");
+            return;
+        }
+
+        //when game is over, send the score to the score manager
+        OnGameOver.AddListener(scoreManager.AddMinigameScore);
+
+        //unload the scene on game over
+        OnGameOver.AddListener((score) =>
+        {
+            var sceneLoader = FindObjectOfType<SceneLoader>();
+
+            if (sceneLoader == null)
+            {
+                Debug.LogError("SceneLoader object could not be found. Check to ensure the SceneLoader object is present in the scene.");
+                return;
+            }
+
+            sceneLoader.UnloadScene("Ice-Tower_Minigame");
+            Camera.main.transform.DOMove(new Vector3(0, 0, -10), 1f);
+        });
+
         StartGame();
     }
 
+
     private void Update()
     {
-        if(isGameOver)
+        if (isGameOver)
         {
             return;
         }
 
-        if(currentScore >= targetScore)
+        if (currentScore >= targetScore)
         {
             print("You win");
             GameOver();
@@ -122,20 +152,21 @@ public class IceTowerGameManager : MonoBehaviour
     void MoveGameUp()
     {
         Vector3 upPosition = new Vector3(transform.position.x, transform.position.y + (2 * scale), transform.position.z);
-        mainCamera.transform.DOMoveY(mainCamera.transform.position.y + 2 * scale, 0.3f).SetEase(Ease.OutSine).OnComplete(() => {
+        Camera.main.transform.DOMoveY(Camera.main.transform.position.y + 2 * scale, 0.3f).SetEase(Ease.OutSine).OnComplete(() =>
+        {
             transform.position = upPosition;
             GetNextIceCube();
-            });
+        });
     }
 
     public IceCube SpawnIceCube()
     {
         IceCube newIceCube;
 
-        if(RandomSpawnSide())
+        if (RandomSpawnSide())
         {
             //spawn right side
-            newIceCube = Instantiate(iceCubePrefabs[Random.Range(0,iceCubePrefabs.Length)], rightSpawnLocation.position, Quaternion.identity);
+            newIceCube = Instantiate(iceCubePrefabs[Random.Range(0, iceCubePrefabs.Length)], rightSpawnLocation.position, Quaternion.identity);
         }
         else
         {
@@ -152,8 +183,7 @@ public class IceTowerGameManager : MonoBehaviour
             return;
 
         isGameOver = true;
-        print("GameOver");
-        //game over logic - show score, send score, start timer to send back to main scene
+        OnGameOver?.Invoke(currentScore);
     }
 
     #region GetRandom
@@ -166,7 +196,7 @@ public class IceTowerGameManager : MonoBehaviour
         }
         else
         {
-            rightside= false;
+            rightside = false;
             targetSpawnLocation = rightSpawnLocation;
         }
 

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc9dd802823dda4392771873f80cf15, type: 3}
+  m_Name: Rum Punch
+  m_EditorClassIdentifier: 
+  name: 
+  ingredients:
+  - {fileID: 7894095659310798450, guid: bbd73412e92aca844933a13fa5d8edc2, type: 3}
+  - {fileID: 5337488812055029019, guid: 605ee8f9ca1e9bf4daf65cccb10267d6, type: 3}
+  - {fileID: 7381392510277545527, guid: e006403d370a38542b07fcfc175e079e, type: 3}
+  - {fileID: 2395024662805422122, guid: adfd1eb2e2fbdfa44899becbcdab1eb1, type: 3}

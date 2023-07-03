@@ -40,10 +40,16 @@ public class Ingredient : MonoBehaviour, IPointerClickHandler
 
     public override bool Equals(object other)
     {
+        if (other is null)
+        {
+            return false;
+        }
+        
         if (other is not Ingredient)
         {
             return false;
         }
+
 
         Ingredient otherIngredient = (Ingredient)other;
 
@@ -119,6 +125,7 @@ public enum IngredientName
     Maraschino_Cherries,
     Mint_Leaves,
     Nasturtium_Flowers,
+    DragonloomFlower,
 
     Cup,
 
