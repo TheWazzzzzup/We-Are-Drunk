@@ -8,7 +8,6 @@ using UnityEngine.UIElements;
 
 public class IceTowerGameManager : MonoBehaviour
 {
-    [SerializeField] Camera mainCamera;
 
     [Header("Game parameters")]
     [SerializeField] int targetScore = 10;
@@ -50,9 +49,14 @@ public class IceTowerGameManager : MonoBehaviour
 
     private void Start()
     {
-
         //find the score manager
         var scoreManager = FindObjectOfType<ScoreManager>();
+
+        if (scoreManager == null)
+        {
+            Debug.LogError("ScoreManager object could not be found. Check to ensure the ScoreManager object is present in the scene.");
+            return;
+        }
 
         //when game is over, send the score to the score manager
         OnGameOver.AddListener(scoreManager.AddMinigameScore);
@@ -60,12 +64,21 @@ public class IceTowerGameManager : MonoBehaviour
         //unload the scene on game over
         OnGameOver.AddListener((score) =>
         {
-            FindObjectOfType<SceneLoader>().UnloadScene("Ice-Tower_Minigame");
-            Camera.main.transform.DOMove(new(0, 0, -10), 1f);
+            var sceneLoader = FindObjectOfType<SceneLoader>();
+
+            if (sceneLoader == null)
+            {
+                Debug.LogError("SceneLoader object could not be found. Check to ensure the SceneLoader object is present in the scene.");
+                return;
+            }
+
+            sceneLoader.UnloadScene("Ice-Tower_Minigame");
+            Camera.main.transform.DOMove(new Vector3(0, 0, -10), 1f);
         });
 
         StartGame();
     }
+
 
     private void Update()
     {
@@ -139,7 +152,7 @@ public class IceTowerGameManager : MonoBehaviour
     void MoveGameUp()
     {
         Vector3 upPosition = new Vector3(transform.position.x, transform.position.y + (2 * scale), transform.position.z);
-        mainCamera.transform.DOMoveY(mainCamera.transform.position.y + 2 * scale, 0.3f).SetEase(Ease.OutSine).OnComplete(() =>
+        Camera.main.transform.DOMoveY(Camera.main.transform.position.y + 2 * scale, 0.3f).SetEase(Ease.OutSine).OnComplete(() =>
         {
             transform.position = upPosition;
             GetNextIceCube();

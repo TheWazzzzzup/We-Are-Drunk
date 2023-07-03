@@ -11,7 +11,10 @@ public class ScoreManager : MonoBehaviour
     QualityScore qualityScore;
     SatisfactionScore satisfactionScore;
 
-
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
