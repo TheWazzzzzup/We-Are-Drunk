@@ -836,8 +836,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakerCollision: {fileID: 647944867}
   shakerStatusBar: {fileID: 1275579417}
-  littleScoreInc: 15
-  bigScoreInc: 25
+  littleScoreInc: 5
+  bigScoreInc: 20
   scoreMultiplier: 0.05
   goalTimeOnTarget: 5
   onTargetOffset: 10
