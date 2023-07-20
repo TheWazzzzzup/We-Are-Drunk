@@ -70,7 +70,7 @@ public class CostumerManager : MonoBehaviour
         //Choose a random costumer data
         CostumerData data = _costumersRegistry[Random.Range(0, _costumersRegistry.Count)];
         //Spawn the costumer
-        CustomerLoop(data);
+        //CustomerLoop(data);
         return SpawnCostumer(data);
     }
 
