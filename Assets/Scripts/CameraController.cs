@@ -32,14 +32,6 @@ public class CameraController : MonoBehaviour
         cam.transform.position = BarLoc.position;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F8))
-        {
-            SceneManager.UnloadScene(1);
-        }
-    }
-
     public void ResetAbilityForInventory() {
         canGoToInventory = true;
     }
@@ -69,6 +61,7 @@ public class CameraController : MonoBehaviour
             return;
         cam.transform.DOMove(InventoryLoc.position, cameraDuration).SetEase(Ease.OutCubic).OnComplete(() => currentState = MainSceneCameraState.Inventory);
         currentState = MainSceneCameraState.Transitioning;
+        SceneManager.UnloadScene(1);
 
     }
 

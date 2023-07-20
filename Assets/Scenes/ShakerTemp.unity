@@ -560,7 +560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2426485968348188377, guid: e7cff48b9e423454f856912e6db88623, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01999998
+      value: -0.020000458
       objectReference: {fileID: 0}
     - target: {fileID: 2426485968348188377, guid: e7cff48b9e423454f856912e6db88623, type: 3}
       propertyPath: m_LocalPosition.z
@@ -810,7 +810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586813364}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.44, z: -10}
+  m_LocalPosition: {x: 0, y: 2.4400005, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -879,11 +879,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakerCollision: {fileID: 647944867}
   shakerStatusBar: {fileID: 1275579417}
+  shakerComponent: {fileID: 1644151532}
   littleScoreInc: 5
   bigScoreInc: 20
   scoreMultiplier: 0.05
   goalTimeOnTarget: 5
   onTargetOffset: 10
+  miniGameTimeFrame: 20
 --- !u!1 &647944864 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 647944864, guid: e7cff48b9e423454f856912e6db88623, type: 3}
@@ -1099,7 +1101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239077400}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.31, y: 2.44, z: -0.2323831}
+  m_LocalPosition: {x: 9.31, y: 2.4400005, z: -0.2323831}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1135,7 +1137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275579415}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.44, z: 0}
+  m_LocalPosition: {x: 0, y: 2.4400005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1490,6 +1492,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579297513}
   m_CullTransparentMesh: 1
+--- !u!114 &1644151532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2426485968348188376, guid: e7cff48b9e423454f856912e6db88623, type: 3}
+  m_PrefabInstance: {fileID: 374068220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8921676e1d8d5a44eb3ea8e0d7d755f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1739077088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,7 +1527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739077088}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.21, z: -0.25092867}
+  m_LocalPosition: {x: 0, y: 6.210001, z: -0.25092867}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
