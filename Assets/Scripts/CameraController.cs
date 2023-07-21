@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] Transform IceLoc;
 
     [SerializeField] Transform FloatLoc;
+
+    Sequence tweeningSequence;
 
     bool canGoToInventory = true;
 
@@ -58,13 +61,21 @@ public class CameraController : MonoBehaviour
             return;
         cam.transform.DOMove(InventoryLoc.position, cameraDuration).SetEase(Ease.OutCubic).OnComplete(() => currentState = MainSceneCameraState.Inventory);
         currentState = MainSceneCameraState.Transitioning;
+        SceneManager.UnloadScene(1);
 
     }
 
     public void MoveToCraft()
     {
-        cam.transform.DOMove(CraftLoc.position, cameraDuration).SetEase(Ease.OutCubic);
+        Tween tween = cam.transform.DOMove(CraftLoc.position, cameraDuration).SetEase(Ease.OutCubic);
+        tween.OnComplete(TransitionCompleted);
+
         canGoToInventory = false;
+    }
+
+    void TransitionCompleted()
+    {
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
 }

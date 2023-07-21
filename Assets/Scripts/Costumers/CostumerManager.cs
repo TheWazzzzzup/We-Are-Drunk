@@ -70,7 +70,7 @@ public class CostumerManager : MonoBehaviour
         //Choose a random costumer data
         CostumerData data = _costumersRegistry[Random.Range(0, _costumersRegistry.Count)];
         //Spawn the costumer
-        CustomerLoop(data);
+        //CustomerLoop(data);
         return SpawnCostumer(data);
     }
 
@@ -142,7 +142,7 @@ public class CostumerManager : MonoBehaviour
     }
 
     // Remove after playtest? 
-#if true
+#if false
     void CustomerLoop(CostumerData data)
     {
         if (data.name.Contains("Cosmopolitian")) _costumerPrefab.GetComponent<SpriteRenderer>().color = redWithHit;

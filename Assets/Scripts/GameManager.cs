@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     //Singelton
     public static GameManager Instance;
 
+    [SerializeField] SceneManagment sceneMan;
+
     int customer;
 
     #region Services

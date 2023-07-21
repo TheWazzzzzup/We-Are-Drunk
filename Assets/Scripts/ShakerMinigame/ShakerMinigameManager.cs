@@ -5,6 +5,7 @@ public class ShakerMinigameManager : MonoBehaviour
     [Header("Refrences")]
     [SerializeField] CheckShakerMinigameCollisions shakerCollision; 
     [SerializeField] ShakerMinigameStatusBar shakerStatusBar;
+    [SerializeField] ShakerMinigameComponent shakerComponent;
 
     [Header("Score")]
     [SerializeField] int littleScoreInc; // The small score Incremental to the bar related location
@@ -14,19 +15,23 @@ public class ShakerMinigameManager : MonoBehaviour
     [Header("Target")]
     [SerializeField] float goalTimeOnTarget = 5f; // The goal time the player needs to reach when on target
     [SerializeField] int onTargetOffset; // The location offset the player is allowed in order to stay on target
+    [SerializeField] int miniGameTimeFrame;
 
     /// <summary>
     /// Wheter or not the player is currntly on target
     /// </summary>
     bool onTarget;
-    
+    bool minigameStarted = false;
+    bool minigameEnded = false;
+
     // Related Location
     float trasnlatedBarRelatedLocation = 0;
     float linerTarget; // the liner represantion of the score related location
     int shakerMaxLimit = 100;
 
     // Timer
-    float totalTime; // updated time the player has on target
+    float totalTimeOnTarget; // updated time the player has on target
+    float overallTime;       // Updated time from the start of the minigame
 
     // Disposable (Memory Saver / Preoptimization)
     int rndRange;
@@ -35,24 +40,51 @@ public class ShakerMinigameManager : MonoBehaviour
     {
         CreateRandomDesignatedArea();
         shakerStatusBar.ChangeRandomTimeOnTarget(goalTimeOnTarget);
-        totalTime = goalTimeOnTarget;
+        totalTimeOnTarget = goalTimeOnTarget;
+        
+        // Minigame Started (should be moved !)
+        InitiateGameStart();                        
+    }
+
+    public bool GetMinigameEnded() => minigameEnded;
+
+    private void InitiateGameStart()
+    {
+        shakerComponent.MinigameStarted();
+        minigameStarted = true;
     }
 
     private void FixedUpdate()
     {
         UpdateBarRelatedLocation(shakerCollision.Location);
 
+        if (minigameStarted)
+        {
+            overallTime += Time.fixedDeltaTime;
+
+            if (overallTime >= miniGameTimeFrame)
+            {
+                ShakerGameOver();
+            }
+
+        }
+
         if (onTarget)
         {
-            totalTime -= Time.fixedDeltaTime; // reduce the time by using the delta time incrementals
-            if (totalTime <= 0f)
+            totalTimeOnTarget -= Time.fixedDeltaTime; // reduce the time by using the delta time incrementals
+            if (totalTimeOnTarget <= 0f)
             {
                 // TODO add game ended logic
-
-                totalTime = 0;
+                ShakerGameOver();
+                totalTimeOnTarget = 0;
             }
-            shakerStatusBar.ChangeRandomTimeOnTarget(totalTime);
+            shakerStatusBar.ChangeRandomTimeOnTarget(totalTimeOnTarget);
         }
+    }
+
+    private void ShakerGameOver()
+    {
+           Debug.Log("Game Over");
     }
 
     /// <summary>
@@ -85,6 +117,17 @@ public class ShakerMinigameManager : MonoBehaviour
     void ScoreCheck(int scoreToUpdate)
     {
         trasnlatedBarRelatedLocation += scoreToUpdate * scoreMultiplier;
+        if (trasnlatedBarRelatedLocation > (linerTarget * 100) - onTargetOffset && trasnlatedBarRelatedLocation < (linerTarget * 100) + onTargetOffset)
+        {
+            shakerStatusBar.IndicateZoneOverlap();
+            onTarget = true;
+        }
+
+        else
+        {
+            onTarget = false;
+        }
+
         if (trasnlatedBarRelatedLocation <= 0)
         {
             trasnlatedBarRelatedLocation = 0;
@@ -93,11 +136,6 @@ public class ShakerMinigameManager : MonoBehaviour
         if (trasnlatedBarRelatedLocation >= shakerMaxLimit)
         {
             trasnlatedBarRelatedLocation = shakerMaxLimit;
-        }
-        if (trasnlatedBarRelatedLocation > (linerTarget * 100) - onTargetOffset && trasnlatedBarRelatedLocation < (linerTarget * 100) + onTargetOffset)
-        {
-            shakerStatusBar.IndicateZoneOverlap();
-            onTarget = true;
         }
 
         UpdateScoreUI();

@@ -30,15 +30,6 @@ public class ShakerMinigameComponent : MonoBehaviour, IPointerDownHandler
         MinigameSetInitalFields();
     }
 
-    private void Update()
-    {
-        // needs a replacement asap ! just a simulation check needs to be replaced by the minigame start 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            MinigameStarted();
-        }
-    }
-
     public void MinigameStarted()
     {
         rb2.simulated = true;
