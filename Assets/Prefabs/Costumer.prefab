@@ -151,10 +151,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 817070443
-  m_SortingLayer: -1
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 43ad51e043491b94d8f6c62d55ac5ede, type: 3}
+  m_SortingLayerID: -31524281
+  m_SortingLayer: -2
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 09fdb082ea4bc09488ed589e524253d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -214,7 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c6b2ca13906b774d8541a6cc08fab97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  costumerData: {fileID: 11400000, guid: 00d81ac75553d7244b8628427cc609bc, type: 2}
   tweenMovement: {fileID: 549269747658070638}
   dialogue: {fileID: 3033862428625850216}
 --- !u!114 &3033862428625850216
@@ -297,7 +296,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Oh! You have truly unlocked the secrets of my desires, dear subject. This
+    Old Fashioned, a divine elixir of sophistication and power, is exactly what I
+    crave. Slayed it, darling! Bask in my delight and revel in the glory of my appreciation.
+    Your skills have earned my favor, and the realm shall know of your triumph! THIS
+    IS A PLACE HOLDER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -324,11 +327,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 0.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 1
+  m_fontSizeMin: 0.5
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
@@ -403,7 +406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -0.1618}
+  m_AnchoredPosition: {x: -2.022, y: -0.1618}
   m_SizeDelta: {x: 15, y: 13.382}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &9094488761592751014

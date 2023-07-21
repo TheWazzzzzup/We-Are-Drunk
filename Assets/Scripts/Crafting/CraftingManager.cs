@@ -26,8 +26,9 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
-    public bool CompareToRecipe(List<Ingredient> currentIngredients, Ingredient baseIngredient)
+    public bool CompareToRecipe(List<Ingredient> currentIngredients, Ingredient baseIngredient, out string recipeName)
     {
+        recipeName = "";
         
         if (baseIngredient == null || currentIngredients == null)
         {
@@ -43,7 +44,11 @@ public class CraftingManager : MonoBehaviour
 
         foreach (RecipeDataSO recipe in recipesOfSameBase)
         {
-            if (CompareIngredientCollections(ingredientsOnBar, recipe.Ingredients)) recipesMatch++;
+            if (CompareIngredientCollections(ingredientsOnBar, recipe.Ingredients))
+            {
+                recipesMatch++;
+                recipeName = recipe.name.ToString();
+            }
         }
 
         Debug.Log(recipesMatch);
@@ -88,13 +93,18 @@ public class CraftingManager : MonoBehaviour
     {
         currentIngredient = null;
     }
-   
+
     bool CompareIngredientCollections(IEnumerable<Ingredient> collectionFromInventory, IEnumerable<Ingredient> collection) {
 
-        var recipe = collection.OrderByDescending(b => b.Name);
-        var invent = collectionFromInventory.OrderByDescending(b => b.Name);
+        if (collectionFromInventory == null) {Debug.Log("inventoryCollectionNull"); return false; }
+        if (collection == null) { Debug.Log("ComparedCollectionNull"); return false; }
 
-        return recipe.SequenceEqual(invent);
+        if (collectionFromInventory.Count() != collection.Count()) return false;
+
+        var recipe = collection.OrderByDescending(b => b.Name);
+        var inventory = collectionFromInventory.OrderByDescending(b => b.Name);
+
+        return recipe.SequenceEqual(inventory);
     
     }
 }

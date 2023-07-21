@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     //Singelton
     public static GameManager Instance;
 
+    [SerializeField] SceneManagment sceneMan;
+
+    int customer;
 
     #region Services
 
@@ -26,6 +29,29 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+
+        // False after playtest
+#if true
+    private void Update()
+    {
+        // This update loop will reset the hint 
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (customer == 0)
+            {
+                CostumerManager.SpawnCostumer();
+                customer++;
+            }
+            else
+            {
+                customer--;
+                CostumerManager.RemoveCurrentCostumer();
+            }
+        }
+
+    }
+#endif
+
     void Start()
     {
         FindServices();
@@ -33,6 +59,7 @@ public class GameManager : MonoBehaviour
         //spawn the first costumer
 
         CostumerManager.SpawnCostumer();
+        customer++;
     }
 
     /// <summary>
