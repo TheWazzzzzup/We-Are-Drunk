@@ -83,7 +83,8 @@ public class BarManager : MonoBehaviour
             case MinigameType.Ice:
                 if (iceGame.minigameState != MinigameState.Done)
                 {
-
+                    cameraController.MoveToBar(2);
+                    iceGame.MinigameToggleComplete();
                 }
                 break;
             case MinigameType.Craft:

@@ -25,6 +25,9 @@ public class IceTowerGameManager : MonoBehaviour
     [SerializeField] Transform rightSpawnLocation;
     [SerializeField] Transform targetSpawnLocation;
 
+    [Space]
+    [SerializeField] MinigameEvent IceGameEnded;
+
     Stack<IceCube> placedIceCubes = new();
 
     bool rightside = true;
@@ -150,7 +153,7 @@ public class IceTowerGameManager : MonoBehaviour
     {
         if (isGameOver)
             return;
-
+        IceGameEnded.Raise(this.gameObject, MinigameType.Ice);
         isGameOver = true;
         print("GameOver");
         //game over logic - show score, send score, start timer to send back to main scene

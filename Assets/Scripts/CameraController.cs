@@ -23,7 +23,9 @@ public class CameraController : MonoBehaviour
     bool canGoToInventory = true;
 
     int sceneUnloadNum;
+    int sceneLoadNum;
 
+    Tween tween;
     public MainSceneCameraState currentState { get; private set; } = MainSceneCameraState.Bar;
     public MainSceneCameraState previousState { get; private set; } = MainSceneCameraState.Bar;
 
@@ -45,7 +47,9 @@ public class CameraController : MonoBehaviour
 
     public void MoveToIce()
     {
-        cam.transform.DOMove(IceLoc.position, cameraDuration).SetEase(Ease.OutCubic);
+        tween = cam.transform.DOMove(IceLoc.position, cameraDuration).SetEase(Ease.OutCubic);
+        sceneLoadNum = 2;
+        tween.OnComplete(TransitionCompleted);
         canGoToInventory = false;
     }
 
@@ -58,7 +62,7 @@ public class CameraController : MonoBehaviour
     public void MoveToBar(int sceneToUnload)
     {
         sceneUnloadNum = sceneToUnload;
-        Tween tween = cam.transform.DOMove(BarLoc.position, cameraDuration).SetEase(Ease.OutCubic).OnComplete(() => currentState = MainSceneCameraState.Bar);
+        tween = cam.transform.DOMove(BarLoc.position, cameraDuration).SetEase(Ease.OutCubic).OnComplete(() => currentState = MainSceneCameraState.Bar);
         tween.OnComplete(BackTransitionCompleted);
         currentState = MainSceneCameraState.Transitioning;
     }
@@ -73,7 +77,8 @@ public class CameraController : MonoBehaviour
 
     public void MoveToCraft()
     {
-        Tween tween = cam.transform.DOMove(CraftLoc.position, cameraDuration).SetEase(Ease.OutCubic);
+        tween = cam.transform.DOMove(CraftLoc.position, cameraDuration).SetEase(Ease.OutCubic);
+        sceneLoadNum = 1;
         tween.OnComplete(TransitionCompleted);
 
         canGoToInventory = false;
@@ -81,7 +86,7 @@ public class CameraController : MonoBehaviour
 
     void TransitionCompleted()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        SceneManager.LoadScene(sceneLoadNum, LoadSceneMode.Additive);
     }
 
     void BackTransitionCompleted()
