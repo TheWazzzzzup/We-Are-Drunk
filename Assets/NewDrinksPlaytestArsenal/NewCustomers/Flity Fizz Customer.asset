@@ -18,7 +18,10 @@ MonoBehaviour:
     Over that neutralized and versatile base E
   - I'm craving the irresistibility potion, involving sanguine fruit . Shake it up
     for me and watch as this enchanting blend makes me blush with delight! H
-  positiveFeedbackLinse: []
-  nutrealFeedbackLines: []
-  negetiveFeedbackLines: []
-  greetingLine: 
+  positiveFeedbackLinse:
+  - perfect!
+  nutrealFeedbackLines:
+  - almost!
+  negetiveFeedbackLines:
+  - not even close...
+  greetingLine: Hello!

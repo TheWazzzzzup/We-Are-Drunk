@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class CupDraggableHolder : MonoBehaviour
 {
-    
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnMouseDown()
     {
-
+        if(BarManager.Instance.AllMinigamesCompleted && !BarManager.Instance.DrinkCompleted)
+        {
+            BarManager.Instance.HandInDrink();
+        }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-
-    }
-
 }

@@ -48,6 +48,7 @@ public class CraftingManager : MonoBehaviour
             {
                 recipesMatch++;
                 recipeName = recipe.name.ToString();
+                BarManager.Instance.CurrentRecipe = recipe;
             }
         }
 

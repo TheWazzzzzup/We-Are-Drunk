@@ -9,6 +9,10 @@ using Random = UnityEngine.Random;
 
 public class CostumerManager : MonoBehaviour
 {
+    //Singleton
+    private static CostumerManager instance;
+    public static CostumerManager Instance { get { return instance; } }
+
     [SerializeField] GameObject _costumerPrefab;
     [SerializeField] Transform _spawnPoint, _standingPoint;
     /// <summary>
@@ -25,6 +29,17 @@ public class CostumerManager : MonoBehaviour
     // * * ** * * * end temp
     
     CostumerController _currentCostumer;
+
+    private void Awake()
+    {
+        if(instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+    }
 
     /// <summary>
     /// Spawn a costumer with the given data
@@ -110,6 +125,7 @@ public class CostumerManager : MonoBehaviour
                 break;
         }
 
+        print(score);
         return score;
     }
 

@@ -75,7 +75,7 @@ public class CameraController : MonoBehaviour
 
     void TransitionCompleted()
     {
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        //SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
 }

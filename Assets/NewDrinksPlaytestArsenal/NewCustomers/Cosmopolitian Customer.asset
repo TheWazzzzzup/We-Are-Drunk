@@ -18,7 +18,10 @@ MonoBehaviour:
     in a glass! Red with a bit of orange, fruity citrusy goodness E
   - 'Mixologist extraordinaire! I''m craving an enchanting elixir that embodies the
     essence of a vibrant bouquet: a blend of zesty citrus and luscious berries. H'
-  positiveFeedbackLinse: []
-  nutrealFeedbackLines: []
-  negetiveFeedbackLines: []
-  greetingLine: 
+  positiveFeedbackLinse:
+  - perfect!
+  nutrealFeedbackLines:
+  - almost!
+  negetiveFeedbackLines:
+  - not even close...
+  greetingLine: Hello!

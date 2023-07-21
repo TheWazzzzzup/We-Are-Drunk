@@ -8,6 +8,8 @@ public class DraggableObject : MonoBehaviour
 
     Vector3 startingPos;
 
+    public bool IsDragging { get { return isDragging; } }
+
     private void Start()
     {
         startingPos = transform.position;

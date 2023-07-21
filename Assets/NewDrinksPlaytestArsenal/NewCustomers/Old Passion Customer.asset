@@ -18,7 +18,10 @@ MonoBehaviour:
     and stands the test of time. E'
   - Bartender, I crave an iconic libation that embodies the essence of bygone sophistication
     and as a timeless testament. H
-  positiveFeedbackLinse: []
-  nutrealFeedbackLines: []
-  negetiveFeedbackLines: []
-  greetingLine: 
+  positiveFeedbackLinse:
+  - perfect!
+  nutrealFeedbackLines:
+  - almost!
+  negetiveFeedbackLines:
+  - not even close...
+  greetingLine: Hello!
