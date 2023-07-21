@@ -886,6 +886,7 @@ MonoBehaviour:
   goalTimeOnTarget: 5
   onTargetOffset: 10
   miniGameTimeFrame: 20
+  minigameEndedEvent: {fileID: 11400000, guid: 8aa89db3471415b499bdcbc0b44b2d02, type: 2}
 --- !u!1 &647944864 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 647944864, guid: e7cff48b9e423454f856912e6db88623, type: 3}

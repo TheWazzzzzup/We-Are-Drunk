@@ -20,9 +20,9 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] Transform FloatLoc;
 
-    Sequence tweeningSequence;
-
     bool canGoToInventory = true;
+
+    int sceneUnloadNum;
 
     public MainSceneCameraState currentState { get; private set; } = MainSceneCameraState.Bar;
     public MainSceneCameraState previousState { get; private set; } = MainSceneCameraState.Bar;
@@ -55,14 +55,20 @@ public class CameraController : MonoBehaviour
         currentState = MainSceneCameraState.Transitioning;
     }
 
+    public void MoveToBar(int sceneToUnload)
+    {
+        sceneUnloadNum = sceneToUnload;
+        Tween tween = cam.transform.DOMove(BarLoc.position, cameraDuration).SetEase(Ease.OutCubic).OnComplete(() => currentState = MainSceneCameraState.Bar);
+        tween.OnComplete(BackTransitionCompleted);
+        currentState = MainSceneCameraState.Transitioning;
+    }
+
     public void MoveToInventory()
     {
         if (!canGoToInventory)
             return;
         cam.transform.DOMove(InventoryLoc.position, cameraDuration).SetEase(Ease.OutCubic).OnComplete(() => currentState = MainSceneCameraState.Inventory);
         currentState = MainSceneCameraState.Transitioning;
-        SceneManager.UnloadScene(1);
-
     }
 
     public void MoveToCraft()
@@ -78,6 +84,10 @@ public class CameraController : MonoBehaviour
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
+    void BackTransitionCompleted()
+    {
+        SceneManager.UnloadScene(sceneUnloadNum);
+    }
 }
 
 public enum MainSceneCameraState

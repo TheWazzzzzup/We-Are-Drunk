@@ -14,18 +14,19 @@ public class SceneManagment : ScriptableObject
         sceneDatas.Add(minigameSceneData);
     }
 
+
 }
 
 public struct MinigameSceneData
 {
     public int SceneNumber;
     public MinigameType MinigameType;
-    public ScoreManager ScoreManager;
 
-    public MinigameSceneData(int sceneNumber, MinigameType type, ScoreManager scoreManager )
+    //public ScoreManager ScoreManager;
+
+    public MinigameSceneData(int sceneNumber, MinigameType type)
     {
         this.SceneNumber = sceneNumber;
-        this.ScoreManager = scoreManager;
         this.MinigameType = type;
     }
 }

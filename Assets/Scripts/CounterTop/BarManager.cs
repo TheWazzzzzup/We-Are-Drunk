@@ -72,12 +72,38 @@ public class BarManager : MonoBehaviour
     {
         UpdateIngredientList(inventory.Ingredients);
     }
-    
-    /// <summary>
-    /// Updates the base ingredient based on the current tap
-    /// </summary>
-    /// <param name="ingredient"></param>
-    public void UpdateBaseIngredient(Ingredient ingredient)
+
+    public void MinigameEnded(GameObject minigameSceneGameobject, MinigameType type)
+    {
+        switch (type)
+        {
+            case MinigameType.Float:
+
+                break;
+            case MinigameType.Ice:
+                if (iceGame.minigameState != MinigameState.Done)
+                {
+
+                }
+                break;
+            case MinigameType.Craft:
+                if (craftGame.minigameState != MinigameState.Done)
+                {
+                    cameraController.MoveToBar(1);
+                    craftGame.MinigameToggleComplete();
+                }
+                break;
+     
+        }
+
+        CheckForMinigamesCompletion();
+    }
+
+        /// <summary>
+        /// Updates the base ingredient based on the current tap
+        /// </summary>
+        /// <param name="ingredient"></param>
+        public void UpdateBaseIngredient(Ingredient ingredient)
     {
         if (isMakingDrink) return;
 
@@ -225,4 +251,4 @@ public class BarManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-}
+    }
