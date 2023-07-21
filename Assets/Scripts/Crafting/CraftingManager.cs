@@ -26,9 +26,8 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
-    public bool CompareToRecipe(List<Ingredient> currentIngredients, Ingredient baseIngredient, out string recipeName)
+    public bool CompareToRecipe(List<Ingredient> currentIngredients, Ingredient baseIngredient)
     {
-        recipeName = "";
         
         if (baseIngredient == null || currentIngredients == null)
         {
@@ -44,11 +43,7 @@ public class CraftingManager : MonoBehaviour
 
         foreach (RecipeDataSO recipe in recipesOfSameBase)
         {
-            if (CompareIngredientCollections(ingredientsOnBar, recipe.Ingredients))
-            {
-                recipesMatch++;
-                recipeName = recipe.name.ToString();
-            }
+            if (CompareIngredientCollections(ingredientsOnBar, recipe.Ingredients)) recipesMatch++;
         }
 
         Debug.Log(recipesMatch);
