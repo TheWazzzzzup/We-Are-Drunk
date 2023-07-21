@@ -8568,34 +8568,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1080839210}
     m_Modifications:
-    - target: {fileID: 2535185377021159820, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+    - target: {fileID: 1498824051, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
+      propertyPath: _sprites.Array.size
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 2535185377021159820, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2535185377021159820, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    - target: {fileID: 1498824051, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
+      propertyPath: _sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 1498824046}
-    - target: {fileID: 2535185377021159820, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2535185377021159820, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 2535185377021159820, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 2535185377021159820, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 385ab5ad19f6d0c4e98e9d47851bfd3e, type: 3}
+    - target: {fileID: 1498824051, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
+      propertyPath: _sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 1185423619, guid: 5e001b33c359d6a4bb5d41f2467163c5, type: 3}
+    - target: {fileID: 1498824051, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
+      propertyPath: _sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 871915977, guid: 5e001b33c359d6a4bb5d41f2467163c5, type: 3}
     - target: {fileID: 2535185377327732845, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
       propertyPath: m_Name
       value: Recepie Book
@@ -8641,18 +8629,6 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2535185377327732849, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2535185377327732849, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2535185377327732849, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2535185377327732849, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -8686,7 +8662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2535185377327732849, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -14.87
+      value: -11.25
       objectReference: {fileID: 0}
     - target: {fileID: 2535185377327732849, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
