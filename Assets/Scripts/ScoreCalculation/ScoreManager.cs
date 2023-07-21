@@ -11,24 +11,34 @@ public class ScoreManager : MonoBehaviour
     QualityScore qualityScore;
     SatisfactionScore satisfactionScore;
 
-    private void Start() {
-        qualityScore = new (numberOfMinigames);
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        qualityScore = new(numberOfMinigames);
         satisfactionScore = new(qualityScore, penaltyValue);
     }
 
-    public void AddMinigameScore(int score) { 
+    public void AddMinigameScore(int score)
+    {
         qualityScore.AddScore(score);
     }
 
-    public float GetCurrntQualityScore() {
+    public float GetCurrntQualityScore()
+    {
         return qualityScore.CurrentScore;
     }
 
-    public void FillMatchScore(int matchScore) { 
+    public void FillMatchScore(int matchScore)
+    {
         satisfactionScore.ApplyMatchScore(matchScore);
     }
 
-    public int GetSatisfactionScore() {
+    public int GetSatisfactionScore()
+    {
         return satisfactionScore.SatisfactionScorePoints;
     }
 }

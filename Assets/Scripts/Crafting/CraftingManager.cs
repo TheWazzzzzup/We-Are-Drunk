@@ -26,9 +26,8 @@ public class CraftingManager : MonoBehaviour
         }
     }
 
-    public bool CompareToRecipe(List<Ingredient> currentIngredients, Ingredient baseIngredient, out string recipeName)
+    public bool CompareToRecipe(List<Ingredient> currentIngredients, Ingredient baseIngredient)
     {
-        recipeName = "";
         
         if (baseIngredient == null || currentIngredients == null)
         {
