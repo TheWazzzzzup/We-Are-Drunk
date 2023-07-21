@@ -18,7 +18,10 @@ MonoBehaviour:
     elixir! E
   - I want to feel like the Caribbean sunset. Embrace me with sister scarlet, let
     those juices dance with the sweetness of the base H
-  positiveFeedbackLinse: []
-  nutrealFeedbackLines: []
-  negetiveFeedbackLines: []
-  greetingLine: 
+  positiveFeedbackLinse:
+  - perfect!
+  nutrealFeedbackLines:
+  - almost!
+  negetiveFeedbackLines:
+  - not even close...
+  greetingLine: Hello!

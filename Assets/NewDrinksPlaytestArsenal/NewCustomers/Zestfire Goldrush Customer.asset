@@ -18,7 +18,10 @@ MonoBehaviour:
     Something slightly zesty: a burst of sunshine in a glass! E'
   - My palate longs for a hint of warm spice and some tanginess, I want the liquid
     to rush down my throat and fire me up. H
-  positiveFeedbackLinse: []
-  nutrealFeedbackLines: []
-  negetiveFeedbackLines: []
-  greetingLine: 
+  positiveFeedbackLinse:
+  - perfect!
+  nutrealFeedbackLines:
+  - almost!
+  negetiveFeedbackLines:
+  - not even close...
+  greetingLine: Hello!

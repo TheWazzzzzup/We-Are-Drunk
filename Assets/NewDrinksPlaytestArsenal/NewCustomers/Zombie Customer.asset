@@ -18,7 +18,10 @@ MonoBehaviour:
     mix it up for me! H
   - Revive me with the elixir of the undead, that mix of blue and red, enchant these
     together to make that sweet drink! E
-  positiveFeedbackLinse: []
-  nutrealFeedbackLines: []
-  negetiveFeedbackLines: []
-  greetingLine: 
+  positiveFeedbackLinse:
+  - perfect!
+  nutrealFeedbackLines:
+  - almost!
+  negetiveFeedbackLines:
+  - not even close...
+  greetingLine: Hello!
