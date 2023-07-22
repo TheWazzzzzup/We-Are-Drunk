@@ -44,16 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a490b7b58ea7ea4ca22ec6cf3709451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _brandyRecipes: []
-  _campariRecipes: []
-  _ginRecipes: []
-  _sojuRecipes: []
   _vodkaRecipes:
-  - {fileID: 11400000, guid: a76a6c6adc02ca2428c664661ec52803, type: 2}
-  - {fileID: 11400000, guid: 6abe1bcfabff1274d900a3fb49a9bb3a, type: 2}
-  _tequilaRecipes: []
-  _tonicRecipes: []
+  - {fileID: 11400000, guid: 1ddd40a81209ca54db0b034b64011492, type: 2}
+  - {fileID: 11400000, guid: 8cfb7e51c6d788f4fa51354845624b7d, type: 2}
+  - {fileID: 11400000, guid: 41e2589cc6fbe3b40bdca9484df7b9f8, type: 2}
   _whiskeyRecipes:
-  - {fileID: 11400000, guid: c0d91ede7faf3fe4388d3945a3cf5406, type: 2}
-  - {fileID: 11400000, guid: 25b286db636271b47996d642e2d7da15, type: 2}
-  _whiteRumRecipes: []
+  - {fileID: 11400000, guid: a2cf8ed46361c304eb526f139e7c7810, type: 2}
+  - {fileID: 11400000, guid: 6ee7ea6d3bcdb6d469eab57f2958ba6a, type: 2}
+  - {fileID: 11400000, guid: e20de78a362e614458724c204819cd6e, type: 2}
+  _whiteRumRecipes:
+  - {fileID: 11400000, guid: f3ce6ed064b31dd48864a3ed8ddaeeb7, type: 2}
+  - {fileID: 11400000, guid: 62a2d5cb13d6c5147a9468a4860f4156, type: 2}
+  - {fileID: 11400000, guid: a5c262a886e16ee4f88bef11a047616f, type: 2}
+  - {fileID: 11400000, guid: 7b7e823f48aefa54aa2aa6c0ef245f1b, type: 2}

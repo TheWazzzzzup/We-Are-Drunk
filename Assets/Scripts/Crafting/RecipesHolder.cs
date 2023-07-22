@@ -21,32 +21,15 @@ public class RecipesHolder : MonoBehaviour
 
     [SerializeField] public static int maxIngredientAmount = 4;
 
-    [SerializeField]
-    private RecipeDataSO[] _brandyRecipes;
-    [SerializeField]
-    private RecipeDataSO[] _campariRecipes;
-    [SerializeField]
-    private RecipeDataSO[] _ginRecipes;
-    [SerializeField]
-    private RecipeDataSO[] _sojuRecipes;
+
     [SerializeField]
     private RecipeDataSO[] _vodkaRecipes;
-    [SerializeField]
-    private RecipeDataSO[] _tequilaRecipes;
-    [SerializeField]
-    private RecipeDataSO[] _tonicRecipes;
     [SerializeField]
     private RecipeDataSO[] _whiskeyRecipes;
     [SerializeField]
     private RecipeDataSO[] _whiteRumRecipes;
 
-    public RecipeDataSO[] BrandyRecipes => _brandyRecipes;
-    public RecipeDataSO[] CampariRecipes => _campariRecipes;
-    public RecipeDataSO[] GinRecipes => _ginRecipes;
-    public RecipeDataSO[] SojuRecipes => _sojuRecipes;
     public RecipeDataSO[] VodkaRecipes => _vodkaRecipes;
-    public RecipeDataSO[] TequilaRecipes => _tequilaRecipes;
-    public RecipeDataSO[] TonicRecipes => _tonicRecipes;
     public RecipeDataSO[] WhiskeyRecipes => _whiskeyRecipes;
     public RecipeDataSO[] WhiteRumRecipes => _whiteRumRecipes;
 
@@ -54,30 +37,9 @@ public class RecipesHolder : MonoBehaviour
     {
         switch(name)
         {
-            case IngredientName.Brandy:
-                return BrandyRecipes;
-                break;
-            case IngredientName.Campari:
-                return CampariRecipes;
-                break;
-            case IngredientName.Gin:
-                return GinRecipes;
 
-                break;
-            case IngredientName.Soju:
-                return SojuRecipes;
-
-                break;
             case IngredientName.Vodka:
                 return VodkaRecipes;
-
-                break;
-            case IngredientName.Tequila:
-                return TequilaRecipes;
-
-                break;
-            case IngredientName.Tonic:
-                return TonicRecipes;
 
                 break;
             case IngredientName.Whiskey:
