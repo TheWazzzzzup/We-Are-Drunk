@@ -228,6 +228,7 @@ public class BarManager : MonoBehaviour
         currentJuice.Clear();
         currentCup.Clear();
         CurrentPickedIngredientsWithoutCup.Clear();
+        //baseIngredient = null;
 
 
         foreach (var ingredient in CurrentPickedIngredients)

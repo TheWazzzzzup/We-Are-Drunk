@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5612342254349999311}
   - component: {fileID: 8857501288354148691}
   m_Layer: 0
-  m_Name: Dragonloom Flower UI
+  m_Name: Jalapeno UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactable: 1
-  iName: 11
+  iName: 13
   iType: 0
   inventory: {fileID: 0}
   isSelected: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18747722, g: 0.8113208, b: 0.14848696, a: 1}
+  m_Color: {r: 0.5372549, g: 0.69803923, b: 0.12941177, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  selectedColor: {r: 0.18823531, g: 0.8117648, b: 0.14901961, a: 0.39215687}
-  unselectedColor: {r: 0.18823531, g: 0.8117648, b: 0.14901961, a: 1}
+  selectedColor: {r: 0.5372549, g: 0.69803923, b: 0.12941177, a: 0.39215687}
+  unselectedColor: {r: 0.5372549, g: 0.69803923, b: 0.12941177, a: 1}
 --- !u!1001 &954985215793415079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -165,11 +165,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1834471923917163414, guid: fb38103991b27654d9594ea49bc546ed, type: 3}
       propertyPath: m_text
-      value: Dragonloom Flower
+      value: Jalapeno
       objectReference: {fileID: 0}
     - target: {fileID: 1834471923917163414, guid: fb38103991b27654d9594ea49bc546ed, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 70.15
       objectReference: {fileID: 0}
     - target: {fileID: 5031626077450852516, guid: fb38103991b27654d9594ea49bc546ed, type: 3}
       propertyPath: m_Pivot.x
