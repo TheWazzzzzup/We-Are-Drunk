@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 828787bfe20c93141ab38279178d79a5, type: 3}
-  m_Name: Flity Fizz Customer
+  m_Name: Emberwine
   m_EditorClassIdentifier: 
-  recipe: {fileID: 11400000, guid: 41e2589cc6fbe3b40bdca9484df7b9f8, type: 2}
+  recipe: {fileID: 11400000, guid: a2cf8ed46361c304eb526f139e7c7810, type: 2}
   hints:
-  - "My good bartender, tease me with something golden, a drink that shimmers like
-    the sun\u2019s last embrace"
-  - Oh Charm me! I want complete sweetness over purity, red with gold!
+  - Bartender, this day has been bitter, but it has imbued me with wisdom, rich and
+    pure, to cherish,  please help me sweeten its end with a fitting drink!
+  - The hue of elegance is what I desire, Bartender. The crimson fruit alongside
+    the aromatic herb, that would be a perfect combination for me. Maybe something
+    a little stronger than the rest.
   positiveFeedbackLinse:
   - perfect!
   nutrealFeedbackLines:

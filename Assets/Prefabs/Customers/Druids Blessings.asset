@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 828787bfe20c93141ab38279178d79a5, type: 3}
-  m_Name: Flity Fizz Customer
+  m_Name: Druids Blessings
   m_EditorClassIdentifier: 
-  recipe: {fileID: 11400000, guid: 41e2589cc6fbe3b40bdca9484df7b9f8, type: 2}
+  recipe: {fileID: 11400000, guid: f3ce6ed064b31dd48864a3ed8ddaeeb7, type: 2}
   hints:
-  - "My good bartender, tease me with something golden, a drink that shimmers like
-    the sun\u2019s last embrace"
-  - Oh Charm me! I want complete sweetness over purity, red with gold!
+  - Ah, Bartender, I humbly require the woodland gem, a cherished elixir that shall
+    raise my spirits. Could you, with your masterful touch, grace me with that delightful
+    beverage?
+  - Bestow upon me that zestiness, a punch of sour and me with that refreshing touch,
+    grace me with that natural hue.
   positiveFeedbackLinse:
   - perfect!
   nutrealFeedbackLines:

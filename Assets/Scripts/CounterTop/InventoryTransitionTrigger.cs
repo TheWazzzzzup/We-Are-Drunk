@@ -9,10 +9,13 @@ public class InventoryTransitionTrigger : MonoBehaviour, IPointerEnterHandler
     [SerializeField] CameraController cameraController;
     [SerializeField] BarManager barManager;
 
+    public UnityEvent OnTransitionTriggered;
+
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        switch(cameraController.currentState)
+        OnTransitionTriggered?.Invoke();
+        switch (cameraController.currentState)
         {
             case MainSceneCameraState.Bar:
                 cameraController.MoveToInventory();

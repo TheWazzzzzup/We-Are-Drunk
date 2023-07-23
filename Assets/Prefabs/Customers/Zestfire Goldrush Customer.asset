@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipe: {fileID: 11400000, guid: e20de78a362e614458724c204819cd6e, type: 2}
   hints:
-  - 'I''m in the mood for a vibrant concoction that radiates the warmth of the sun.
-    Something slightly zesty: a burst of sunshine in a glass! E'
+  - Oh I'm in the mood for a vibrant concoction that radiates the warmth of spice
+    and of the sun. Something attractive, if you know what I mean.
   - My palate longs for a hint of warm spice and some tanginess, I want the liquid
-    to rush down my throat and fire me up. H
+    to rush down my throat and burn it
   positiveFeedbackLinse:
   - perfect!
   nutrealFeedbackLines:
