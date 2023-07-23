@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f06eeb14c2adc4345a98db1d15747d90
+guid: 14638fe3d89b1784195ff44809be97d3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rum
+      name: Vodka
       rect:
         serializedVersion: 2
-        x: 177
-        y: 1364
-        width: 252
-        height: 586
+        x: 255
+        y: 1282
+        width: 221
+        height: 696
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfc6ce8a51155664b8fc1c79257f4faf
-      internalID: -2099180359
+      spriteID: 4a740781e640e3f4ea49a60b38efa150
+      internalID: -424058321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cinnamon
+      name: Whiskey
       rect:
         serializedVersion: 2
-        x: 945
-        y: 1370
-        width: 73
-        height: 253
+        x: 952
+        y: 1305
+        width: 251
+        height: 527
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5416a9b83f987cd4ea719f2e4fd85660
-      internalID: 461407584
+      spriteID: 1adabb47e5cf2ff4aa7781183640dc16
+      internalID: 1292669626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: poopoopeepee
+      name: Cranberry Juice
       rect:
         serializedVersion: 2
-        x: 1573
-        y: 1369
-        width: 270
-        height: 418
+        x: 1563
+        y: 1305
+        width: 301
+        height: 480
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3091ba23b7d189d4fab52fb23a1a778d
-      internalID: -641497980
+      spriteID: 66497283e60a05f488f33eff8ede3765
+      internalID: 838663616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shaker_full
+      name: Lemon Juice
       rect:
         serializedVersion: 2
-        x: 177
-        y: 579
-        width: 242
-        height: 639
+        x: 175
+        y: 630
+        width: 301
+        height: 464
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38798160b399bd84380804d138b9c5c4
-      internalID: -1790872800
+      spriteID: bb2d49da495b7e149b42e13338a8163d
+      internalID: 1411506909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shaker_top
+      name: Vermouth
       rect:
         serializedVersion: 2
-        x: 1113
-        y: 579
-        width: 242
-        height: 217
+        x: 979
+        y: 523
+        width: 224
+        height: 693
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 462c895b564fd8f43b9fd23cb78c5bb5
-      internalID: 2041648461
+      spriteID: 3f08da972691d2540a4f5078e56e5bd1
+      internalID: 470429955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Some first assets_5
+      name: Orange Juice
       rect:
         serializedVersion: 2
-        x: 1274
-        y: 778
-        width: 5
-        height: 12
+        x: 1563
+        y: 630
+        width: 301
+        height: 464
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbccd68e885fd3845a368bce64b09c24
-      internalID: 907787870
+      spriteID: 9a36c6929c73c6944874ed85607e28d1
+      internalID: -1863162994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Shaker_body
+      name: Honey
       rect:
         serializedVersion: 2
-        x: 1643
-        y: 579
-        width: 226
-        height: 408
+        x: 870
+        y: 64
+        width: 383
+        height: 370
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,71 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45e1b220e9c62cd41bf251622f321cc9
-      internalID: 212472373
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shaker_tip
-      rect:
-        serializedVersion: 2
-        x: 707
-        y: 579
-        width: 118
-        height: 95
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8aea3624e2494be458bc37d8d84e6ff9
-      internalID: -849765150
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Measure_thingy
-      rect:
-        serializedVersion: 2
-        x: 247
-        y: 137
-        width: 103
-        height: 222
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: afedcfbb2e28d234b9be06811b948dbc
-      internalID: -1872347586
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cherry
-      rect:
-        serializedVersion: 2
-        x: 696
-        y: 196
-        width: 121
-        height: 163
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8c2b08e4bfd4da41ab52201730ee14d
-      internalID: 1781471823
+      spriteID: 39867f4e64e070d4f91518aed853a6d0
+      internalID: 101002743
       vertices: []
       indices: 
       edges: []
@@ -337,16 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cherry: 1781471823
-      Cinnamon: 461407584
-      Measure_thingy: -1872347586
-      Rum: -2099180359
-      Shaker_body: 212472373
-      Shaker_full: -1790872800
-      Shaker_tip: -849765150
-      Shaker_top: 2041648461
-      Some first assets_5: 907787870
-      poopoopeepee: -641497980
+      Cranberry Juice: 838663616
+      Honey: 101002743
+      Lemon Juice: 1411506909
+      Orange Juice: -1863162994
+      Vermouth: 470429955
+      Vodka: -424058321
+      Whiskey: 1292669626
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
