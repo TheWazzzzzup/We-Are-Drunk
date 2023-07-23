@@ -25,6 +25,8 @@ public class MiniGameComponent : MonoBehaviour
 
     [SerializeField] SpriteRenderer glowRenderer;
 
+    [SerializeField] Sprite spriteToSpawn;
+
 
     // Private
 
@@ -66,8 +68,9 @@ public class MiniGameComponent : MonoBehaviour
         switch (minigameState)
         {
             case MinigameState.Deactiveated:
+                transform.rotation = Quaternion.identity;
                 glowRenderer.gameObject.SetActive(false);
-                spriteRenderer.DOColor(Color.black, tweenDuration);
+                //spriteRenderer.DOColor(Color.black, tweenDuration);
                 transform.localScale = originalScale;
                 break;
             case MinigameState.Active:
@@ -79,7 +82,23 @@ public class MiniGameComponent : MonoBehaviour
                 MinigameProgress();
                 break;
             case MinigameState.Done:
-                MinigameCompleted();
+                switch(minigameType)
+                {
+                    case MinigameType.Float:
+                        //get float sprite renderer
+                        Sprite floatSprite = GetComponent<IngredientSpawnArea>().GetSpawnedIngredientSprite();
+                        MinigameCompleted(floatSprite); //with the current float
+                        break;
+                    case MinigameType.Ice:
+                        //get float sprite renderer
+                        MinigameCompleted(spriteToSpawn); //with the current float
+                        break;
+                    case MinigameType.Craft:
+                        //get float sprite renderer
+                        MinigameCompleted(spriteToSpawn); //with the current float
+                        break;
+                }
+                //MinigameCompleted();
                 glowRenderer.gameObject.SetActive(false);
                 spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f, 1);
                 break;
@@ -88,9 +107,10 @@ public class MiniGameComponent : MonoBehaviour
 
     private void ReadyTween(float tweenDuration)
     {
+        transform.rotation = Quaternion.identity;
         transform.DOShakeRotation(tweenDuration, new Vector3(0, 0, 20), 15, 1, false, ShakeRandomnessMode.Harmonic);
         transform.DOScale(originalScale * 1.3f, tweenDuration / 2).SetEase(Ease.OutSine).OnComplete(() => transform.DOScale(originalScale, tweenDuration / 2));
-        spriteRenderer.DOColor(Color.white, tweenDuration);
+        //spriteRenderer.DOColor(Color.white, tweenDuration);
     }
 
     void MinigameProgress()
@@ -102,15 +122,19 @@ public class MiniGameComponent : MonoBehaviour
         // just for check
     }
     
-    void MinigameCompleted()
+    void MinigameCompleted(Sprite sprite)
     {
         GameObject gameObject = new();
         gameObject.transform.position = spawnLocationOnCompleted.position;
         SpriteRenderer sr = gameObject.AddComponent<SpriteRenderer>();
-        BoxCollider2D boxCollider2d =  gameObject.AddComponent<BoxCollider2D>();
-        boxCollider2d.size = Vector2.one;
-        gameObject.AddComponent<DraggableObject>();
-        sr.sprite = spriteRenderer.sprite;
+        //BoxCollider2D boxCollider2d =  gameObject.AddComponent<BoxCollider2D>();
+        //boxCollider2d.size = Vector2.one;
+        //gameObject.AddComponent<DraggableObject>();
+        sr.sprite = sprite;
+        if (minigameType == MinigameType.Ice)
+        {
+            gameObject.transform.localScale = Vector3.one * 0.5f;
+        }
         // what happens when the minigame is completed
         // here enters elad example about the Sprtie you can drag
         Debug.Log($"{minigameType.ToString()} minigame is completed");
