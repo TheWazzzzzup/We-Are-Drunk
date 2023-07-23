@@ -27,6 +27,7 @@ public class BarManager : MonoBehaviour
     [Space]
 
     [Header("Mini Games")]
+    [SerializeField] ScoreManager scoreManager;
     [SerializeField] MiniGameComponent iceGame;
     [SerializeField] MiniGameComponent floatGame;
     [SerializeField] MiniGameComponent craftGame;
@@ -46,8 +47,6 @@ public class BarManager : MonoBehaviour
     List<Ingredient> currentJuice = new();
     List<Ingredient> currentCup = new();
     List<Ingredient> currentFloat = new();
-
-    QualityScore qualityScore = new QualityScore(2);     // Is the number of minigames to take in account in the score (currently 2 ice & shaker)
 
     CraftingManager craftManager => CraftingManager.Instance;
 
@@ -90,7 +89,7 @@ public class BarManager : MonoBehaviour
                     IceTowerGameManager iceManager = minigameSceneGameobject.GetComponent<IceTowerGameManager>();
                     if (iceManager != null)
                     {
-                        qualityScore.AddScore(iceManager.iceQualityScore);
+                        scoreManager.AddMinigameScore(iceManager.iceQualityScore);
                     }
                     else Debug.Log("Ice manager reference broken");
                 }
@@ -103,7 +102,7 @@ public class BarManager : MonoBehaviour
                     ShakerMinigameManager shakerManager = minigameSceneGameobject.GetComponent<ShakerMinigameManager>();
                     if (shakerManager != null)
                     {
-
+                        scoreManager.AddMinigameScore(shakerManager.shakerQualityScore);
                     }
                     else Debug.Log("craft manager reference broken");
                 }

@@ -336,6 +336,7 @@ Transform:
   - {fileID: 39336365}
   - {fileID: 1334763756}
   - {fileID: 2102050954}
+  - {fileID: 1940069562}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3733,6 +3734,7 @@ MonoBehaviour:
   juiceArea: {fileID: 2032611627}
   cupArea: {fileID: 2088520527}
   floatArea: {fileID: 1676289538}
+  scoreManager: {fileID: 1940069563}
   iceGame: {fileID: 14915614}
   floatGame: {fileID: 1676289539}
   craftGame: {fileID: 1746895472}
@@ -7434,6 +7436,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932632204}
   m_CullTransparentMesh: 1
+--- !u!1 &1940069561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1940069562}
+  - component: {fileID: 1940069563}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1940069562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940069561}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 42047927}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1940069563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940069561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b731a640fee6944ae3b93177936681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfMinigames: 2
+  penaltyValue: 5
 --- !u!1 &1961356740
 GameObject:
   m_ObjectHideFlags: 0

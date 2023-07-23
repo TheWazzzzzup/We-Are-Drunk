@@ -89,6 +89,7 @@ public class ShakerMinigameManager : MonoBehaviour
 
     private void ShakerGameOver()
     {
+        shakerQualityScore = Mathf.InverseLerp(goalTimeOnTarget,0,totalTimeOnTarget);
         minigameEndedEvent.Raise(this.gameObject,MinigameType.Craft);
         Debug.Log("Game Over");
     }

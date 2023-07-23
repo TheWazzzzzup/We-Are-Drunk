@@ -20,6 +20,11 @@ public class ScoreManager : MonoBehaviour
         qualityScore.AddScore(score);
     }
 
+    public void AddMinigameScore(float score)
+    {
+        qualityScore.AddScore(score);
+    }
+
     public float GetCurrntQualityScore() {
         return qualityScore.CurrentScore;
     }
