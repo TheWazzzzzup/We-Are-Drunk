@@ -813,7 +813,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75512770}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1010,7 +1010,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166383168}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1224,7 +1224,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247786354}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2766,7 +2766,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406804489}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2886,7 +2886,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465228055}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3459,7 +3459,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717771564}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -3748,7 +3748,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760570244}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4065,6 +4065,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraController: {fileID: 1602573759}
   barManager: {fileID: 907741645}
+  OnTransitionTriggered:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &860662225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4583,7 +4586,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940254894}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4922,7 +4925,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1054091697}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -7922,7 +7925,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841013624}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -8228,7 +8231,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929621631}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -9018,7 +9021,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088520524}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -9315,15 +9318,19 @@ PrefabInstance:
     - target: {fileID: 1498824051, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
       propertyPath: _sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 385ab5ad19f6d0c4e98e9d47851bfd3e, type: 3}
+      objectReference: {fileID: -704088261, guid: 5b094729f2d4afe4c931f1dbca9af5be, type: 3}
     - target: {fileID: 1498824051, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
       propertyPath: _sprites.Array.data[1]
       value: 
-      objectReference: {fileID: 1185423619, guid: 5e001b33c359d6a4bb5d41f2467163c5, type: 3}
+      objectReference: {fileID: 1000593158, guid: 3cd4031562542e049aadf29c234c11c6, type: 3}
     - target: {fileID: 1498824051, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
       propertyPath: _sprites.Array.data[2]
       value: 
-      objectReference: {fileID: 871915977, guid: 5e001b33c359d6a4bb5d41f2467163c5, type: 3}
+      objectReference: {fileID: -1760980659, guid: 660fb943ccd64ab4dacfb048ee21108c, type: 3}
+    - target: {fileID: 2535185377021159821, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.77
+      objectReference: {fileID: 0}
     - target: {fileID: 2535185377327732845, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
       propertyPath: m_Name
       value: Recepie Book
@@ -9420,5 +9427,21 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1602573757}
+    - target: {fileID: 2535185377514474799, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535185377922529686, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535185378029108586, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535185378029108586, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f03e53ea605435a498ef4faee52e8f11, type: 3}
