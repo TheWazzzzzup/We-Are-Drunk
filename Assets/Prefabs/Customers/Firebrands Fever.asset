@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 828787bfe20c93141ab38279178d79a5, type: 3}
-  m_Name: Flity Fizz Customer
+  m_Name: Firebrands Fever
   m_EditorClassIdentifier: 
-  recipe: {fileID: 11400000, guid: 41e2589cc6fbe3b40bdca9484df7b9f8, type: 2}
+  recipe: {fileID: 11400000, guid: 8cfb7e51c6d788f4fa51354845624b7d, type: 2}
   hints:
-  - "My good bartender, tease me with something golden, a drink that shimmers like
-    the sun\u2019s last embrace"
-  - Oh Charm me! I want complete sweetness over purity, red with gold!
+  - Bartender! I need you to ignite inspiration in me, fiery and invigorating is
+    what I am looking for in my beverage. I am preparing for a fight at noon and
+    I need this potion to assist me!
+  - Combine sweet and spicy, neutral and natural, I need to feel like a blazing fire.
+    Punch me up!
   positiveFeedbackLinse:
   - perfect!
   nutrealFeedbackLines:

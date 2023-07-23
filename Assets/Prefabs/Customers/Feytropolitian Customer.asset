@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipe: {fileID: 11400000, guid: 1ddd40a81209ca54db0b034b64011492, type: 2}
   hints:
-  - Hi-Hi Bartender! I want to see vibrance and extreme tanginess, summer sunset
-    in a glass! Red with a bit of orange, fruity citrusy goodness E
-  - 'Mixologist extraordinaire! I''m craving an enchanting elixir that embodies the
-    essence of a vibrant bouquet: a blend of zesty citrus and luscious berries. H'
+  - I want to shine like a mystical creature, Bartender. Tang for tang. Tenderness,
+    affection and delicacy.
+  - I want to see the child of Lady Crimson and Sir Scarlet, a lighter hue of them.
+    The joy of tangy fruits mixed together. Make me feel like I can fly!
   positiveFeedbackLinse:
   - perfect!
   nutrealFeedbackLines:

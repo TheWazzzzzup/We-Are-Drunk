@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipe: {fileID: 11400000, guid: 6ee7ea6d3bcdb6d469eab57f2958ba6a, type: 2}
   hints:
-  - 'I yearn for that potion: Picture something brown that exudes power and fashion
-    and stands the test of time. E'
-  - Bartender, I crave an iconic libation that embodies the essence of bygone sophistication
-    and as a timeless testament. H
+  - Dear bartender, let the rugged warm liquid slide down my throat, and the timeless
+    warm spice to dance upon my tongue. I crave the taste of this smokey classic.
+  - I yearn for that potion, something brown that exudes ardor and timelessness,
+    that warm feeling with that red garnet. Hand me that beverage.  I want to feel
+    the fire in my eyes
   positiveFeedbackLinse:
   - perfect!
   nutrealFeedbackLines:

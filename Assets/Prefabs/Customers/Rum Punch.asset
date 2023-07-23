@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 828787bfe20c93141ab38279178d79a5, type: 3}
-  m_Name: Flity Fizz Customer
+  m_Name: Rum Punch
   m_EditorClassIdentifier: 
-  recipe: {fileID: 11400000, guid: 41e2589cc6fbe3b40bdca9484df7b9f8, type: 2}
+  recipe: {fileID: 11400000, guid: a5c262a886e16ee4f88bef11a047616f, type: 2}
   hints:
-  - "My good bartender, tease me with something golden, a drink that shimmers like
-    the sun\u2019s last embrace"
-  - Oh Charm me! I want complete sweetness over purity, red with gold!
+  - Hype me up! Burn me up like a piece of wood Bartender! I need some sweetness
+    in my life.
+  - The sun kissed fruit with even more sweetness to hype me up and punch me in the
+    stomach when I need it.
   positiveFeedbackLinse:
   - perfect!
   nutrealFeedbackLines:
