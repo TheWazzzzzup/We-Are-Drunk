@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipe: {fileID: 11400000, guid: 7b7e823f48aefa54aa2aa6c0ef245f1b, type: 2}
   hints:
-  - I want to embark into a different state of life, flowers and cherished spices,
-    mix it up for me! H
-  - Revive me with the elixir of the undead, that mix of blue and red, enchant these
-    together to make that sweet drink! E
+  - Bartender, I want a shade of twilight. Plunge me into the sea as a drunk sailor
+    would be waiting for his bitter end. Make this elixir for me
+  - Ah, bartender. Introduce me to a ghastly brew, where bitter red meets alluring
+    spice, unveiling an enigmatic potion that haunts the senses like the afterlifes
+    whispers.
   positiveFeedbackLinse:
   - perfect!
   nutrealFeedbackLines:

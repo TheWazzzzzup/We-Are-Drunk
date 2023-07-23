@@ -8944,10 +8944,15 @@ MonoBehaviour:
   _spawnPoint: {fileID: 350681461}
   _standingPoint: {fileID: 733880800}
   _costumersRegistry:
+  - {fileID: 11400000, guid: 56b1fda77ed78ff4880a24651e598523, type: 2}
+  - {fileID: 11400000, guid: 0e6900fc5d0d7b3449680df7f77995ea, type: 2}
   - {fileID: 11400000, guid: 0647ed6ac948c8842913f977be070882, type: 2}
+  - {fileID: 11400000, guid: cb25c94fc5ba89e48b3d61413054dc18, type: 2}
   - {fileID: 11400000, guid: f941543c1f4d083449b4ea5ad4f3dcf1, type: 2}
+  - {fileID: 11400000, guid: 187c6b86c7a82874fb2a675e97ced7b4, type: 2}
   - {fileID: 11400000, guid: 18532216c89849e49b8e8f0f22c30be8, type: 2}
   - {fileID: 11400000, guid: 699d5b233f7249c488f417bb060f8f02, type: 2}
+  - {fileID: 11400000, guid: 37d95e064ecd10d4580e71c018abbf8f, type: 2}
   - {fileID: 11400000, guid: e016d3a88814eeb4ca4cd591577c902f, type: 2}
   - {fileID: 11400000, guid: 1b519bcbb54268f45834d7a9197cae7c, type: 2}
   purple: {r: 1, g: 1, b: 1, a: 1}
