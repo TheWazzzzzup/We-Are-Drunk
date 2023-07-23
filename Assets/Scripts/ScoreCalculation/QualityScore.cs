@@ -41,6 +41,16 @@ public class QualityScore
         index++;
     }
 
+    public void AddScore(float score)
+    {
+        if (score > 1) score = 1;
+        if (score < 0) score = 0;
+
+        if (index + 1 >= maxNumberOfMinigames) Debug.LogWarning($"You excedded the number of minigames you have set for this {nameof(QualityScore)} class");
+        minigamesScores[index] = (int)score;
+        index++;
+    }
+
     /// <summary>
     /// Returns the qulity score based on the minigames scores added
     /// </summary>

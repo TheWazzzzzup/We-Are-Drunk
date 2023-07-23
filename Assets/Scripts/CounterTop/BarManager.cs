@@ -46,7 +46,9 @@ public class BarManager : MonoBehaviour
     List<Ingredient> currentJuice = new();
     List<Ingredient> currentCup = new();
     List<Ingredient> currentFloat = new();
-   
+
+    QualityScore qualityScore = new QualityScore(2);     // Is the number of minigames to take in account in the score (currently 2 ice & shaker)
+
     CraftingManager craftManager => CraftingManager.Instance;
 
     // checks if the player completed any minigame, to block some interactions
@@ -85,6 +87,12 @@ public class BarManager : MonoBehaviour
                 {
                     cameraController.MoveToBar(2);
                     iceGame.MinigameToggleComplete();
+                    IceTowerGameManager iceManager = minigameSceneGameobject.GetComponent<IceTowerGameManager>();
+                    if (iceManager != null)
+                    {
+                        qualityScore.AddScore(iceManager.iceQualityScore);
+                    }
+                    else Debug.Log("Ice manager reference broken");
                 }
                 break;
             case MinigameType.Craft:
@@ -92,6 +100,12 @@ public class BarManager : MonoBehaviour
                 {
                     cameraController.MoveToBar(1);
                     craftGame.MinigameToggleComplete();
+                    ShakerMinigameManager shakerManager = minigameSceneGameobject.GetComponent<ShakerMinigameManager>();
+                    if (shakerManager != null)
+                    {
+
+                    }
+                    else Debug.Log("craft manager reference broken");
                 }
                 break;
      

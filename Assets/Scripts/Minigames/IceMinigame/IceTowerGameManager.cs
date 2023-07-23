@@ -7,6 +7,8 @@ using UnityEngine.UIElements;
 
 public class IceTowerGameManager : MonoBehaviour
 {
+    public float iceQualityScore { get; private set; }
+
     [SerializeField] Camera mainCamera;
 
     [Header("Game parameters")]
@@ -154,6 +156,7 @@ public class IceTowerGameManager : MonoBehaviour
         if (isGameOver)
             return;
         IceGameEnded.Raise(this.gameObject, MinigameType.Ice);
+        iceQualityScore = currentScore / targetScore;
         isGameOver = true;
         print("GameOver");
         //game over logic - show score, send score, start timer to send back to main scene

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ShakerMinigameManager : MonoBehaviour
 {
-    
+    public float shakerQualityScore { get; private set; }
 
     [Header("Refrences")]
     [SerializeField] CheckShakerMinigameCollisions shakerCollision; 
