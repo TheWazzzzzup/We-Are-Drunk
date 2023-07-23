@@ -3708,6 +3708,7 @@ GameObject:
   - component: {fileID: 907741645}
   - component: {fileID: 907741647}
   - component: {fileID: 907741648}
+  - component: {fileID: 907741649}
   m_Layer: 0
   m_Name: BarManager
   m_TagString: Untagged
@@ -3794,6 +3795,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: 8aa89db3471415b499bdcbc0b44b2d02, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 907741645}
+        m_TargetAssemblyTypeName: BarManager, Assembly-CSharp
+        m_MethodName: MinigameEnded
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &907741649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907741644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1aa57c7727f9a147a945973758791ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 24ec9837a68a22542b77fedddd95bffc, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
