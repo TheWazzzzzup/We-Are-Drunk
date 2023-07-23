@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ArrowIndicator : MonoBehaviour
 {
-    [SerializeField, OnStateUpdate("Oriented")] bool isPointUp;
+    [SerializeField] bool isPointUp;
     [SerializeField] float bobSpeed = 2.0f;
     [SerializeField] float bobHeight = 0.25f;
 
@@ -15,7 +15,7 @@ public class ArrowIndicator : MonoBehaviour
 
     private void Start()
     {
-        Oriented();
+        Orient();
 
         //Bob up and down
         startPosition = transform.position;
@@ -25,9 +25,18 @@ public class ArrowIndicator : MonoBehaviour
 
     }
 
+    public void SetOrientation(bool isUp)
+    {
+        isPointUp = isUp;
+        Orient();
+    }
 
+    public void Flip()
+    {
+        SetOrientation(!isPointUp);
+    }
 
-    public void Oriented()
+    public void Orient()
     {
         if (isPointUp)
         {
