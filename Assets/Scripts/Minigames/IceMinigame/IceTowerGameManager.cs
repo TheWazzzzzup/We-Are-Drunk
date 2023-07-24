@@ -155,7 +155,7 @@ public class IceTowerGameManager : MonoBehaviour
     {
         if (isGameOver)
             return;
-        iceQualityScore = currentScore / targetScore;
+        iceQualityScore = (float)currentScore / (float)targetScore;
         IceGameEnded.Raise(this.gameObject, MinigameType.Ice);
         isGameOver = true;
         print("GameOver");

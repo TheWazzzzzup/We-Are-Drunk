@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class QualityScore
 {
-    public float CurrentScore { get => CalculateScore(); private set { } }
+    public float CurrentScore { get; private set; }
 
     int[] minigamesScores;
     int index;
@@ -39,6 +39,7 @@ public class QualityScore
         if (index + 1 >= maxNumberOfMinigames) Debug.LogWarning($"You excedded the number of minigames you have set for this {nameof(QualityScore)} class");
         minigamesScores[index] = score;
         index++;
+        CurrentScore = CalculateScore();
     }
 
     public void AddScore(float score)
@@ -47,8 +48,7 @@ public class QualityScore
         if (score < 0) score = 0;
 
         if (index + 1 >= maxNumberOfMinigames) Debug.LogWarning($"You excedded the number of minigames you have set for this {nameof(QualityScore)} class");
-        minigamesScores[index] = (int)score;
-        index++;
+        AddScore((int)(score * 100));
     }
 
     /// <summary>
@@ -58,7 +58,7 @@ public class QualityScore
     private float CalculateScore()
     {
         if (index == 0) return 0;
-        if (index >= maxNumberOfMinigames)
+        if (index > maxNumberOfMinigames)
         {
             Debug.LogWarning($"{nameof(QualityScore)} index is toped of, you added to much scores");
             return 0;
@@ -70,6 +70,6 @@ public class QualityScore
             score += minigamesScores[i];
         }
 
-        return ((score / minigamesScores.Length) / 100);
+        return score / index;
     }
 }

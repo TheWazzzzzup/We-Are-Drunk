@@ -53,6 +53,7 @@ public class BarManager : MonoBehaviour
     // checks if the player completed any minigame, to block some interactions
     bool isMakingDrink = false;
 
+    public float currentScore;
 
 
     // Methods
@@ -110,6 +111,7 @@ public class BarManager : MonoBehaviour
      
         }
 
+        currentScore = scoreManager.GetCurrntQualityScore();
         CheckForMinigamesCompletion();
     }
 
