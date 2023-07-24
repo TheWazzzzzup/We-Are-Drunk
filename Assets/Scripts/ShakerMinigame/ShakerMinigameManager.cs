@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ShakerMinigameManager : MonoBehaviour
 {
+    public float shakerQualityScore { get; private set; }
+
     [Header("Refrences")]
     [SerializeField] CheckShakerMinigameCollisions shakerCollision; 
     [SerializeField] ShakerMinigameStatusBar shakerStatusBar;
@@ -16,6 +18,9 @@ public class ShakerMinigameManager : MonoBehaviour
     [SerializeField] float goalTimeOnTarget = 5f; // The goal time the player needs to reach when on target
     [SerializeField] int onTargetOffset; // The location offset the player is allowed in order to stay on target
     [SerializeField] int miniGameTimeFrame;
+
+    [Space]
+    [SerializeField] MinigameEvent minigameEndedEvent;
 
     /// <summary>
     /// Wheter or not the player is currntly on target
@@ -67,24 +72,27 @@ public class ShakerMinigameManager : MonoBehaviour
                 ShakerGameOver();
             }
 
+            if (totalTimeOnTarget <= 0f)
+            {
+                // TODO add game ended logic
+                totalTimeOnTarget = 0;
+                ShakerGameOver();
+            }
         }
 
         if (onTarget)
         {
             totalTimeOnTarget -= Time.fixedDeltaTime; // reduce the time by using the delta time incrementals
-            if (totalTimeOnTarget <= 0f)
-            {
-                // TODO add game ended logic
-                ShakerGameOver();
-                totalTimeOnTarget = 0;
-            }
+
             shakerStatusBar.ChangeRandomTimeOnTarget(totalTimeOnTarget);
         }
     }
 
     private void ShakerGameOver()
     {
-           Debug.Log("Game Over");
+        shakerQualityScore = Mathf.InverseLerp(goalTimeOnTarget,0,totalTimeOnTarget);
+        minigameEndedEvent.Raise(this.gameObject,MinigameType.Craft);
+        Debug.Log("Game Over");
     }
 
     /// <summary>
