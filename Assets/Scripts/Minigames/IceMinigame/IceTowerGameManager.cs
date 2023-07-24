@@ -79,7 +79,7 @@ public class IceTowerGameManager : MonoBehaviour
             }
 
             sceneLoader.UnloadScene("Ice-Tower_Minigame");
-            Camera.main.transform.DOMove(new Vector3(0, 0, -10), 1f);
+            mainCamera.transform.DOMove(new Vector3(0, 0, -10), 1f);
         });
 
         StartGame();
@@ -158,7 +158,7 @@ public class IceTowerGameManager : MonoBehaviour
     void MoveGameUp()
     {
         Vector3 upPosition = new Vector3(transform.position.x, transform.position.y + (2 * scale), transform.position.z);
-        Camera.main.transform.DOMoveY(Camera.main.transform.position.y + 2 * scale, 0.3f).SetEase(Ease.OutSine).OnComplete(() =>
+        mainCamera.transform.DOMoveY(mainCamera.transform.position.y + 2 * scale, 0.3f).SetEase(Ease.OutSine).OnComplete(() =>
         {
             transform.position = upPosition;
             GetNextIceCube();
