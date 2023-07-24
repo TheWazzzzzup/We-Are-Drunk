@@ -72,17 +72,18 @@ public class ShakerMinigameManager : MonoBehaviour
                 ShakerGameOver();
             }
 
+            if (totalTimeOnTarget <= 0f)
+            {
+                // TODO add game ended logic
+                totalTimeOnTarget = 0;
+                ShakerGameOver();
+            }
         }
 
         if (onTarget)
         {
             totalTimeOnTarget -= Time.fixedDeltaTime; // reduce the time by using the delta time incrementals
-            if (totalTimeOnTarget <= 0f)
-            {
-                // TODO add game ended logic
-                ShakerGameOver();
-                totalTimeOnTarget = 0;
-            }
+
             shakerStatusBar.ChangeRandomTimeOnTarget(totalTimeOnTarget);
         }
     }

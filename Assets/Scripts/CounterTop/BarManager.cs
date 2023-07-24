@@ -133,7 +133,6 @@ public class BarManager : MonoBehaviour
      
         }
 
-        currentScore = scoreManager.GetCurrntQualityScore();
         CheckForMinigamesCompletion();
     }
 
