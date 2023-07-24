@@ -152,7 +152,7 @@ public class ShakerMinigameManager : MonoBehaviour
 
     void CreateRandomDesignatedArea()
     {
-        rndRange = Random.Range(20, 101);
+        rndRange = Random.Range(20, 75);
         linerTarget = (float)rndRange / 100;
         shakerStatusBar.LerpDesgnatiedZoneRect(linerTarget);
     }
