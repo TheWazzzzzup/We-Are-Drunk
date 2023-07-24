@@ -27,8 +27,12 @@ public class ScoreManager : MonoBehaviour
         qualityScore.AddScore(score);
     }
 
-    public float GetCurrntQualityScore()
+    public void AddMinigameScore(float score)
     {
+        qualityScore.AddScore(score);
+    }
+
+    public float GetCurrntQualityScore() {
         return qualityScore.CurrentScore;
     }
 

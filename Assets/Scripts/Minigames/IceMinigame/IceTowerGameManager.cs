@@ -8,6 +8,9 @@ using UnityEngine.UIElements;
 
 public class IceTowerGameManager : MonoBehaviour
 {
+    public float iceQualityScore { get; private set; }
+
+    [SerializeField] Camera mainCamera;
 
     [Header("Game parameters")]
     [SerializeField] int targetScore = 10;
@@ -24,6 +27,9 @@ public class IceTowerGameManager : MonoBehaviour
     [SerializeField] Transform leftSpawnLocation;
     [SerializeField] Transform rightSpawnLocation;
     [SerializeField] Transform targetSpawnLocation;
+
+    [Space]
+    [SerializeField] MinigameEvent IceGameEnded;
 
     public UnityEvent<int> OnGameOver;
 
@@ -73,7 +79,7 @@ public class IceTowerGameManager : MonoBehaviour
             }
 
             sceneLoader.UnloadScene("Ice-Tower_Minigame");
-            Camera.main.transform.DOMove(new Vector3(0, 0, -10), 1f);
+            mainCamera.transform.DOMove(new Vector3(0, 0, -10), 1f);
         });
 
         StartGame();
@@ -152,7 +158,7 @@ public class IceTowerGameManager : MonoBehaviour
     void MoveGameUp()
     {
         Vector3 upPosition = new Vector3(transform.position.x, transform.position.y + (2 * scale), transform.position.z);
-        Camera.main.transform.DOMoveY(Camera.main.transform.position.y + 2 * scale, 0.3f).SetEase(Ease.OutSine).OnComplete(() =>
+        mainCamera.transform.DOMoveY(mainCamera.transform.position.y + 2 * scale, 0.3f).SetEase(Ease.OutSine).OnComplete(() =>
         {
             transform.position = upPosition;
             GetNextIceCube();
@@ -181,7 +187,8 @@ public class IceTowerGameManager : MonoBehaviour
     {
         if (isGameOver)
             return;
-
+        iceQualityScore = (float)currentScore / (float)targetScore;
+        IceGameEnded.Raise(this.gameObject, MinigameType.Ice);
         isGameOver = true;
         OnGameOver?.Invoke(currentScore);
     }

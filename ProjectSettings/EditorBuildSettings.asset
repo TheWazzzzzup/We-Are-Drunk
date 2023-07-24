@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: 6165d0f077bf0c24f96c55927180856c
   - enabled: 1
+    path: Assets/Scenes/ShakerTemp.unity
+    guid: eb59be26206f28e428dc6049b9e18187
+  - enabled: 1
     path: Assets/Scenes/Ice-Tower_Minigame.unity
     guid: 607f113f06515074b81baed18cdd3668
   m_configObjects: {}
