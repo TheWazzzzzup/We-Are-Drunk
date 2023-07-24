@@ -6,23 +6,28 @@ using UnityEngine.Events;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 /// <summary>
 /// Will be incharge of assigening the ingredients into each area
 /// </summary>
 public class BarManager : MonoBehaviour
 {
+    //Singleton
+    private static BarManager instance;
+    public static BarManager Instance { get { return instance; } }
+
     // Publics
     public bool canMiniGame => CanMiniGame();
 
     // SerializeFields
     [Header("UI_Temp")]
     [SerializeField] TMP_Text currentDrinkText;
-    
+
     [Header("Areas")]
-    [SerializeField] IngredientSpawnArea alcholArea; 
-    [SerializeField] IngredientSpawnArea juiceArea; 
-    [SerializeField] IngredientSpawnArea cupArea; 
+    [SerializeField] IngredientSpawnArea alcholArea;
+    [SerializeField] IngredientSpawnArea juiceArea;
+    [SerializeField] IngredientSpawnArea cupArea;
     [SerializeField] IngredientSpawnArea floatArea;
     [Space]
 
@@ -50,11 +55,26 @@ public class BarManager : MonoBehaviour
 
     CraftingManager craftManager => CraftingManager.Instance;
 
+
     // checks if the player completed any minigame, to block some interactions
     bool isMakingDrink = false;
+    bool allMinigamesCompleted = false;
+    bool drinkCompleted = false;
+    RecipeDataSO currentRecipe;
+    public bool AllMinigamesCompleted { get => allMinigamesCompleted; }
+    public bool DrinkCompleted { get => drinkCompleted; }
+    public RecipeDataSO CurrentRecipe { get => currentRecipe; set => currentRecipe = value; }
 
-    public float currentScore;
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
+        instance = this;
+    }
 
     // Methods
 
@@ -64,9 +84,11 @@ public class BarManager : MonoBehaviour
         {
             isMakingDrink = true;
         }
-        if ( iceGame.minigameState == MinigameState.Done && craftGame.minigameState == MinigameState.Done && floatGame.minigameState == MinigameState.Done)
+        if (iceGame.minigameState == MinigameState.Done && craftGame.minigameState == MinigameState.Done && floatGame.minigameState == MinigameState.Done)
         {
             Debug.Log("All Minigames Completed !!!!!!!!!!!!!!!!!!!!!");
+            allMinigamesCompleted = true;
+            //TODO click on cup to hand in drink and play customer feedback
         }
     }
 
@@ -151,7 +173,7 @@ public class BarManager : MonoBehaviour
             if (baseIngredient != null) UpdateBaseIngredient(null);
         }
     }
-    
+
     #region Minigames
 
     /// <summary>
@@ -160,15 +182,8 @@ public class BarManager : MonoBehaviour
     /// <returns>can the player enter minigame phase</returns>
     bool CanMiniGame()
     {
-        if (CurrentPickedIngredientsWithoutCup.Count <= 0 || baseIngredient == null)
-        {
-            currentDrinkText.text = " Current Drink:";
-            return false;
-        }
-        bool returnValue = craftManager.CompareToRecipe(CurrentPickedIngredientsWithoutCup, currentAlchol[0], out string name) && currentCup.Count > 0;
-        currentDrinkText.text = " Current Drink: " + name;
-        return returnValue;
-
+        if (CurrentPickedIngredientsWithoutCup.Count <= 0 || baseIngredient == null) return false;
+        return craftManager.CompareToRecipe(CurrentPickedIngredientsWithoutCup, currentAlchol[0]) && currentCup.Count > 0;
 
         //if (currentCup.Count > 0 && currentAlchol.Count > 0 && currentFloat.Count > 0 && currentJuice.Count > 0) return true;
         //else return false;
@@ -182,8 +197,27 @@ public class BarManager : MonoBehaviour
         craftGame.SetMinigameActivision(canMinigame);
     }
 
+    public void ResetMinigames()
+    {
+        allMinigamesCompleted = false;
+    }
+
+    public void HandInDrink()
+    {
+        //pop up ui for final drink and score with customer feedback
+        drinkCompleted = true;
+        CostumerManager.Instance.GetMatchScoreWithCostumerFeedback(CurrentRecipe);
+        StartCoroutine(WaitToResetScene());
+    }
+
+    IEnumerator WaitToResetScene()
+    {
+        yield return new WaitForSeconds(5f);
+        ResetScene();
+    }
+
     #endregion
-    
+
 
     #region Ingredient List Related
 
@@ -235,6 +269,7 @@ public class BarManager : MonoBehaviour
         currentJuice.Clear();
         currentCup.Clear();
         CurrentPickedIngredientsWithoutCup.Clear();
+        //baseIngredient = null;
 
 
         foreach (var ingredient in CurrentPickedIngredients)

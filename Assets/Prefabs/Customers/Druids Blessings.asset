@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828787bfe20c93141ab38279178d79a5, type: 3}
+  m_Name: Druids Blessings
+  m_EditorClassIdentifier: 
+  recipe: {fileID: 11400000, guid: f3ce6ed064b31dd48864a3ed8ddaeeb7, type: 2}
+  hints:
+  - Ah, Bartender, I humbly require the woodland gem, a cherished elixir that shall
+    raise my spirits. Could you, with your masterful touch, grace me with that delightful
+    beverage?
+  - Bestow upon me that zestiness, a punch of sour and me with that refreshing touch,
+    grace me with that natural hue.
+  positiveFeedbackLinse:
+  - perfect!
+  nutrealFeedbackLines:
+  - almost!
+  negetiveFeedbackLines:
+  - not even close...
+  greetingLine: Hello!

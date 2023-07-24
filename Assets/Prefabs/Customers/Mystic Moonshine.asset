@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828787bfe20c93141ab38279178d79a5, type: 3}
+  m_Name: Mystic Moonshine
+  m_EditorClassIdentifier: 
+  recipe: {fileID: 11400000, guid: 62a2d5cb13d6c5147a9468a4860f4156, type: 2}
+  hints:
+  - Ah, let the maritime shades and its own spirits intertwine in a mesmerizing embrace. 
+    With the elegance added upon it, bless me dear bartender for  I desire that enigmatic
+    drink.
+  - I yearn for the drink that lunar rays gently caress upon, where I can take a
+    sip and drift back to an era of dragons and bitter tales
+  positiveFeedbackLinse:
+  - perfect!
+  nutrealFeedbackLines:
+  - almost!
+  negetiveFeedbackLines:
+  - not even close...
+  greetingLine: Hello!

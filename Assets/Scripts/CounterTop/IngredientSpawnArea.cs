@@ -61,7 +61,10 @@ public class IngredientSpawnArea : MonoBehaviour
         }
     }
 
-
+    public Sprite GetSpawnedIngredientSprite()
+    {
+        return spawnedIngredientsInArea[0].GetComponent<SpriteRenderer>().sprite;
+    }
 
 
     /// <summary>

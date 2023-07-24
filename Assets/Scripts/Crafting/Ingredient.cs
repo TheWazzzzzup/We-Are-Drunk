@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 
 public class Ingredient : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField] private bool interactable = true;
     [SerializeField] private IngredientName iName;
     [SerializeField] private IngredientType iType;
     [SerializeField] private Inventory inventory;
@@ -27,7 +28,6 @@ public class Ingredient : MonoBehaviour, IPointerClickHandler
         if (inventory == null)
         {
             inventory = FindObjectOfType<Inventory>();
-            return;
         }
 
         SetSelected(false);
@@ -58,6 +58,11 @@ public class Ingredient : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (!interactable)
+        {
+            return;
+        }
+
         if (inventory == null)
         {
             Debug.LogError("No inventory found");
@@ -102,30 +107,25 @@ public enum IngredientType
 public enum IngredientName
 {
     //ALCOHOLS
-    Brandy,
-    Campari,
-    Gin,
-    Soju,
-    Tequila,
-    Tonic,
     Vodka,
-    Whiskey,
     WhiteRum,
+    Whiskey,
 
     //JUICES
     Lemon,
     Orange,
     Cranberry,
-    Lime,
-    Cherry,
+    Honey,
+    Vermouth,
 
     //FLOATS
-    Rosemary,
+    Cherry,
     Cinnamon,
-    Maraschino_Cherries,
-    Mint_Leaves,
-    Nasturtium_Flowers,
+    Mint,
     DragonloomFlower,
+    Sugar_Cubes,
+    Jalapenos,
+    Sage,
 
     Cup,
 

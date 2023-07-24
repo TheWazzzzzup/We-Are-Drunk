@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828787bfe20c93141ab38279178d79a5, type: 3}
+  m_Name: Zombie Customer
+  m_EditorClassIdentifier: 
+  recipe: {fileID: 11400000, guid: 7b7e823f48aefa54aa2aa6c0ef245f1b, type: 2}
+  hints:
+  - Bartender, I want a shade of twilight. Plunge me into the sea as a drunk sailor
+    would be waiting for his bitter end. Make this elixir for me
+  - Ah, bartender. Introduce me to a ghastly brew, where bitter red meets alluring
+    spice, unveiling an enigmatic potion that haunts the senses like the afterlifes
+    whispers.
+  positiveFeedbackLinse:
+  - perfect!
+  nutrealFeedbackLines:
+  - almost!
+  negetiveFeedbackLines:
+  - not even close...
+  greetingLine: Hello!
