@@ -4229,7 +4229,7 @@ MonoBehaviour:
   juiceArea: {fileID: 2032611627}
   cupArea: {fileID: 2088520527}
   floatArea: {fileID: 1676289538}
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 202066038}
   iceGame: {fileID: 14915614}
   floatGame: {fileID: 1676289539}
   craftGame: {fileID: 1746895472}
